@@ -10,10 +10,11 @@ All of them are fast table lookups (well under the 1 ms limit).
   PushFoldBot   tournament shove-or-fold preflop based on stack depth
   ChenBot       preflop by Chen formula score, postflop by estimated equity vs pot odds
   TrapperBot    loose-passive: limps and calls a lot, slow-plays and check-raises monsters
+  GtoApproxBot  solver-style mixed ranges + balanced bluffing and minimum-defense postflop
 
 TWO WAYS TO USE THEM IN local_sim.py
   A) Import (easiest): add this near the top of local_sim.py
-         from opponent_bots import NitBot, LagBot, PushFoldBot, ChenBot, TrapperBot
+         from opponent_bots import NitBot, LagBot, PushFoldBot, ChenBot, TrapperBot, GtoApproxBot
   B) Copy-paste: copy the "SHARED HELPERS" block once, then any bot classes
      you want, into local_sim.py above default_lineup(), and add
          from poker_core import hand_class, parse_range, classify_hand
@@ -306,3 +307,146 @@ class TrapperBot:
             return raise_to(s, s.me.bet + s.to_call + s.pot) if r < self.CHECK_RAISE_FREQ else Action("call")
         price = s.to_call / (s.pot + s.to_call)
         return Action("call") if price <= self.CALL_PRICE[bucket] else Action("fold")
+
+
+# =====================================================================
+# GtoApproxBot -- solver-inspired approximation of GTO (NOT a true equilibrium)
+#   * Preflop: solver-style 8-max ranges; "MIX" hands are played MIX_FREQ of the time
+#   * Postflop: balanced by the standard formulas
+#       bluff share of a bet = s / (1 + 2s)      (s = bet as fraction of pot)
+#       minimum defense      = 1 / (1 + s)       (fraction of range that must continue)
+#     Our hand is placed at a percentile of our range via its bucket, with a random
+#     spot inside the bucket so frequencies mix instead of being all-or-nothing.
+#   * Short stacks: Nash-style push/fold
+# =====================================================================
+class GtoApproxBot:
+    # --- preflop: (always, mixed) per position, open-raise first in
+    RFI = {
+        "UTG":  ("77+, A9s+, KTs+, QTs+, JTs, AJo+, KQo",             "66-55, A8s-A6s, A5s-A4s, K9s, T9s, 98s, ATo"),
+        "UTG1": ("66+, A8s+, A5s, K9s+, QTs+, JTs, T9s, AJo+, KQo",    "55-44, A7s-A6s, A4s-A3s, Q9s, J9s, 98s, 87s, ATo, KJo"),
+        "MP":   ("55+, A2s+, K9s+, Q9s+, J9s+, T9s, 98s, ATo+, KJo+",   "44-33, K8s-K7s, T8s, 87s, 76s, A9o, QJo"),
+        "HJ":   ("33+, A2s+, K8s+, Q9s+, J9s+, T8s+, 98s, 87s, A9o+, KJo+, QJo",
+                 "22, K7s-K5s, Q8s, J8s, 97s, 76s, 65s, A8o, KTo, QTo, JTo"),
+        "CO":   ("22+, A2s+, K5s+, Q8s+, J8s+, T8s+, 97s+, 87s, 76s, 65s, A7o+, KTo+, QTo+, JTo",
+                 "K4s-K2s, Q7s-Q6s, J7s, T7s, 86s, 75s, 54s, A6o-A5o, K9o, Q9o, J9o, T9o"),
+        "BTN":  ("22+, A2s+, K2s+, Q5s+, J7s+, T7s+, 96s+, 86s+, 75s+, 65s, 54s, A2o+, K8o+, Q9o+, J9o+, T9o",
+                 "Q4s-Q2s, J6s-J4s, T6s, 95s, 85s, 74s, 64s, 53s, 43s, K7o-K5o, Q8o, J8o, T8o, 98o, 87o"),
+        "SB":   ("22+, A2s+, K5s+, Q8s+, J8s+, T8s+, 97s+, 87s, 76s, A7o+, KTo+, QJo",
+                 "K4s-K2s, Q7s-Q5s, J7s, T7s, 86s, 75s, 65s, 54s, A6o-A2o, K9o, QTo, JTo"),
+        "BB":   ("TT+, AJs+, KQs, AQo+",                                "99-77, ATs, KJs, AJo"),
+    }
+    # facing one raise: 3-bet (value, bluff-mix) and flat-call ranges by our position
+    THREEBET = {"default": ("QQ+, AKs, AKo",                "JJ, AQs, A5s-A4s, KQs"),
+                "late":    ("JJ+, AQs+, AKo",               "TT, AJs, ATs, A5s-A2s, KJs, QJs, AQo"),
+                "blinds":  ("JJ+, AQs+, AKo",               "TT, AJs, A5s-A3s, KQs, K9s, AQo")}
+    CALL = {"default": "TT-66, AQs-ATs, KJs+, QJs, JTs, AQo",
+            "late":    "99-22, AJs-A6s, KTs+, Q9s+, J9s+, T9s, 98s, 87s, AJo-ATo, KQo, KJo",
+            "BB":      ("99-22, A9s-A2s, K2s+, Q5s+, J7s+, T7s+, 96s+, 85s+, 75s+, 64s+, 54s, "
+                        "AJo-A2o, K8o+, Q9o+, J9o+, T9o, 98o, 87o")}
+    FOURBET = ("KK+, AKs", "QQ, AKo, A5s-A4s")
+    CALL_3BET = "QQ-99, AQs-AJs, KQs, QJs, JTs, AQo"
+    JAM_VS_4BET = ("KK+, AKs, AKo", "QQ")
+    MIX_FREQ = 0.5
+    OPEN_SIZE_BB = {"default": 2.2, "SB": 3.0, "BB": 4.0}
+    # Nash-style push/fold (first in) by stack depth, and calls vs a shove
+    PUSH_STACK_BB = 12
+    PUSH = {6: "*",
+            9: "22+, A2s+, A2o+, K2s+, K5o+, Q4s+, Q9o+, J7s+, J9o+, T7s+, T9o, 96s+, 86s+, 75s+, 65s, 54s",
+            12: "22+, A2s+, A4o+, K7s+, K9o+, Q9s+, QTo+, J9s+, JTo, T9s, 98s"}
+    CALL_PUSH = "55+, A8s+, ATo+, KTs+, KQo"
+
+    # --- postflop (per street): bet size as pot fraction, share of range we value-bet
+    BET_SIZE = {"flop": 0.33, "turn": 0.66, "river": 0.75}
+    VALUE_SHARE = {"flop": 0.40, "turn": 0.30, "river": 0.22}
+    RAISE_VALUE_SHARE = 0.08          # top of range that raises a bet for value
+    # where each bucket sits in our range (low, high percentile)
+    PCT = {"WEAK": (0.00, 0.40), "DRAW": (0.40, 0.52), "STRONG_DRAW": (0.52, 0.58),
+           "MEDIUM": (0.58, 0.80), "STRONG": (0.80, 0.94), "MONSTER": (0.94, 1.00)}
+    DRAW_MASS = 0.18                  # share of range that is draws (preferred bluffs)
+
+    def __init__(self, seed=None):
+        self.rng = random.Random(seed)
+        P = parse_range
+        pair = lambda t: (P(t[0]), P(t[1]))
+        self.rfi = {k: pair(v) for k, v in self.RFI.items()}
+        self.three = {k: pair(v) for k, v in self.THREEBET.items()}
+        self.call = {k: P(v) for k, v in self.CALL.items()}
+        self.four, self.jam4 = pair(self.FOURBET), pair(self.JAM_VS_4BET)
+        self.call3, self.call_push = P(self.CALL_3BET), P(self.CALL_PUSH)
+        self.push = sorted((k, P(v)) for k, v in self.PUSH.items())
+
+    def _in(self, hc, ranges, r):
+        """(always, mixed) pair -> True if we play this hand on this random draw."""
+        return hc in ranges[0] or (hc in ranges[1] and r < self.MIX_FREQ)
+
+    # ------------------------------------------------------------ preflop
+    def _preflop(self, s, r):
+        hc = hand_class(*s.hole_cards)
+        pos = position(s)
+        raises, high, last = preflop_raises(s)
+        bb = stack_bb(s)
+        if bb <= self.PUSH_STACK_BB:
+            if raises == 0:
+                rng = next(x for limit, x in self.push if bb <= limit)
+                return Action("allin") if hc in rng else check_fold(s)
+            return Action("allin") if hc in self.call_push else check_fold(s)
+        if last is not None and s.players[last].all_in:
+            return Action("call") if hc in self.call_push else check_fold(s)
+        if raises == 0:
+            if self._in(hc, self.rfi[pos], r):
+                size = self.OPEN_SIZE_BB.get(pos, self.OPEN_SIZE_BB["default"])
+                return raise_to(s, size * s.big_blind)
+            return check_fold(s)
+        group = "blinds" if pos in ("SB", "BB") else "late" if pos in ("CO", "BTN") else "default"
+        if raises == 1:
+            if self._in(hc, self.three[group], r):
+                return raise_to(s, high * (4.0 if group == "blinds" else 3.0))
+            call = self.call["BB"] if pos == "BB" else self.call["late" if group == "late" else "default"]
+            return Action("call") if hc in call else check_fold(s)
+        if raises == 2:
+            if self._in(hc, self.four, r):
+                return raise_to(s, high * 2.3)
+            return Action("call") if hc in self.call3 else check_fold(s)
+        return Action("allin") if self._in(hc, self.jam4, r) else check_fold(s)
+
+    # ------------------------------------------------------------ postflop
+    def _postflop(self, s, r):
+        bucket = classify_hand(s.hole_cards, s.board)
+        lo, hi = self.PCT[bucket]
+        pct = lo + (hi - lo) * self.rng.random()
+        n_opp = len(opponents(s))
+
+        if s.to_call == 0:
+            size = self.BET_SIZE[s.street]
+            value = self.VALUE_SHARE[s.street] / n_opp          # bet thinner range multiway
+            if pct >= 1 - value:
+                return raise_to(s, size * s.pot)
+            if n_opp == 1:                                       # bluff only heads-up
+                alpha = size / (1 + 2 * size)
+                bluff_mass = value * alpha / (1 - alpha)
+                if bucket in ("DRAW", "STRONG_DRAW"):
+                    if r < min(1.0, bluff_mass / self.DRAW_MASS):
+                        return raise_to(s, size * s.pot)
+                elif bucket == "WEAK" and bluff_mass > self.DRAW_MASS:
+                    if r < (bluff_mass - self.DRAW_MASS) / self.PCT["WEAK"][1]:
+                        return raise_to(s, size * s.pot)
+            return Action("check")
+
+        # facing a bet of size s (fraction of the pot before the bet)
+        bet_frac = s.to_call / max(1, s.pot - s.to_call)
+        mdf = 1 / (1 + bet_frac)
+        defend = mdf / n_opp                                     # others share the defending
+        if street_raises(s) > 1:
+            defend *= 0.6                                        # vs raises, continue tighter
+        if pct >= 1 - self.RAISE_VALUE_SHARE:
+            return raise_to(s, s.me.bet + s.to_call + (s.pot + s.to_call))
+        if bucket in ("DRAW", "STRONG_DRAW") and n_opp == 1 and s.street != "river" \
+                and r < self.RAISE_VALUE_SHARE * 0.5 / self.DRAW_MASS:
+            return raise_to(s, s.me.bet + s.to_call + (s.pot + s.to_call))   # balancing semi-bluff
+        if pct >= 1 - defend:
+            return Action("call")
+        return Action("fold")
+
+    def act(self, s):
+        r = self.rng.random()
+        return self._preflop(s, r) if s.street == "preflop" else self._postflop(s, r)
