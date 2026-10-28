@@ -18,6 +18,12 @@ python3 local_sim.py --table 3 --hand 12 --show-cards  # ... with every bot's ho
 ```
 Each table depends only on `--seed` and its table number, so the same command always replays the same hand.
 
+To test ExploitBot variants against other bots, edit the SETUP block at the top of `local_sim_lab.py` (your bots, the opponent pool, the baseline), then:
+```
+python3 local_sim_lab.py                      # 10 runs x 1000 tables
+python3 local_sim_lab.py --runs 3 --tables 200  # quick check
+```
+
 Event-day checklist:
 1. Copy the blind schedule and points table into `config.py`.
 2. Wire up `agent_adapter.py`.
