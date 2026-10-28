@@ -20,6 +20,7 @@ from bot import PokerBot, GameState, PlayerInfo, Action
 from poker_core import hand_rank, card_str, RANKS
 
 from opponent_bots import NitBot, LagBot, PushFoldBot, ChenBot, TrapperBot
+from bot_exploit import ExploitBot
 
 # =====================================================================
 # LINEUP -- edit to test config variants against each other
@@ -57,7 +58,7 @@ def default_lineup(seed):
         ("TEMPLATE2", PokerBot(seed=seed + 2)),
         ("CHEN", ChenBot()),
         ("NIT", NitBot()),
-        ("LAG", LagBot(seed + 3)),
+        ("EXPLOIT", ExploitBot(seed=seed + 3)),
         ("SHOVEFOLD", PushFoldBot()),
         ("TRAPPER", TrapperBot(seed + 4)),
     ]
