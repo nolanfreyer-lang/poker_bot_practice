@@ -13,7 +13,10 @@ Built around Exhibit A (8 bots, No-Limit Hold'em; actions: blind, check, call, b
 ```
 python3 local_sim.py --tables 300          # points per table plus decision timing (watch the >1ms column)
 python3 local_sim.py --tables 1 --verbose  # hand-by-hand log of one table
+python3 local_sim.py --table 3 --hand 12               # replay one hand of one table
+python3 local_sim.py --table 3 --hand 12 --show-cards  # ... with every bot's hole cards
 ```
+Each table depends only on `--seed` and its table number, so the same command always replays the same hand.
 
 Event-day checklist:
 1. Copy the blind schedule and points table into `config.py`.

@@ -3,6 +3,8 @@
     python local_sim.py                  # 200 tables, default lineup
     python local_sim.py --tables 1000 --seed 7
     python local_sim.py --verbose        # print one table's hands
+    python local_sim.py --table 3 --hand 12              # replay hand 12 of table 3
+    python local_sim.py --table 3 --hand 12 --show-cards # ... with every bot's hole cards
 
 Use the starter kit's simulator for final testing; this one lets you tune
 config.py before the variant is announced. Simplification: any all-in
@@ -15,7 +17,7 @@ from functools import lru_cache
 
 import config as C
 from bot import PokerBot, GameState, PlayerInfo, Action
-from poker_core import hand_rank, card_str
+from poker_core import hand_rank, card_str, RANKS
 
 
 # =====================================================================
@@ -86,23 +88,43 @@ def icm_equity(stacks, payouts):
     return list(place_probs(full, 0)) if total else [0.0] * n
 
 
+def describe(rank):
+    """hand_rank tuple -> readable name, e.g. 'two pair, Ks and 7s'."""
+    cat, r = rank[0], [RANKS[x] for x in rank[1:]]
+    return [
+        lambda: f"high card {r[0]}",
+        lambda: f"pair of {r[0]}s",
+        lambda: f"two pair, {r[0]}s and {r[1]}s",
+        lambda: f"three {r[0]}s",
+        lambda: f"straight to {r[0]}",
+        lambda: f"flush, {r[0]} high",
+        lambda: f"full house, {r[0]}s full of {r[1]}s",
+        lambda: f"four {r[0]}s",
+        lambda: f"straight flush to {r[0]}",
+    ][cat]()
+
+
 # =====================================================================
 # Dealer
 # =====================================================================
 class Table:
-    def __init__(self, lineup, rng, verbose=False):
+    def __init__(self, lineup, rng, verbose=False, only_hand=None, show_cards=False):
         self.names = [n for n, _ in lineup]
         self.bots = [b for _, b in lineup]
         self.n = len(lineup)
         self.stacks = [C.STARTING_STACK] * self.n
         self.rng = rng
         self.verbose = verbose
+        self.only_hand = only_hand     # print just this hand number (None = all)
+        self.show_cards = show_cards   # print every bot's hole cards
+        self.hand_no = 0
+        self.hands_played = 0
         self.button = rng.randrange(self.n)
         self.finish_order = []   # seats in order of elimination
         self.decision_times = [[] for _ in range(self.n)]
 
     def log(self, *a):
-        if self.verbose:
+        if self.verbose and (self.only_hand is None or self.hand_no == self.only_hand):
             print(*a)
 
     def alive(self):
@@ -120,6 +142,7 @@ class Table:
             if len(self.alive()) <= 1:
                 break
             level = min((hand_no - 1) // C.HANDS_PER_LEVEL, len(C.BLIND_SCHEDULE) - 1)
+            self.hand_no = self.hands_played = hand_no
             self.play_hand(hand_no, *C.BLIND_SCHEDULE[level])
             self.button = self.next_alive(self.button)
         return self.points()
@@ -170,6 +193,11 @@ class Table:
         put(bb_seat, bb)
         history.append(("preflop", bb_seat, "blind", P[bb_seat].bet))
         self.log(f"\n== Hand {hand_no}  blinds {sb}/{bb}  button S{self.button + 1}")
+        if self.show_cards:
+            for s in dealt:
+                self.log(f"  S{s + 1} {self.names[s]:<10} {card_str(holes[s][0])} {card_str(holes[s][1])}"
+                         f"   stack {start[s]}")
+            self.log("  --")
 
         for street in ("preflop", "flop", "turn", "river"):
             if street != "preflop":
@@ -188,6 +216,11 @@ class Table:
         while len(board) < 5 and len(live) > 1:
             board.append(deck.pop())
         ranks = {s: hand_rank(holes[s] + board) for s in live}
+        if len(live) > 1:
+            self.log(f"  SHOWDOWN {' '.join(card_str(c) for c in board)}")
+            for s in live:
+                self.log(f"  S{s + 1} {self.names[s]:<10} {card_str(holes[s][0])} {card_str(holes[s][1])}"
+                         f"   {describe(ranks[s])}")
         remaining = contrib[:]
         winners = live
         while sum(remaining) > 0:
@@ -295,21 +328,46 @@ class Table:
 
 
 # =====================================================================
+def make_table(seed, t, **kwargs):
+    """Table t (0-based) is fully determined by (seed, t), so any table can be replayed alone."""
+    rng = random.Random(seed * 1000 + t)
+    lineup = default_lineup(seed * 1000 + t)   # fresh bots: state resets per table
+    rng.shuffle(lineup)                         # random seat assignment
+    return Table(lineup, rng, **kwargs)
+
+
+def replay_table(args):
+    t = (args.table or 1) - 1
+    table = make_table(args.seed, t, verbose=True, only_hand=args.hand, show_cards=args.show_cards)
+    print(f"Table {t + 1} (seed {args.seed})  seats: "
+          + "  ".join(f"S{s + 1} {nm}" for s, nm in enumerate(table.names)))
+    pts = table.play()
+    if args.hand and args.hand > table.hands_played:
+        print(f"\nTable {t + 1} ended after {table.hands_played} hands; there is no hand {args.hand}.")
+    print(f"\nFinal ({table.hands_played} hands): "
+          + "  ".join(f"{table.names[s]} {pts[s]:.1f}pts" for s in range(table.n)))
+
+
 def main():
     ap = argparse.ArgumentParser()
     ap.add_argument("--tables", type=int, default=200)
     ap.add_argument("--seed", type=int, default=1)
     ap.add_argument("--verbose", action="store_true")
+    ap.add_argument("--table", type=int, help="replay just this table (1-based) with a hand log")
+    ap.add_argument("--hand", type=int, help="only print this hand number")
+    ap.add_argument("--show-cards", action="store_true", help="print every bot's hole cards")
     args = ap.parse_args()
-    rng = random.Random(args.seed)
+
+    if args.table or args.hand or args.show_cards:
+        replay_table(args)
+        return
 
     totals, times, names = None, None, None
     t_start = time.time()
     for t in range(args.tables):
-        lineup = default_lineup(args.seed * 1000 + t)   # fresh bots: state resets per table
-        rng.shuffle(lineup)                               # random seat assignment
-        table = Table(lineup, rng, verbose=args.verbose and t == 0)
+        table = make_table(args.seed, t, verbose=args.verbose and t == 0)
         pts = table.play()
+        lineup = list(zip(table.names, table.bots))
         if totals is None:
             names = sorted(n for n, _ in lineup)
             totals = {n: 0.0 for n in names}
