@@ -19,7 +19,7 @@ import config as C
 from bot import PokerBot, GameState, PlayerInfo, Action
 from poker_core import hand_rank, card_str, RANKS
 
-from opponent_bots import NitBot, LagBot, PushFoldBot, ChenBot, TrapperBot
+from opponent_bots import NitBot, LagBot, PushFoldBot, ChenBot, TrapperBot, GtoApproxBot
 from bot_exploit import ExploitBot
 
 # =====================================================================
