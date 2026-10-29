@@ -21,6 +21,7 @@ from bot import PokerBot
 from bot_exploit import ExploitBot
 from local_sim import Table, CallingStation, RandomBot, Maniac
 from opponent_bots import NitBot, LagBot, PushFoldBot, ChenBot, TrapperBot, GtoApproxBot
+from optimalbot import OptimalBot
 
 # =====================================================================
 # SETUP -- edit this block
@@ -32,12 +33,18 @@ TRAP_MONSTER_STRONG = {"TRAP_FREQ": 0.3, "TRAP_FREQ_STRONG": 0.2}
 NO_TRAP = {"TRAP_FREQ": 0.0, "TRAP_FREQ_STRONG": 0.0}      # MONSTER and STRONG always bet
 RIVER_ON = {"TRAP_ON_RIVER": True}
 BLUFF2 = {"BLUFF_FACTOR": 2.0}
+OPTIMAL_OVERRIDES = {
+    "BLUFF_FACTOR": 1.5,
+    "TIGHT_VPIP": 0.20,
+    "BLUFF_MULT_VS_TIGHT": 1.0,
+    "CBET_BONUS_VS_TIGHT": 0.35,
+}
 
 MY_BOTS = [
-    ("TEMPLATE", None),
-    ("EXPLOIT", {}),                                    # ExploitBot defaults
+    
     ("BLUFF2", BLUFF2),
-    ("TRAP_MONSTER_B2", {**BLUFF2, **TRAP_MONSTER}),
+    ("OPTIMAL", OPTIMAL_OVERRIDES),
+   
 ]
 
 # Opponent pool: name -> weight. Empty seats are filled by random draws from
@@ -45,17 +52,18 @@ MY_BOTS = [
 # Set a weight to 0 to leave a bot out.
 OPPONENTS = {
     "LAG": 0,
-    "GTO": 1,
+    "GTO": 2,
     "NIT": 1,
-    "CHEN": 0,
+    "CHEN": 1,
     "PUSHFOLD": 1,
     "TRAPPER": 1,
     "STATION": 0,
     "RANDOM": 0,
     "MANIAC": 0,
+    "EXPLOIT": 2
 }
 
-BASELINE = "TEMPLATE"     # must be one of MY_BOTS names (or None to skip comparisons)
+BASELINE = None     # must be one of MY_BOTS names (or None to skip comparisons)
 SEATS = 8
 
 # Every opponent the pool can use. Add your own bots here: name -> factory(seed).
