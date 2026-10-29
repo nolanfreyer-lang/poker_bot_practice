@@ -21,7 +21,7 @@ from bot import PokerBot
 from bot_exploit import ExploitBot
 from local_sim import Table, CallingStation, RandomBot, Maniac
 from opponent_bots import NitBot, LagBot, PushFoldBot, ChenBot, TrapperBot, GtoApproxBot
-from optimalbot import OptimalBot
+from optimalbot import OPTIMAL_OVERRIDES   # single source of the tuned settings
 
 # =====================================================================
 # SETUP -- edit this block
@@ -33,12 +33,6 @@ TRAP_MONSTER_STRONG = {"TRAP_FREQ": 0.3, "TRAP_FREQ_STRONG": 0.2}
 NO_TRAP = {"TRAP_FREQ": 0.0, "TRAP_FREQ_STRONG": 0.0}      # MONSTER and STRONG always bet
 RIVER_ON = {"TRAP_ON_RIVER": True}
 BLUFF2 = {"BLUFF_FACTOR": 2.0}
-OPTIMAL_OVERRIDES = {
-    "BLUFF_FACTOR": 1.5,
-    "TIGHT_VPIP": 0.20,
-    "BLUFF_MULT_VS_TIGHT": 1.0,
-    "CBET_BONUS_VS_TIGHT": 0.35,
-}
 
 MY_BOTS = [
     
@@ -63,7 +57,7 @@ OPPONENTS = {
     "EXPLOIT": 2
 }
 
-BASELINE = None     # must be one of MY_BOTS names (or None to skip comparisons)
+BASELINE = "BLUFF2"     # must be one of MY_BOTS names (or None to skip comparisons)
 SEATS = 8
 
 # Every opponent the pool can use. Add your own bots here: name -> factory(seed).
