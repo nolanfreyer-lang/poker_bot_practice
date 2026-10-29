@@ -16,6 +16,7 @@ from multiprocessing import Pool
 from bot import PokerBot
 from bot_exploit import ExploitBot
 from optimalbot import OptimalBot
+from updated_optimal import UpdatedOptimalBot
 from local_sim import Table, CallingStation, Maniac
 from local_sim_search import CheckFoldBot
 from opponent_bots import NitBot, LagBot, PushFoldBot, ChenBot, TrapperBot, GtoApproxBot
@@ -25,10 +26,9 @@ from opponent_bots import NitBot, LagBot, PushFoldBot, ChenBot, TrapperBot, GtoA
 # =====================================================================
 # Bluff levels are set explicitly: bot_exploit.py's default BLUFF_FACTOR is 2.0.
 CANDIDATES = {
+    "UPDATED_OPTIMAL": lambda seed: UpdatedOptimalBot(seed=seed),
     "OPTIMAL": lambda seed: OptimalBot(seed=seed),                                   # BF 1.5
-    "OPTIMAL_BF1": lambda seed: OptimalBot(seed=seed, overrides={"BLUFF_FACTOR": 1.0}),
     "EXPLOIT_BF2": lambda seed: ExploitBot(seed=seed, overrides={"BLUFF_FACTOR": 2.0}),
-    "EXPLOIT_BF1": lambda seed: ExploitBot(seed=seed, overrides={"BLUFF_FACTOR": 1.0}),
     "TEMPLATE": lambda seed: PokerBot(seed=seed),
 }
 REFERENCE = "OPTIMAL"
@@ -37,6 +37,7 @@ REGISTRY = {
     "TEMPLATE": lambda seed: PokerBot(seed=seed),
     "EXPLOIT": lambda seed: ExploitBot(seed=seed),
     "OPTIMAL": lambda seed: OptimalBot(seed=seed),
+    "UPDATED_OPTIMAL": lambda seed: UpdatedOptimalBot(seed=seed),
     "GTO": lambda seed: GtoApproxBot(seed),
     "CHEN": lambda seed: ChenBot(),
     "PUSHFOLD": lambda seed: PushFoldBot(),
@@ -55,6 +56,7 @@ FIELDS = {
     "loose": {"STATION": 2, "TRAPPER": 2, "LAG": 2, "MANIAC": 1, "TEMPLATE": 1},
     "tight": {"NIT": 2, "PUSHFOLD": 2, "CHEN": 2, "GTO": 1, "CHECKFOLD": 1},
     "mirror": {"EXPLOIT": 3, "OPTIMAL": 3, "TEMPLATE": 2},
+    "updated_mirror": {"UPDATED_OPTIMAL": 3, "OPTIMAL": 3, "TEMPLATE": 2},
 }
 CHUNK = 250
 

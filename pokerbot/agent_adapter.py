@@ -106,4 +106,12 @@ class Agent:
 
     def on_hand_end(self, observation):
         s = to_game_state(observation)
-        self.bot.on_hand_end(s.history, [p.seat for p in s.players if p.dealt])
+        seats = [p.seat for p in s.players if p.dealt]
+        if getattr(self.bot, "WANTS_SHOWDOWN", False):
+            # EDIT ON EVENT DAY: where the engine reports cards shown at showdown,
+            # as {seat: cards}. Bots like UpdatedOptimalBot learn bluff rates from it.
+            shown = _get(observation, "showdown", {}) or {}
+            self.bot.on_hand_end(s.history, seats, showdown={int(k): parse_cards(v) for k, v in shown.items()},
+                                 board=s.board, my_seat=s.my_seat)
+        else:
+            self.bot.on_hand_end(s.history, seats)

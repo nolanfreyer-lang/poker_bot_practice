@@ -248,7 +248,10 @@ class Table:
                 self.log(f"  S{s + 1} {self.names[s]:<10} {self.stacks[s] - start[s]:+d}")
         for s in dealt:
             hook = getattr(self.bots[s], "on_hand_end", None)
-            if hook:
+            if hook and getattr(self.bots[s], "WANTS_SHOWDOWN", False):
+                shown = {x: list(holes[x]) for x in live} if len(live) > 1 else {}
+                hook(history, dealt, showdown=shown, board=list(board), my_seat=s)
+            elif hook:
                 hook(history, dealt)
 
     def betting_round(self, street, first, P, holes, board, history, contrib, sb, bb, hand_no):

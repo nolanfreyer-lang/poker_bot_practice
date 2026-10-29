@@ -22,6 +22,8 @@ from bot_exploit import ExploitBot
 from local_sim import Table, CallingStation, RandomBot, Maniac
 from opponent_bots import NitBot, LagBot, PushFoldBot, ChenBot, TrapperBot, GtoApproxBot
 from optimalbot import OPTIMAL_OVERRIDES   # single source of the tuned settings
+from optimalbot import OptimalBot
+from updated_optimal import UpdatedOptimalBot
 
 # =====================================================================
 # SETUP -- edit this block
@@ -73,6 +75,8 @@ REGISTRY = {
     "MANIAC": lambda seed: Maniac(),
     "TEMPLATE": lambda seed: PokerBot(seed=seed),
     "EXPLOIT": lambda seed: ExploitBot(seed=seed),
+    "OPTIMAL": lambda seed: OptimalBot(seed=seed),
+    "UPDATED_OPTIMAL": lambda seed: UpdatedOptimalBot(seed=seed),
 }
 # =====================================================================
 
