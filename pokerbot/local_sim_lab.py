@@ -27,21 +27,27 @@ from opponent_bots import NitBot, LagBot, PushFoldBot, ChenBot, TrapperBot, GtoA
 # =====================================================================
 # (name, overrides) -- overrides are ExploitBot settings (see EXPLOIT_CONFIG in
 # bot_exploit.py). Use None for the original PokerBot (config.py only).
+TRAP_MONSTER = {"TRAP_FREQ": 0.3}                          # slow-play MONSTER 30% (flop + turn)
+TRAP_MONSTER_STRONG = {"TRAP_FREQ": 0.3, "TRAP_FREQ_STRONG": 0.2}
+NO_TRAP = {"TRAP_FREQ": 0.0, "TRAP_FREQ_STRONG": 0.0}      # MONSTER and STRONG always bet
+RIVER_ON = {"TRAP_ON_RIVER": True}
+BLUFF2 = {"BLUFF_FACTOR": 2.0}
+
 MY_BOTS = [
     ("TEMPLATE", None),
     ("EXPLOIT", {}),                                    # ExploitBot defaults
-    ("BLUFF2", {"BLUFF_FACTOR": 2.0}),
-    ("BLUFF3", {"BLUFF_FACTOR": 3.0}),
+    ("BLUFF2", BLUFF2),
+    ("TRAP_MONSTER_B2", {**BLUFF2, **TRAP_MONSTER}),
 ]
 
 # Opponent pool: name -> weight. Empty seats are filled by random draws from
 # this pool each table (weight 2 = drawn twice as often as weight 1).
 # Set a weight to 0 to leave a bot out.
 OPPONENTS = {
-    "LAG": 1,
+    "LAG": 0,
     "GTO": 1,
     "NIT": 1,
-    "CHEN": 1,
+    "CHEN": 0,
     "PUSHFOLD": 1,
     "TRAPPER": 1,
     "STATION": 0,
@@ -119,39 +125,61 @@ def main():
     check_setup()
 
     mine = [n for n, _ in MY_BOTS]
+    everyone = mine + [n for n, w in OPPONENTS.items() if w > 0]
+    w = max(len(n) for n in everyone) + 2          # name column width
     runs, seats_total, slow = [], {}, 0
     t0 = time.time()
+
+    # ---- per-run results: every bot at the tables
+    print(f"PER RUN (average points per seat; * = best that run)")
+    print(f"{'SEED':<6}" + "".join(f"{n:>{w}}" for n in everyone))
     for seed in range(args.first_seed, args.first_seed + args.runs):
         avg, seats, s = run(seed, args.tables)
         runs.append(avg)
         slow += s
         for n, c in seats.items():
             seats_total[n] = seats_total.get(n, 0) + c
-        print(f"run seed {seed:>3}: " + "  ".join(f"{n} {avg[n]:.2f}" for n in mine), flush=True)
+        best = max(avg, key=avg.get)
+        cells = [(f"{avg[n]:.2f}" + ("*" if n == best else " ")) if n in avg else "-" for n in everyone]
+        print(f"{seed:<6}" + "".join(f"{c:>{w}}" for c in cells), flush=True)
 
-    print(f"\n{args.runs} runs x {args.tables} tables in {time.time() - t0:.0f}s"
+    # ---- overall results: every bot
+    def stats(vals):
+        m = statistics.mean(vals)
+        return m, (statistics.stdev(vals) / len(vals) ** 0.5 if len(vals) > 1 else 0.0)
+
+    def vs_baseline(n):
+        if not BASELINE or n == BASELINE:
+            return "baseline" if n == BASELINE else ""
+        d = [r[n] - r[BASELINE] for r in runs if n in r]
+        if len(d) < 2:
+            return ""
+        m, se = stats(d)
+        t = m / se if se else 0.0
+        verdict = "real" if abs(t) >= 3 else "likely" if abs(t) >= 2 else "noise"
+        return f"{m:+6.2f} ± {se:.2f}  t={t:+5.1f}  {verdict}"
+
+    wins = {n: 0 for n in everyone}
+    for r in runs:
+        wins[max(r, key=r.get)] += 1
+    order = sorted(everyone, key=lambda n: -stats([r[n] for r in runs if n in r])[0]
+                   if any(n in r for r in runs) else 0)
+
+    print(f"\nOVERALL: {args.runs} runs x {args.tables} tables in {time.time() - t0:.0f}s"
           f"   decisions over 1 ms: {slow}")
-    print(f"{'BOT':<14}{'MEAN':>7}{'± SE':>7}{'SEATS':>9}   (points per seat; opponents averaged over copies)")
-    names = sorted({n for r in runs for n in r},
-                   key=lambda n: -statistics.mean(r.get(n, 0.0) for r in runs if n in r))
-    for n in names:
-        v = [r[n] for r in runs if n in r]
-        se = statistics.stdev(v) / len(v) ** 0.5 if len(v) > 1 else 0.0
-        tag = "  <- yours" if n in mine else ""
-        print(f"{n:<14}{statistics.mean(v):7.2f}{se:7.2f}{seats_total[n]:9d}{tag}")
-
-    if BASELINE and len(runs) > 1:
-        print(f"\nVS {BASELINE} (paired by run; t >= 3 real, 2-3 likely, < 2 noise)")
-        if len(runs) < 5:
-            print("  ! fewer than 5 runs: these t-values are unreliable, use --runs 10 or more")
-        for n in mine:
-            if n == BASELINE:
-                continue
-            d = [r[n] - r[BASELINE] for r in runs]
-            m, se = statistics.mean(d), statistics.stdev(d) / len(d) ** 0.5
-            t = m / se if se else 0.0
-            verdict = "real" if abs(t) >= 3 else "likely" if abs(t) >= 2 else "noise"
-            print(f"  {n:<14}{m:+7.2f} ± {se:.2f}   t = {t:+.1f}   {verdict}")
+    print(f"{'#':<3}{'BOT':<{w}}{'MEAN':>7}{'± SE':>7}{'MIN':>7}{'MAX':>7}{'WINS':>6}{'SEATS':>8}   "
+          f"VS {BASELINE or '-'} (paired; t>=3 real, 2-3 likely, <2 noise)")
+    for i, n in enumerate(order, 1):
+        vals = [r[n] for r in runs if n in r]
+        if not vals:
+            continue
+        m, se = stats(vals)
+        tag = "*" if n in mine else " "
+        print(f"{i:<3}{n + tag:<{w}}{m:7.2f}{se:7.2f}{min(vals):7.2f}{max(vals):7.2f}{wins[n]:6d}"
+              f"{seats_total.get(n, 0):8d}   {vs_baseline(n)}")
+    print("* = one of MY_BOTS. Opponents are averaged over all their copies.")
+    if len(runs) < 5:
+        print("! fewer than 5 runs: SE and t-values are unreliable, use --runs 10 or more")
 
 
 if __name__ == "__main__":
