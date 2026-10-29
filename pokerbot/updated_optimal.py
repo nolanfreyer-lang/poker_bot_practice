@@ -11,8 +11,8 @@ On top of OptimalBot (which it inherits unchanged otherwise):
      showdowns don't swing it. Fold-to-bet rates are tracked too (every hand).
   2. EV checks -- facing a bet it estimates its equity from the opponent's bluff
      rate and compares it with the break-even equity; it never makes a call it
-     estimates as -EV, and calls folds it estimates as +EV. Bluffs are checked
-     against estimated fold equity. Preflop all-in calls use a precomputed
+     estimates as -EV, and calls folds it estimates as +EV. Its own bluffing is
+     left to OptimalBot's settings. Preflop all-in calls use a precomputed
      equity table (preflop_equity.json).
   3. ICM -- whenever a call risks ICM_MIN_RISK_FRACTION of our chips, the
      break-even equity is computed from tournament points (config.PAYOUT_POINTS)
@@ -55,7 +55,6 @@ UPDATED_CONFIG = {
     # --- 2. EV checks --------------------------------------------------
     "EV_CALLS": True,             # fold -EV calls, call +EV folds
     "CALL_EV_MARGIN": 0.0,        # extra equity required on top of break-even
-    "EV_BLUFFS": True,            # only bluff when estimated fold equity makes it +EV
     "RAISE_BLUFF_SCALE": 0.7,     # raises are bluffs less often than bets
     "FOLD_TO_RAISE_SCALE": 0.6,   # players fold to raises less than their usual fold rate... x this
     "MULTIWAY_EQ_MULT": 0.85,     # equity x this per extra opponent in the pot
@@ -71,9 +70,6 @@ UPDATED_CONFIG = {
     "EQ_VS_RAISE": {"MONSTER": (0.60, 0.62, 0.65), "STRONG": (0.20, 0.12, 0.05),
                     "MEDIUM": (0.12, 0.08, 0.02), "STRONG_DRAW": (0.40, 0.28, 0.01),
                     "DRAW": (0.25, 0.14, 0.01), "WEAK": (0.08, 0.04, 0.01)},
-    # our equity when a bluff/semi-bluff of ours gets called
-    "EQ_WHEN_CALLED": {"WEAK": (0.12, 0.06, 0.02), "DRAW": (0.32, 0.18, 0.02),
-                       "STRONG_DRAW": (0.45, 0.33, 0.02)},
 
     # --- 3. ICM --------------------------------------------------------
     "USE_ICM": True,
@@ -354,24 +350,11 @@ class UpdatedOptimalBot(OptimalBot):
         else:
             a = super()._postflop(s)
 
+        if s.to_call == 0 or not c.EV_CALLS:
+            return a
         bucket = classify_hand(s.hole_cards, s.board, self.good_kicker)
         opps = [p for p in s.players if p.active and p.seat != s.my_seat]
         i = STREET_INDEX[s.street]
-
-        if s.to_call == 0:
-            # bluff EV: fold equity vs everyone in the pot
-            if (c.EV_BLUFFS and a.kind in ("bet", "raise", "allin")
-                    and bucket in ("WEAK", "DRAW", "STRONG_DRAW")):
-                bet = s.me.stack if a.kind == "allin" else max(0, a.amount - s.me.bet)
-                pf = math.prod(self.sd.fold_rate(p.seat, c) for p in opps)
-                eq = c.EQ_WHEN_CALLED[bucket][i]
-                ev = pf * s.pot + (1 - pf) * (eq * (s.pot + 2 * bet) - bet)
-                if ev < 0:
-                    return Action("check")
-            return a
-
-        if not c.EV_CALLS:
-            return a
         agg = self._aggressor(s)
         raised = self._facing_raise(s)
         pb = self.sd.bluff_rate(agg, c) * (c.RAISE_BLUFF_SCALE if raised else 1.0) if agg is not None \
