@@ -25,13 +25,18 @@ python3 local_sim_robust.py --tables 4000
 
 ## What carried over from the NLH bot
 
-Re-running the NLH robustness test showed the EV/ICM/showdown layer was the real gain and the tuned bluff settings were mostly noise, so this bot is EV-first. Ablation here, 1,000 paired tables per field (points lost when the piece is removed; t >= 3 is real):
+Re-running the NLH robustness test showed the EV/ICM/showdown layer was the real gain and the tuned bluff settings were mostly noise, so this bot is EV-first. Ablation here, 4,000 paired tables per field (change in points when the piece is removed; bold = t >= 3):
 
 | Removed | likely | tough | loose | tight | mirror |
 |---|---|---|---|---|---|
-| Opponent tracking | -1.93 | -2.43 | -0.81 | **-8.55** | +0.03 |
-| ICM | -1.25 | -1.33 | -0.48 | **-5.82** | **-2.53** |
-| Everything (BASELINE) | -1.29 | -2.87 | -0.45 | **-9.92** | -0.66 |
+| Opponent tracking | **-1.87** | -0.56 | **-1.02** | **-6.88** | +0.14 |
+| ICM | **-1.61** | **-1.07** | **-0.64** | **-4.61** | **-1.45** |
+| Preflop EV | +0.32 | +0.46 | **-0.71** | +0.13 | **+1.28** |
+| Everything (BASELINE) | **-1.54** | -0.44 | **-1.00** | **-5.97** | +0.37 |
+
+Bluff factor 1.5 vs 1.0 made no measurable difference in any field. Preflop EV helps against loose fields and hurts in the mirror, so it is a judgment call. `PLO4` scores 49.1 / 38.3 / 66.9 / 55.3 / 30.4 in these fields against an even share of 31.5.
+
+`local_sim_search.py` chose the current settings: a 3% call margin, 0.85 out-of-position realisation, 7 bb push/fold, opens x1.25 and flats x0.75. Together they added +1.48 ± 0.20 points on fresh tables.
 
 These fields are bots written here, so they show the bot beats plausible leaks, not how it will rank on event day.
 

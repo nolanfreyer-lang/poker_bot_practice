@@ -36,8 +36,8 @@ RANDOM_SEED = None  # set an int for reproducible bot randomness
 # =====================================================================
 # First in: raise this share of hands. PLO hands run close in equity, so these
 # are wider than Hold'em, and position decides far more.
-OPEN_PCT = {"UTG": 0.13, "UTG1": 0.15, "MP": 0.18, "HJ": 0.22, "CO": 0.30,
-            "BTN": 0.45, "SB": 0.28, "BB": 0.12}
+OPEN_PCT = {"UTG": 0.1625, "UTG1": 0.1875, "MP": 0.225, "HJ": 0.275, "CO": 0.375,
+            "BTN": 0.5625, "SB": 0.35, "BB": 0.15}
 OVERLIMP_PCT = 0.35        # limp behind existing limpers with these
 SB_COMPLETE_PCT = 0.50     # SB completes an unraised pot
 STEAL_PCT_VS_TIGHT = 0.70  # BTN/SB open this wide when everyone behind is tight
@@ -45,8 +45,8 @@ STEAL_PCT_VS_TIGHT = 0.70  # BTN/SB open this wide when everyone behind is tight
 # Facing ONE raise, by our position. In PLO 3-bets are mostly value (aces-heavy).
 THREEBET_PCT = {"UTG": 0.025, "UTG1": 0.025, "MP": 0.03, "HJ": 0.035, "CO": 0.045,
                 "BTN": 0.06, "SB": 0.04, "BB": 0.04}
-CALL_OPEN_PCT = {"UTG": 0.08, "UTG1": 0.09, "MP": 0.10, "HJ": 0.12, "CO": 0.16,
-                 "BTN": 0.28, "SB": 0.12, "BB": 0.30}
+CALL_OPEN_PCT = {"UTG": 0.06, "UTG1": 0.0675, "MP": 0.075, "HJ": 0.09, "CO": 0.12,
+                 "BTN": 0.21, "SB": 0.09, "BB": 0.225}
 
 FOURBET_PCT = 0.012        # roughly aces with a good side
 CALL_3BET_PCT = 0.10
@@ -54,7 +54,7 @@ JAM_4BET_PCT = 0.01
 CALL_4BET_PCT = 0.02
 
 # Short stacks: a pot raise commits us at about this depth, so act as push/fold.
-SHOVE_STACK_BB = 10
+SHOVE_STACK_BB = 7
 # key = max effective stack in BB; the smallest key >= our stack is used.
 SHOVE_PCT_BY_STACK = {3: 1.0, 5: 0.75, 7: 0.50, 10: 0.32}
 CALL_SHOVE_PCT = 0.25
@@ -146,11 +146,11 @@ FOLD_PRIOR = 0.40
 FOLD_PRIOR_WEIGHT = 10
 
 # EV calls.
-CALL_EV_MARGIN = 0.0        # extra equity needed on top of break-even
+CALL_EV_MARGIN = 0.03       # extra equity needed on top of break-even
 RAISE_BLUFF_SCALE = 0.7     # raises are bluffs less often than bets
 FOLD_TO_RAISE_SCALE = 0.6
 MULTIWAY_EQ_EXP = 0.7       # equity ^ (1 + this x extra opponents)
-REALIZE_OOP = 0.92          # equity realised out of position with cards to come
+REALIZE_OOP = 0.85          # equity realised out of position with cards to come
 REALIZE_IP = 1.00
 DRAW_REVERSE_ODDS = 0.04    # subtract from non-made hands: draws pay more when they miss
 
