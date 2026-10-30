@@ -2,8 +2,8 @@
 
     python3 play_vs_bot.py                          # you + the 7 bots in DEFAULT_TABLE
     python3 play_vs_bot.py --hands 50 --timeout 60 --seed 7
-    python3 play_vs_bot.py --bots PLO4,LAG,NIT      # choose who sits down (1 to 7 bots)
-    python3 play_vs_bot.py --bots PLO4              # heads-up
+    python3 play_vs_bot.py PLO4 LAG NIT             # choose who sits down (1 to 7 bots)
+    python3 play_vs_bot.py PLO4                     # heads-up
     python3 play_vs_bot.py --list                   # every bot you can seat
 
 Competition settings: 2,000 chips each, blinds 10/20 rising every 25 hands, 200-hand
@@ -166,6 +166,7 @@ def parse_bots(text, ap):
 
 def main():
     ap = argparse.ArgumentParser(description=__doc__, formatter_class=argparse.RawDescriptionHelpFormatter)
+    ap.add_argument("bot", nargs="*", help="bots to seat, same as --bots")
     ap.add_argument("--bots", default=",".join(DEFAULT_TABLE), help="comma-separated, 1 to 7 bots; repeats allowed")
     ap.add_argument("--hands", type=int, default=C.HAND_LIMIT)
     ap.add_argument("--timeout", type=float, default=30)
@@ -176,7 +177,7 @@ def main():
         for n, (about, _) in BOTS.items():
             print(f"  {n:<10} {about}{'  (default table)' if n in DEFAULT_TABLE else ''}")
         return
-    picks = parse_bots(args.bots, ap)
+    picks = parse_bots(",".join(args.bot) or args.bots, ap)
     seed = args.seed if args.seed is not None else random.randrange(10**6)
     rng = random.Random(seed)
 
@@ -186,7 +187,7 @@ def main():
     table = Table(lineup, rng, verbose=True)
     seats = len(lineup)
 
-    print(f"\n{'=' * 64}\n You vs {', '.join(names[1:])}\n {args.hands} hands, "
+    print(f"\n{'=' * 64}\n POT-LIMIT OMAHA (PLO4)\n You vs {', '.join(names[1:])}\n {args.hands} hands, "
           f"{C.STARTING_STACK} chips each, {args.timeout:.0f}s per decision (seed {seed})\n{'=' * 64}")
     played = 0
     try:

@@ -23,11 +23,11 @@ python3 local_sim.py --tables 300
 python3 local_sim_robust.py --tables 4000
 ```
 
-To play yourself against a full table of seven bots (our PLO4 bot, GTO, LAG, NIT, CHEN, TRAPPER and NLHPORT):
+To play yourself against a full table of seven bots (our PLO4 bot, GTO, LAG, NIT, CHEN, TRAPPER and NLHPORT), run this from the repository root:
 ```bash
-python3 play_vs_bot.py
+python3 play_plo4.py
 ```
-Use `--bots PLO4,LAG,NIT` to choose who sits down, or `--list` to see every bot. Type `h` during a hand for the commands.
+`NLH_Poker_Bot` has its own `play_vs_bot.py`, which plays Hold'em. Add bot names (`python3 play_plo4.py PLO4 LAG NIT`) to choose who sits down, or `--list` to see every bot. Type `h` during a hand for the commands.
 
 ## What carried over from the NLH bot
 
