@@ -23,6 +23,12 @@ python3 local_sim.py --tables 300
 python3 local_sim_robust.py --tables 4000
 ```
 
+To play yourself against a full table of seven bots (our PLO4 bot, GTO, LAG, NIT, CHEN, TRAPPER and NLHPORT):
+```bash
+python3 play_vs_bot.py
+```
+Use `--bots PLO4,LAG,NIT` to choose who sits down, or `--list` to see every bot. Type `h` during a hand for the commands.
+
 ## What carried over from the NLH bot
 
 Re-running the NLH robustness test showed the EV/ICM/showdown layer was the real gain and the tuned bluff settings were mostly noise, so this bot is EV-first. Ablation here, 4,000 paired tables per field (change in points when the piece is removed; bold = t >= 3):

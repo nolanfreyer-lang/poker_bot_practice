@@ -117,6 +117,21 @@ def test_all_hands_in_table():
     print("ok  preflop table covers dealt hands")
 
 
+def test_human_input():
+    from play_vs_bot import HumanPlayer
+    parse = HumanPlayer.parse
+    s = make_state(random.Random(1), 2000, 100, 300, "flop", 100)      # pot-limit cap is 500
+    assert s.max_raise_to == 500 and s.max_raise_to < s.me.stack + s.me.bet
+    assert parse("r pot", s) == Action("raise", 500)
+    assert parse("a", s) == Action("allin", 500)                        # capped, not the whole stack
+    assert parse("r", s) == Action("raise", s.min_raise_to)
+    assert parse("r 1/2", s) == Action("raise", 300)
+    assert isinstance(parse("r 501", s), str)                           # over the pot limit
+    assert isinstance(parse("r 1/0", s), str)
+    assert isinstance(parse("x", s), str)                               # can't check facing a bet
+    print("ok  human input")
+
+
 def test_decision_speed():
     bot = PokerBot(seed=5)
     rng = random.Random(6)
@@ -141,4 +156,5 @@ if __name__ == "__main__":
     test_all_hands_in_table()
     test_bot_output_always_legal()
     test_sim_conserves_chips_and_caps_raises()
+    test_human_input()
     test_decision_speed()
