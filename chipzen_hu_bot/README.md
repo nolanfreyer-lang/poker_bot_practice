@@ -14,7 +14,7 @@ python3 build_chipzen.py --sdk /path/to/chipzen-sdk
 ```bash
 pip install chipzen-bot
 chipzen-sdk validate . --check-connectivity
-docker build -t hu-updated-optimal:v1 .
+docker build --platform linux/amd64 -t hu-updated-optimal:v1 .
 docker run --rm --entrypoint sh hu-updated-optimal:v1 -c "ls /bot/"
 docker save hu-updated-optimal:v1 | gzip > hu-updated-optimal.tar.gz
 ls -lh hu-updated-optimal.tar.gz
