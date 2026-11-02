@@ -27,12 +27,14 @@ import config as C
 from bot import Action, PokerBot
 from bot_exploit import ExploitBot
 from optimalbot import OptimalBot
+from hu_updated_optimal import HuUpdatedOptimalBot
 from updated_optimal import UpdatedOptimalBot
 from local_sim import Table, CallingStation, Maniac, describe
 from opponent_bots import NitBot, LagBot, PushFoldBot, ChenBot, TrapperBot, GtoApproxBot
 from poker_core import RANKS, hand_rank
 
 BOTS = {
+    "HU_UPDATED_OPTIMAL": ("UPDATED_OPTIMAL with heads-up preflop ranges", lambda seed: HuUpdatedOptimalBot(seed=seed)),
     "UPDATED_OPTIMAL": ("OptimalBot + bluff tracking, EV checks, ICM", lambda seed: UpdatedOptimalBot(seed=seed)),
     "OPTIMAL": ("tuned ExploitBot (best in testing)", lambda seed: OptimalBot(seed=seed)),
     "EXPLOIT": ("ExploitBot with bot_exploit.py defaults", lambda seed: ExploitBot(seed=seed)),

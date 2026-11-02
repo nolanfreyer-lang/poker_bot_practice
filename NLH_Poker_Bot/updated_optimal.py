@@ -31,7 +31,7 @@ import sys
 import config as default_config
 from bot import Action, AGGRESSIVE
 from optimalbot import OptimalBot
-from poker_core import classify_hand, hand_class, hand_rank, parse_range, ALL_CLASSES, MONSTER
+from poker_core import classify_hand, hand_class, hand_rank, parse_range, ALL_CLASSES, MONSTER, STRONG
 
 try:
     import numpy as np
@@ -49,6 +49,9 @@ UPDATED_CONFIG = {
     "BLUFF_PRIOR": 0.25,          # assumed share of bets that are bluffs before any showdowns
     "BLUFF_PRIOR_WEIGHT": 6,      # prior counts like this many showdown bets
     "SEMI_BLUFF_WEIGHT": 0.5,     # a STRONG_DRAW bet counts as half a bluff
+    # River bets are tracked apart: flop/turn bets with air or draws say little
+    # about a big river bet. False pools every street into one rate.
+    "SEPARATE_RIVER_BLUFFS": True,
     "FOLD_PRIOR": 0.40,           # assumed fold-to-bet rate before any data
     "FOLD_PRIOR_WEIGHT": 10,
 
@@ -70,6 +73,16 @@ UPDATED_CONFIG = {
     "EQ_VS_RAISE": {"MONSTER": (0.60, 0.62, 0.65), "STRONG": (0.20, 0.12, 0.05),
                     "MEDIUM": (0.12, 0.08, 0.02), "STRONG_DRAW": (0.40, 0.28, 0.01),
                     "DRAW": (0.25, 0.14, 0.01), "WEAK": (0.08, 0.04, 0.01)},
+
+    # MONSTER hands normally never fold. On a big turn or river decision, each
+    # board threat that beats us (flush, full house, better straight) multiplies
+    # their equity vs value by this, and they may then fold or stop re-raising.
+    "MONSTER_CAN_FOLD": True,
+    "MONSTER_THREAT_MULT": 0.3,
+    "MONSTER_FOLD_MIN_RISK": 0.25,  # only when calling risks >= 25% of our chips
+    # With this many threats, a MONSTER or STRONG hand won't shove on the turn or
+    # river: it calls instead of re-raising and checks instead of betting all-in.
+    "SHOVE_STOP_THREATS": 2,
 
     # --- 3. ICM --------------------------------------------------------
     "USE_ICM": True,
@@ -95,6 +108,25 @@ UPDATED_CONFIG = {
 STREET_INDEX = {"flop": 0, "turn": 1, "river": 2}
 BOARD_LEN = {"flop": 3, "turn": 4, "river": 5}
 BLUFF_WEIGHT = {"WEAK": 1.0, "DRAW": 1.0}
+
+
+def board_threats(hole, board):
+    """Count the made hands the board allows that beat ours: flush, full house, better straight."""
+    mine = hand_rank(hole + board)
+    cat = mine[0]
+    ranks = [c >> 2 for c in board]
+    suits = [c & 3 for c in board]
+    threats = 0
+    if cat < 5 and max(suits.count(x) for x in range(4)) >= 3:
+        threats += 1
+    if cat < 6 and len(set(ranks)) < len(ranks):
+        threats += 1
+    if cat <= 4:
+        have = set(ranks) | ({-1} if 12 in ranks else set())
+        top = next((hi for hi in range(12, 2, -1) if len(have & set(range(hi - 4, hi + 1))) >= 3), None)
+        if top is not None and (cat < 4 or top > mine[1]):
+            threats += 1
+    return threats
 
 
 # =====================================================================
@@ -215,6 +247,8 @@ class ShowdownStats:
     def __init__(self):
         self.bets_shown = {}     # aggressive postflop actions seen at showdown
         self.bluffs_shown = {}   # ... of which were bluffs (weighted)
+        self.river_bets_shown = {}     # the river-only part of the two counts above
+        self.river_bluffs_shown = {}
         self.fold_chances = {}   # times facing a postflop bet
         self.folds = {}
 
@@ -233,8 +267,12 @@ class ShowdownStats:
                 if kind in ("bet", "raise") or (kind == "allin" and not bet_seen):
                     bet_seen = True
                     responded.add(seat)
-        # bluffs: only players who reached showdown
-        if not showdown or not board or len(board) < 5:
+        # bluffs: only players who reached showdown. Some engines reveal cards on
+        # every hand, so anyone who folded is dropped, and a hand that ended on a
+        # fold (fewer than two players left) is not a showdown at all.
+        folded = {seat for _, seat, kind, _ in history if kind == "fold"}
+        showdown = {seat: cards for seat, cards in (showdown or {}).items() if seat not in folded}
+        if len(showdown) < 2 or not board or len(board) < 5:
             return
         for seat, cards in showdown.items():
             if seat == me:
@@ -252,13 +290,23 @@ class ShowdownStats:
                 if not aggressive:
                     continue
                 bucket = classify_hand(list(cards), list(board[:BOARD_LEN[street]]), good_kicker)
+                weight = BLUFF_WEIGHT.get(bucket, semi_bluff_weight if bucket == "STRONG_DRAW" else 0.0)
                 self.bets_shown[seat] = self.bets_shown.get(seat, 0) + 1
-                self.bluffs_shown[seat] = self.bluffs_shown.get(seat, 0) + \
-                    BLUFF_WEIGHT.get(bucket, semi_bluff_weight if bucket == "STRONG_DRAW" else 0.0)
+                self.bluffs_shown[seat] = self.bluffs_shown.get(seat, 0) + weight
+                if street == "river":
+                    self.river_bets_shown[seat] = self.river_bets_shown.get(seat, 0) + 1
+                    self.river_bluffs_shown[seat] = self.river_bluffs_shown.get(seat, 0) + weight
 
-    def bluff_rate(self, seat, cfg):
+    def bluff_rate(self, seat, cfg, street="flop"):
         w = cfg.BLUFF_PRIOR_WEIGHT
-        return (self.bluffs_shown.get(seat, 0) + cfg.BLUFF_PRIOR * w) / (self.bets_shown.get(seat, 0) + w)
+        bets, bluffs = self.bets_shown.get(seat, 0), self.bluffs_shown.get(seat, 0)
+        river_bets, river_bluffs = self.river_bets_shown.get(seat, 0), self.river_bluffs_shown.get(seat, 0)
+        if cfg.SEPARATE_RIVER_BLUFFS:
+            if street == "river":
+                bets, bluffs = river_bets, river_bluffs
+            else:
+                bets, bluffs = bets - river_bets, bluffs - river_bluffs
+        return (bluffs + cfg.BLUFF_PRIOR * w) / (bets + w)
 
     def fold_rate(self, seat, cfg):
         w = cfg.FOLD_PRIOR_WEIGHT
@@ -337,6 +385,17 @@ class UpdatedOptimalBot(OptimalBot):
             return chip_be, "chips"
         return min(1.0, max(0.0, (ef - el) / (ew - el))), "ICM"
 
+    def _stop_shove(self, s, a, bucket):
+        """True if this bet or raise would go all-in with a hand the board threatens."""
+        c = self.cfg
+        if (not c.MONSTER_CAN_FOLD or s.street == "flop" or bucket not in (MONSTER, STRONG)
+                or a.kind not in ("bet", "raise", "allin")):
+            return False
+        target = s.max_raise_to if a.kind == "allin" else a.amount
+        if target < c.JAM_IF_COMMIT_FRACTION * s.max_raise_to:   # stays a normal-sized raise
+            return False
+        return board_threats(s.hole_cards, s.board) >= c.SHOVE_STOP_THREATS
+
     # ------------------------------------------------------------ postflop
     def _postflop(self, s):
         c = self.cfg
@@ -350,16 +409,27 @@ class UpdatedOptimalBot(OptimalBot):
         else:
             a = super()._postflop(s)
 
-        if s.to_call == 0 or not c.EV_CALLS:
-            return a
         bucket = classify_hand(s.hole_cards, s.board, self.good_kicker)
+        stop_shove = self._stop_shove(s, a, bucket)
+        if s.to_call == 0:
+            return Action("check") if stop_shove else a
+        if stop_shove:
+            a = Action("call")
+        if not c.EV_CALLS:
+            return a
         opps = [p for p in s.players if p.active and p.seat != s.my_seat]
         i = STREET_INDEX[s.street]
         agg = self._aggressor(s)
         raised = self._facing_raise(s)
-        pb = self.sd.bluff_rate(agg, c) * (c.RAISE_BLUFF_SCALE if raised else 1.0) if agg is not None \
+        pb = self.sd.bluff_rate(agg, c, s.street) * (c.RAISE_BLUFF_SCALE if raised else 1.0) if agg is not None \
             else c.BLUFF_PRIOR
         vs_value = (c.EQ_VS_RAISE if raised else c.EQ_VS_VALUE)[bucket][i]
+        vulnerable = False
+        if (bucket == MONSTER and c.MONSTER_CAN_FOLD and s.street != "flop"
+                and min(s.to_call, s.me.stack) >= c.MONSTER_FOLD_MIN_RISK * (s.me.stack + s.me.bet)):
+            threats = board_threats(s.hole_cards, s.board)
+            vulnerable = threats > 0
+            vs_value *= c.MONSTER_THREAT_MULT ** threats
         eq = pb * c.EQ_VS_BLUFF[bucket][i] + (1 - pb) * vs_value
         eq *= c.MULTIWAY_EQ_MULT ** max(0, len(opps) - 1)
         be, _ = self._breakeven(s, agg)
@@ -370,9 +440,11 @@ class UpdatedOptimalBot(OptimalBot):
         if a.kind == "fold":
             return Action("call") if call_ok else a
         if pure_call:
-            return a if call_ok or bucket == MONSTER else Action("fold")
+            return a if call_ok or (bucket == MONSTER and not vulnerable) else Action("fold")
         # a raise: fine if calling is +EV anyway, else it needs fold equity
-        if call_ok or bucket == MONSTER:
+        if vulnerable and call_ok:
+            return Action("call")          # good enough to call, not to re-raise
+        if call_ok or (bucket == MONSTER and not vulnerable):
             return a
         cost = (s.me.stack + s.me.bet if a.kind == "allin" else a.amount) - s.me.bet
         pf = math.prod(self.sd.fold_rate(p.seat, c) * c.FOLD_TO_RAISE_SCALE for p in opps)
@@ -397,8 +469,12 @@ class UpdatedOptimalBot(OptimalBot):
             k = min(2, k + 1)
         return order[k]
 
+    def _preflop_action(self, s):
+        """The range-based decision; subclasses swap this for their own ranges."""
+        return super()._preflop(s)
+
     def _preflop(self, s):
-        a = super()._preflop(s)
+        a = self._preflop_action(s)
         c = self.cfg
         if not c.PREFLOP_EV or _PREFLOP_TABLE is None or s.to_call == 0:
             return a
