@@ -20,6 +20,7 @@ from poker_core import parse_cards
 from deep_thought_v1 import DeepThoughtV1Bot
 from deep_thought_v2 import DeepThoughtV2Bot
 from deep_thought_v3 import DeepThoughtV3Bot
+from deep_thought_v4 import DeepThoughtV4Bot
 from hu_updated_optimal import HuUpdatedOptimalBot
 from updated_optimal import UpdatedOptimalBot
 
@@ -30,7 +31,7 @@ STREETS = ("preflop", "flop", "turn", "river")
 BOT_OVERRIDES = {"USE_ICM": False}     # no tournament payouts in a cash game
 BOTS = {"UPDATED_OPTIMAL": UpdatedOptimalBot, "HU_UPDATED_OPTIMAL": HuUpdatedOptimalBot,
         "DEEP_THOUGHT_V1": DeepThoughtV1Bot, "DEEP_THOUGHT_V2": DeepThoughtV2Bot,
-        "DEEP_THOUGHT_V3": DeepThoughtV3Bot}
+        "DEEP_THOUGHT_V3": DeepThoughtV3Bot, "DEEP_THOUGHT_V4": DeepThoughtV4Bot}
 
 
 def post(path, data, retries=5):

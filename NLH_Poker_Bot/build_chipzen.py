@@ -32,9 +32,12 @@ BOTS = {
     "DEEP_THOUGHT_V3": (["pushfold_tables", "hu_updated_optimal", "fitted_tables", "deep_thought_v1",
                          "fitted_tables_v2", "deep_thought_v2", "deep_thought_v3"], "DeepThoughtV3Bot",
                         "ChipzenDeepThoughtV3Bot", "chipzen_deep_thought_v3"),
+    "DEEP_THOUGHT_V4": (["pushfold_tables", "hu_updated_optimal", "fitted_tables", "deep_thought_v1",
+                         "fitted_tables_v2", "deep_thought_v2", "deep_thought_v3", "deep_thought_v4"], "DeepThoughtV4Bot",
+                        "ChipzenDeepThoughtV4Bot", "chipzen_deep_thought_v4"),
 }
 LOCAL = set(COMMON) | {"config", "hu_updated_optimal", "pushfold_tables", "fitted_tables", "deep_thought_v1",
-                       "fitted_tables_v2", "deep_thought_v2", "deep_thought_v3"}
+                       "fitted_tables_v2", "deep_thought_v2", "deep_thought_v3", "deep_thought_v4"}
 # Dev-only code left out of the bundle: table building needs multiprocessing,
 # which the sandbox blocks, and the table is embedded instead.
 DROP = {"build_preflop_table", "_class_combos", "_preflop_job", "_load_preflop_table",
