@@ -44,29 +44,38 @@ CHIPZEN_OVERRIDES = {"USE_ICM": False}
 AGGRESSIVE_STACKLESS = ("bet", "raise")
 
 
-def convert_history(entries, stacks=None):
+def convert_history(entries, stacks=None, starting=None):
     """Chipzen action_history -> (our history, this street's bets, street).
 
     Chipzen amounts: raise = street total, call = chips added, blind = chips posted.
-    Ours are always the player's street total after acting.
+    Ours are always the player's street total after acting. A raise is an all-in if
+    it empties the stack: read `stacks` mid-hand, or `starting` (stacks at hand
+    start) after the hand, when the wire no longer says who was all-in.
     """
     history, bets, high, street = [], {}, 0, "preflop"
+    spent = {}
     for e in entries:
         phase, seat, act, amt = e.get("phase", street), e["seat"], e["action"], e.get("amount", 0)
         if phase != street:
             street, bets, high = phase, {}, 0
+        if act == "post_ante":
+            spent[seat] = spent.get(seat, 0) + amt
+            continue
+        before = bets.get(seat, 0)
         if act in ("post_small_blind", "post_big_blind"):
+            spent[seat] = spent.get(seat, 0) + amt
             bets[seat] = bets.get(seat, 0) + amt
             high = max(high, bets[seat])
             history.append((street, seat, "blind", bets[seat]))
-        elif act == "post_ante":
-            continue
         elif act == "raise":
+            spent[seat] = spent.get(seat, 0) + amt - before
             bets[seat] = amt
-            all_in = stacks is not None and stacks.get(seat, 1) == 0
+            all_in = (stacks is not None and stacks.get(seat, 1) == 0) or \
+                (starting is not None and seat in starting and spent[seat] >= starting[seat])
             history.append((street, seat, "allin" if all_in else "bet" if high == 0 else "raise", amt))
             high = max(high, amt)
         elif act == "call":
+            spent[seat] = spent.get(seat, 0) + amt
             bets[seat] = bets.get(seat, 0) + amt
             history.append((street, seat, "call", bets[seat]))
         elif act in ("check", "fold"):
@@ -80,6 +89,7 @@ class @ADAPTER@(Bot):
         self.small_blind = 0
         self.big_blind = 0
         self.board = []
+        self.starting = {}
         self.errors = 0
 
     def on_match_start(self, match_info):
@@ -152,6 +162,8 @@ class @ADAPTER@(Bot):
 
     def on_round_start(self, message):
         self.board = []
+        stacks = (message.get("state") or {}).get("stacks") or []
+        self.starting = dict(enumerate(stacks))
         super().on_round_start(message)
 
     def on_phase_change(self, message):
@@ -161,7 +173,7 @@ class @ADAPTER@(Bot):
 
     def on_hand_result(self, result):
         try:
-            history, _, _ = convert_history(result.get("action_history") or [])
+            history, _, _ = convert_history(result.get("action_history") or [], starting=self.starting)
             seats = sorted({seat for _, seat, _, _ in history})
             shown = {e["seat"]: parse_cards(e["hole_cards"]) for e in result.get("showdown") or []}
             self.core.on_hand_end(history, seats, showdown=shown, board=parse_cards(self.board),
