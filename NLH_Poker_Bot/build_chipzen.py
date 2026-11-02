@@ -24,8 +24,10 @@ BOTS = {
     "HU_UPDATED_OPTIMAL": (["pushfold_tables", "hu_updated_optimal"], "HuUpdatedOptimalBot", "ChipzenHuBot",
                            "chipzen_hu_bot"),
     "UPDATED_OPTIMAL": ([], "UpdatedOptimalBot", "ChipzenUpdatedBot", "chipzen_updated_bot"),
+    "DEEP_OPTIMAL": (["pushfold_tables", "hu_updated_optimal", "fitted_tables", "deep_optimal"], "DeepOptimalBot",
+                     "ChipzenDeepBot", "chipzen_deep_bot"),
 }
-LOCAL = set(COMMON) | {"config", "hu_updated_optimal", "pushfold_tables"}
+LOCAL = set(COMMON) | {"config", "hu_updated_optimal", "pushfold_tables", "fitted_tables", "deep_optimal"}
 # Dev-only code left out of the bundle: table building needs multiprocessing,
 # which the sandbox blocks, and the table is embedded instead.
 DROP = {"build_preflop_table", "_class_combos", "_preflop_job", "_load_preflop_table",
@@ -257,7 +259,7 @@ def bundle(name):
                "from chipzen.client import run_bot")
     text = (HEADER + "\n".join(sorted(imports)) + "\n\n" + chipzen + "\n\n" + bodies[0]
             + "\n\n_PREFLOP_TABLE = " + equity + "\n\n" + "\n\n".join(bodies[1:]) + "\n" + ADAPTER)
-    return text.replace("@NAME@", name).replace("@ADAPTER@", adapter).replace("@CORE@", core)
+    return text.replace("_updated._PREFLOP_TABLE", "_PREFLOP_TABLE").replace("@NAME@", name).replace("@ADAPTER@", adapter).replace("@CORE@", core)
 
 
 def main():
