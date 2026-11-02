@@ -4,7 +4,7 @@
 
 Slumbot reveals its cards on every hand, even folded ones, so its response to each
 bet can be counted by hand strength and bet size. Writes fitted_tables.py, used as
-DEEP_OPTIMAL's starting model for any opponent; live tracking adjusts from there.
+DEEP_THOUGHT_V1's starting model for any opponent; live tracking adjusts from there.
 """
 import glob
 import json

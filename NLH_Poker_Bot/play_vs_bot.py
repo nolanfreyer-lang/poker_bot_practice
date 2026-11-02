@@ -27,6 +27,8 @@ import config as C
 from bot import Action, PokerBot
 from bot_exploit import ExploitBot
 from optimalbot import OptimalBot
+from deep_thought_v1 import DeepThoughtV1Bot
+from deep_thought_v2 import DeepThoughtV2Bot
 from hu_updated_optimal import HuUpdatedOptimalBot
 from updated_optimal import UpdatedOptimalBot
 from local_sim import Table, CallingStation, Maniac, describe
@@ -34,6 +36,8 @@ from opponent_bots import NitBot, LagBot, PushFoldBot, ChenBot, TrapperBot, GtoA
 from poker_core import RANKS, hand_rank
 
 BOTS = {
+    "DEEP_THOUGHT_V1": ("heads-up specialist: real range equity and EV bet sizing", lambda seed: DeepThoughtV1Bot(seed=seed)),
+    "DEEP_THOUGHT_V2": ("V1 with street tables, stack-off limits and smaller bets", lambda seed: DeepThoughtV2Bot(seed=seed)),
     "HU_UPDATED_OPTIMAL": ("UPDATED_OPTIMAL with heads-up preflop ranges", lambda seed: HuUpdatedOptimalBot(seed=seed)),
     "UPDATED_OPTIMAL": ("OptimalBot + bluff tracking, EV checks, ICM", lambda seed: UpdatedOptimalBot(seed=seed)),
     "OPTIMAL": ("tuned ExploitBot (best in testing)", lambda seed: OptimalBot(seed=seed)),

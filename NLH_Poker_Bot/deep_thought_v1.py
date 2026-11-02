@@ -1,7 +1,7 @@
-"""DEEP_OPTIMAL: HU_UPDATED_OPTIMAL with real range-based postflop calculations.
+"""DEEP_THOUGHT_V1: HU_UPDATED_OPTIMAL with real range-based postflop calculations.
 
-    from deep_optimal import DeepOptimalBot
-    ("DEEP", DeepOptimalBot(seed=seed))
+    from deep_thought_v1 import DeepThoughtV1Bot
+    ("DEEP", DeepThoughtV1Bot(seed=seed))
 
 Uses far more than 1 ms per decision, so it is for Chipzen (5 s clock, 0.5 CPU),
 NOT the event's 1 ms limit. Preflop play is inherited. Postflop it:
@@ -68,7 +68,7 @@ COMBOS = [(a, b, hand_class(a, b)) for a in range(52) for b in range(a + 1, 52)]
 BOARD_LEN = {"flop": 3, "turn": 4, "river": 5}
 
 
-class DeepOptimalBot(HuUpdatedOptimalBot):
+class DeepThoughtV1Bot(HuUpdatedOptimalBot):
     def __init__(self, cfg=default_config, overrides=None, seed=None):
         super().__init__(cfg, {**DEEP_CONFIG, **(overrides or {})}, seed)
 

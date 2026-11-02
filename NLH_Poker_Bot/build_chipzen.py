@@ -24,10 +24,14 @@ BOTS = {
     "HU_UPDATED_OPTIMAL": (["pushfold_tables", "hu_updated_optimal"], "HuUpdatedOptimalBot", "ChipzenHuBot",
                            "chipzen_hu_bot"),
     "UPDATED_OPTIMAL": ([], "UpdatedOptimalBot", "ChipzenUpdatedBot", "chipzen_updated_bot"),
-    "DEEP_OPTIMAL": (["pushfold_tables", "hu_updated_optimal", "fitted_tables", "deep_optimal"], "DeepOptimalBot",
-                     "ChipzenDeepBot", "chipzen_deep_bot"),
+    "DEEP_THOUGHT_V1": (["pushfold_tables", "hu_updated_optimal", "fitted_tables", "deep_thought_v1"], "DeepThoughtV1Bot",
+                     "ChipzenDeepThoughtBot", "chipzen_deep_thought_v1"),
+    "DEEP_THOUGHT_V2": (["pushfold_tables", "hu_updated_optimal", "fitted_tables", "deep_thought_v1",
+                         "fitted_tables_v2", "deep_thought_v2"], "DeepThoughtV2Bot",
+                        "ChipzenDeepThoughtV2Bot", "chipzen_deep_thought_v2"),
 }
-LOCAL = set(COMMON) | {"config", "hu_updated_optimal", "pushfold_tables", "fitted_tables", "deep_optimal"}
+LOCAL = set(COMMON) | {"config", "hu_updated_optimal", "pushfold_tables", "fitted_tables", "deep_thought_v1",
+                       "fitted_tables_v2", "deep_thought_v2"}
 # Dev-only code left out of the bundle: table building needs multiprocessing,
 # which the sandbox blocks, and the table is embedded instead.
 DROP = {"build_preflop_table", "_class_combos", "_preflop_job", "_load_preflop_table",
@@ -47,11 +51,12 @@ CHIPZEN_OVERRIDES = {"USE_ICM": False}
 AGGRESSIVE_STACKLESS = ("bet", "raise")
 
 
-def convert_history(entries, stacks=None, starting=None):
+def convert_history(entries, stacks=None, starting=None, raise_added=False):
     """Chipzen action_history -> (our history, this street's bets, street).
 
     Chipzen amounts: raise = street total, call = chips added, blind = chips posted.
-    Ours are always the player's street total after acting. A raise is an all-in if
+    Match replays show raises as chips added instead, so raise_added reads them that
+    way. Ours are always the player's street total after acting. A raise is an all-in if
     it empties the stack: read `stacks` mid-hand, or `starting` (stacks at hand
     start) after the hand, when the wire no longer says who was all-in.
     """
@@ -71,6 +76,7 @@ def convert_history(entries, stacks=None, starting=None):
             high = max(high, bets[seat])
             history.append((street, seat, "blind", bets[seat]))
         elif act == "raise":
+            amt = before + amt if raise_added else amt
             spent[seat] = spent.get(seat, 0) + amt - before
             bets[seat] = amt
             all_in = (stacks is not None and stacks.get(seat, 1) == 0) or \
@@ -93,6 +99,7 @@ class @ADAPTER@(Bot):
         self.big_blind = 0
         self.board = []
         self.starting = {}
+        self.raise_added = False
         self.errors = 0
 
     def on_match_start(self, match_info):
@@ -100,13 +107,27 @@ class @ADAPTER@(Bot):
         config = match_info.get("game_config") or {}
         self.small_blind = config.get("small_blind", 0)
         self.big_blind = config.get("big_blind", 0)
+        self.raise_added = False
+
+    @staticmethod
+    def reads_raises_as_added(state):
+        """Which reading of raise amounts adds up to the pot the server reports."""
+        def chips(added):
+            history = convert_history(state.action_history, raise_added=added)[0]
+            street_max = {}
+            for street, seat, kind, amt in history:
+                if kind not in ("check", "fold"):
+                    street_max[street, seat] = max(street_max.get((street, seat), 0), amt)
+            return sum(street_max.values())
+        return chips(False) != state.pot and chips(True) == state.pot
 
     def to_game_state(self, state):
         n = len(state.opponent_stacks) + 1
         others = [seat for seat in range(n) if seat != state.your_seat]
         stacks = dict(zip(others, state.opponent_stacks))
         stacks[state.your_seat] = state.your_stack
-        history, bets, street = convert_history(state.action_history, stacks)
+        self.raise_added = self.raise_added or self.reads_raises_as_added(state)
+        history, bets, street = convert_history(state.action_history, stacks, raise_added=self.raise_added)
         if street != state.phase:
             bets = {}
         folded = {seat for _, seat, kind, _ in history if kind == "fold"}
@@ -176,7 +197,8 @@ class @ADAPTER@(Bot):
 
     def on_hand_result(self, result):
         try:
-            history, _, _ = convert_history(result.get("action_history") or [], starting=self.starting)
+            history, _, _ = convert_history(result.get("action_history") or [], starting=self.starting,
+                                         raise_added=self.raise_added)
             seats = sorted({seat for _, seat, _, _ in history})
             shown = {e["seat"]: parse_cards(e["hole_cards"]) for e in result.get("showdown") or []}
             self.core.on_hand_end(history, seats, showdown=shown, board=parse_cards(self.board),

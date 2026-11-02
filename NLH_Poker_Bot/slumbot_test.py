@@ -17,7 +17,8 @@ import urllib.request
 
 from bot import GameState, PlayerInfo
 from poker_core import parse_cards
-from deep_optimal import DeepOptimalBot
+from deep_thought_v1 import DeepThoughtV1Bot
+from deep_thought_v2 import DeepThoughtV2Bot
 from hu_updated_optimal import HuUpdatedOptimalBot
 from updated_optimal import UpdatedOptimalBot
 
@@ -27,7 +28,7 @@ ME, SLUMBOT = 0, 1
 STREETS = ("preflop", "flop", "turn", "river")
 BOT_OVERRIDES = {"USE_ICM": False}     # no tournament payouts in a cash game
 BOTS = {"UPDATED_OPTIMAL": UpdatedOptimalBot, "HU_UPDATED_OPTIMAL": HuUpdatedOptimalBot,
-        "DEEP_OPTIMAL": DeepOptimalBot}
+        "DEEP_THOUGHT_V1": DeepThoughtV1Bot, "DEEP_THOUGHT_V2": DeepThoughtV2Bot}
 
 
 def post(path, data, retries=5):
