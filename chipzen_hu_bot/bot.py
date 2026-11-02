@@ -981,21 +981,20 @@ UPDATED_CONFIG = {
     "FREQUENCY_PRIOR_WEIGHT": 12,   # prior counts like this many chances
     "FREQUENCY_MULT_MAX": 3.0,      # most that a read can scale a bluff estimate
     "BLUFF_ESTIMATE_MAX": 0.75,
-    # Heads-up defense vs a 3-bet (button after opening). Calling keeps about 60%
-    # of the opening range, near what a 3.5x 3-bet requires.
+    # Heads-up defense vs a 3-bet (button after opening). Together these keep about
+    # half of the opening range. Slumbot data: the next-widest hands lost heavily.
     "HU_4BET_MULT": 2.3,
     "HU_BTN_4BET": "QQ+, AQs+, AKo, A5s-A4s",
-    "HU_BTN_CALL_3BET": ("22+, A2s+, K2s+, Q4s+, J6s+, T6s+, 95s+, 84s+, 74s+, 63s+, 53s+, 43s, A5o+, K8o+, "
-                         "Q9o+, J9o+, T9o, 98o"),
+    "HU_BTN_CALL_3BET": "22+, A2s+, K5s+, Q7s+, J7s+, T7s+, 96s+, 85s+, 75s+, 64s+, 54s, A9o+, KTo+, QTo+, JTo",
     "HU_3BET_TIGHT_MULT": 5.0,      # a 3-bet bigger than this x the open: tight range
     "HU_BTN_CALL_BIG_3BET": ("TT-77, AQs-A9s, KJs+, QTs+, JTs, T9s, AQo-AJo, KQo"),
     # vs someone 3-bets this many times too often: call these too
     "LIGHT_3BET_RATIO": 1.5,
     "VERY_LIGHT_3BET_RATIO": 2.2,
-    "VS_LIGHT_3BET_CALL": ("22+, A2s+, K2s+, Q2s+, J3s+, T5s+, 95s+, 84s+, 73s+, 63s+, 52s+, 43s, A2o+, K5o+, "
-                           "Q8o+, J8o+, T8o+, 98o, 87o"),
-    "VS_VERY_LIGHT_3BET_CALL": ("22+, A2s+, K2s+, Q2s+, J2s+, T3s+, 93s+, 83s+, 73s+, 62s+, 52s+, 42s+, 32s, A2o+, "
-                                "K2o+, Q5o+, J7o+, T7o+, 97o+, 87o, 76o"),
+    "VS_LIGHT_3BET_CALL": ("22+, A2s+, K2s+, Q4s+, J6s+, T6s+, 95s+, 84s+, 74s+, 63s+, 53s+, 43s, A5o+, K8o+, "
+                           "Q9o+, J9o+, T9o, 98o"),
+    "VS_VERY_LIGHT_3BET_CALL": ("22+, A2s+, K2s+, Q2s+, J3s+, T5s+, 95s+, 84s+, 73s+, 63s+, 52s+, 43s, A2o+, K5o+, "
+                                "Q8o+, J8o+, T8o+, 98o, 87o"),
 
     # --- 2. EV checks --------------------------------------------------
     "EV_CALLS": True,             # fold -EV calls, call +EV folds

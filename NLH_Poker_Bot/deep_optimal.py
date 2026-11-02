@@ -34,7 +34,7 @@ DEEP_CONFIG = {
     "LIKELY_CALL": {"MONSTER": 0.40, "STRONG": 0.85, "MEDIUM": 0.70, "STRONG_DRAW": 0.90, "DRAW": 0.70, "WEAK": 0.10},
     "LIKELY_CHECK": {"MONSTER": 0.25, "STRONG": 0.40, "MEDIUM": 0.70, "STRONG_DRAW": 0.50, "DRAW": 0.70, "WEAK": 1.00},
     # --- preflop range width: share of hands for each line ---------------------
-    "RANGE_CHECK": 0.90, "RANGE_CALL": 0.55, "RANGE_RAISE": 0.70, "RANGE_3BET": 0.16, "RANGE_4BET": 0.05,
+    "RANGE_CHECK": 0.90, "RANGE_CALL": 0.55, "RANGE_RAISE": 0.70, "RANGE_3BET": 0.25, "RANGE_4BET": 0.05,
     "RANGE_MULTIWAY_MULT": 0.55,    # three or more players: tighter ranges
     # --- bet sizing --------------------------------------------------------
     # "off": the inherited bet/check and raise choices stand.
@@ -66,21 +66,24 @@ class DeepOptimalBot(HuUpdatedOptimalBot):
     # ------------------------------------------------------------ range model
     def _preflop_width(self, s, seat):
         c = self.cfg
-        raises, called, high = 0, False, s.big_blind
+        level, raised_at, called, high = 0, 0, False, s.big_blind   # 1 = open, 2 = 3-bet, 3 = 4-bet
         for st, who, kind, amt in s.history:
             if st != "preflop":
                 continue
             if kind in AGGRESSIVE and amt > high:
                 high = amt
+                level += 1
                 if who == seat:
-                    raises += 1
+                    raised_at = level
             elif who == seat and kind in ("call", "allin"):
                 called = True
-        if raises >= 3:
-            width = c.RANGE_4BET
-        elif raises == 2:
-            width = c.RANGE_3BET
-        elif raises == 1:
+        # A raiser's range is as wide as they actually raise: a 3-bet from someone who
+        # 3-bets twice as often as the reference covers about twice as many hands.
+        if raised_at >= 3:
+            width = min(1.0, c.RANGE_4BET * self._freq_ratio(s, seat, "four_bet"))
+        elif raised_at == 2:
+            width = min(1.0, c.RANGE_3BET * self._freq_ratio(s, seat, "three_bet"))
+        elif raised_at == 1:
             width = c.RANGE_RAISE
         elif called:
             width = c.RANGE_CALL
