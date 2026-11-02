@@ -15,6 +15,7 @@ Range syntax is the same as config.py. BTN = small blind in heads-up.
 import config as default_config
 from bot import Action
 from poker_core import hand_class, parse_range
+from pushfold_tables import PUSHFOLD
 from updated_optimal import UpdatedOptimalBot
 
 HU_CONFIG = {
@@ -49,6 +50,7 @@ HU_CONFIG = {
 
     # --- short stacks: shove or fold -----------------------------------------
     "HU_PUSH_FOLD_BB": 12,
+    "PUSHFOLD_CFR": True,           # use the solved strategy (train_pushfold_cfr.py), not the ranges below
     "HU_SHOVE_BY_BB": {
         6: "22+, A2s+, A2o+, K2s+, K2o+, Q2s+, Q2o+, J2s+, J4o+, T2s+, T6o+, 92s+, 96o+, 82s+, 86o+, "
            "72s+, 75o+, 62s+, 65o, 52s+, 54o, 42s+, 32s",
@@ -104,6 +106,10 @@ class HuUpdatedOptimalBot(UpdatedOptimalBot):
 
         # --- short stacks: shove or fold
         if eff_bb <= c.HU_PUSH_FOLD_BB:
+            if c.PUSHFOLD_CFR and pos == "BTN" or c.PUSHFOLD_CFR and ctx.raises > 0:
+                depth = max(2, min(15, round(eff_bb)))
+                chance = PUSHFOLD[depth]["shove" if ctx.raises == 0 else "call"].get(hc, 0.0)
+                return Action("allin") if self.rng.random() < chance else self._check_fold(s)
             table = self.hu_shove if ctx.raises == 0 else self.hu_call_shove
             if hc in self._by_stack(table, eff_bb):
                 return Action("allin")

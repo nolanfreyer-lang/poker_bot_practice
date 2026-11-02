@@ -21,10 +21,11 @@ HERE = Path(__file__).resolve().parent
 COMMON = ["poker_core", "bot", "bot_exploit", "optimalbot", "updated_optimal"]
 # name -> (extra modules, strategy class, adapter class, default output folder)
 BOTS = {
-    "HU_UPDATED_OPTIMAL": (["hu_updated_optimal"], "HuUpdatedOptimalBot", "ChipzenHuBot", "chipzen_hu_bot"),
+    "HU_UPDATED_OPTIMAL": (["pushfold_tables", "hu_updated_optimal"], "HuUpdatedOptimalBot", "ChipzenHuBot",
+                           "chipzen_hu_bot"),
     "UPDATED_OPTIMAL": ([], "UpdatedOptimalBot", "ChipzenUpdatedBot", "chipzen_updated_bot"),
 }
-LOCAL = set(COMMON) | {"config", "hu_updated_optimal"}
+LOCAL = set(COMMON) | {"config", "hu_updated_optimal", "pushfold_tables"}
 # Dev-only code left out of the bundle: table building needs multiprocessing,
 # which the sandbox blocks, and the table is embedded instead.
 DROP = {"build_preflop_table", "_class_combos", "_preflop_job", "_load_preflop_table",

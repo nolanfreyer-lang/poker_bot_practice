@@ -19,6 +19,7 @@ import time
 import config as default_config
 from bot import Action, AGGRESSIVE
 from hu_updated_optimal import HuUpdatedOptimalBot
+from fitted_tables import FIT_BET, FIT_CHECK, FIT_RESPONSE, SIZE_BINS
 from poker_core import classify_hand, hand_class, hand_rank
 import updated_optimal as _updated
 
@@ -40,9 +41,17 @@ DEEP_CONFIG = {
     # "off": the inherited bet/check and raise choices stand.
     # "size_only": the inherited choice stands; EV only picks how much to bet.
     # "full": EV also decides whether to bet or raise at all.
-    "DEEP_SIZING": "off",
+    "DEEP_SIZING": "full",
     "FOLD_TRUST": 0.75,             # never assume more folds than this x their tracked fold rate
-    "BET_SIZES": (0.33, 0.66, 1.0),
+    "FITTED": True,                 # use measured responses from fitted_tables.py
+    "BET_SIZES": (0.33, 0.5, 0.75, 1.0, 1.5),
+    "REREAD_AFTER_RAISE": 0.6,      # after being raised, we continue with this equity or more
+    "RAISE_SIZE_MULT": 3.0,         # assumed size of a raise over our bet
+    # --- planning across streets -------------------------------------------
+    "PLANNING": True,
+    "PLAN_MIN_EQUITY": 0.6,         # strong hands may also use the size that gets stacks in by the river
+    # share of equity we keep on later streets when calling, (out of position, in position)
+    "REALIZE_FLOP": (0.82, 0.93), "REALIZE_TURN": (0.90, 0.97),
     "RAISE_SIZE": 0.8,              # raise by this fraction of the pot after calling
     "CHECK_REALIZE": 0.9,           # share of our equity kept after checking
     "CALL_P_REF_SIZE": 0.66,        # P(call) falls for bets bigger than this
@@ -97,6 +106,35 @@ class DeepOptimalBot(HuUpdatedOptimalBot):
             width = min(1.0, width * 1.3)
         return width
 
+    @staticmethod
+    def _street_pots(s):
+        """Chips in the pot when each street began."""
+        pots, total = {}, 0
+        for street in ("preflop", "flop", "turn", "river"):
+            pots[street] = total
+            bets = {}
+            for st, who, kind, amt in s.history:
+                if st == street and kind != "check" and kind != "fold":
+                    bets[who] = max(bets.get(who, 0), amt)
+            total += sum(bets.values())
+        return pots
+
+    def _likelihood(self, bucket, aggressive, bets, kind, frac):
+        c = self.cfg
+        if not c.FITTED:
+            table = (c.LIKELY_RAISE if bets > 1 else c.LIKELY_BET) if aggressive else \
+                c.LIKELY_CHECK if kind == "check" else c.LIKELY_CALL
+            return table[bucket]
+        if kind == "check":
+            return FIT_CHECK[bucket]
+        if aggressive and bets == 1:
+            return FIT_BET[bucket]
+        return FIT_RESPONSE[bucket][self._size_bin(frac)][2 if aggressive else 1]
+
+    @staticmethod
+    def _size_bin(frac):
+        return next((i for i, x in enumerate(SIZE_BINS) if frac <= x), len(SIZE_BINS))
+
     def _opponent_range(self, s, seat):
         """-> [a, b, weight, bucket on the current board] for every hand they could hold."""
         c = self.cfg
@@ -111,6 +149,7 @@ class DeepOptimalBot(HuUpdatedOptimalBot):
             if w > 0:
                 hands.append([a, b, w, None])
         scale = self.sd.bluff_rate(seat, c, s.street) / c.BLUFF_PRIOR
+        pot_before = self._street_pots(s)
         for street in ("flop", "turn", "river"):
             n = BOARD_LEN[street]
             if len(s.board) < n:
@@ -118,14 +157,19 @@ class DeepOptimalBot(HuUpdatedOptimalBot):
             board = s.board[:n]
             for h in hands:
                 h[3] = classify_hand([h[0], h[1]], board, self.good_kicker)
-            high, bets = 0, 0
+            high, bets, street_chips = 0, 0, {}
+            pot = pot_before[street]
             for st, who, kind, amt in s.history:
                 if st != street:
                     continue
                 aggressive = kind in AGGRESSIVE and amt > high
+                facing = high - street_chips.get(who, 0)
+                frac = facing / max(1, pot + sum(street_chips.values()) - facing)
                 if aggressive:
                     high = amt
                     bets += 1
+                if kind in AGGRESSIVE or kind == "call":
+                    street_chips[who] = max(street_chips.get(who, 0), amt)
                 if who != seat or kind in ("fold", "blind"):
                     continue
                 if aggressive:          # bets from frequent bettors contain more weak hands
@@ -133,10 +177,8 @@ class DeepOptimalBot(HuUpdatedOptimalBot):
                     read = min(c.FREQUENCY_MULT_MAX, max(1 / c.FREQUENCY_MULT_MAX, self._freq_ratio(s, seat, stat)))
                 else:
                     read = 1.0
-                table = (c.LIKELY_RAISE if bets > 1 else c.LIKELY_BET) if aggressive else \
-                    c.LIKELY_CHECK if kind == "check" else c.LIKELY_CALL
                 for h in hands:
-                    p = table[h[3]]
+                    p = self._likelihood(h[3], aggressive, bets, kind, frac)
                     if aggressive and h[3] in ("WEAK", "DRAW"):
                         p *= min(3.5, max(0.3, scale * read))
                     h[2] *= p
@@ -182,28 +224,46 @@ class DeepOptimalBot(HuUpdatedOptimalBot):
         return done
 
     # ------------------------------------------------------------ EV helpers
-    def _call_probability(self, seat, bucket, frac):
+    def _response(self, seat, bucket, frac):
+        """-> (fold, call, raise) chances for this hand, scaled by their tracked fold rate."""
         c = self.cfg
-        p = c.LIKELY_CALL[bucket] if bucket != "WEAK" else 0.08
-        p = min(1.0, p * (1 - self.sd.fold_rate(seat, c)) / (1 - c.FOLD_PRIOR))
-        return p * min(1.0, (c.CALL_P_REF_SIZE / max(frac, 0.01)) ** 0.5)
+        fold, call, rais = FIT_RESPONSE[bucket][self._size_bin(frac)]
+        read = self.sd.fold_rate(seat, c) / c.FOLD_PRIOR
+        fold = min(0.95, fold * min(1.5, max(0.5, read)))
+        rest = (1 - fold) / max(1e-9, call + rais)
+        return fold, call * rest, rais * rest
 
     def _bet_ev(self, hands, seat, bet, pot, players):
-        """EV of betting `bet` chips: they fold, or call and we realise our equity."""
+        """EV of betting `bet` chips: they fold, call, or raise us."""
+        c = self.cfg
         frac = bet / max(1, pot)
-        total = called = won = 0.0
+        total = ev = 0.0
         for h in hands:
+            fold, call, rais = self._response(seat, h[3], frac)
+            e = h[4]
+            raised = bet * c.RAISE_SIZE_MULT
+            if_raised = e * (pot + 2 * raised) - raised if e >= c.REREAD_AFTER_RAISE else -bet
+            ev += h[2] * (fold * pot + call * (e * (pot + 2 * bet) - bet) + rais * if_raised)
             total += h[2]
-            p = self._call_probability(seat, h[3], frac)
-            called += h[2] * p
-            won += h[2] * p * h[4]
-        if total <= 0:
-            return 0.0
-        call_share = min(1.0, called / total * players)     # more players, more chance of a call
-        fold_cap = self.cfg.FOLD_TRUST * self.sd.fold_rate(seat, self.cfg) ** players
-        call_share = max(call_share, 1 - fold_cap)
-        eq_called = won / called if called else 0.5
-        return (1 - call_share) * pot + call_share * (eq_called * (pot + 2 * bet) - bet)
+        return ev / total if total else 0.0
+
+    def _sizes(self, s, eq):
+        """Pot fractions to try, including the size that gets stacks in by the river."""
+        c = self.cfg
+        sizes = list(c.BET_SIZES)
+        streets_left = 4 - len(("flop", "turn", "river")[:["flop", "turn", "river"].index(s.street)]) - 1
+        if c.PLANNING and eq >= c.PLAN_MIN_EQUITY and s.pot > 0:
+            sizes.append((((s.pot + 2 * s.me.stack) / s.pot) ** (1 / streets_left) - 1) / 2)
+        return sizes
+
+    def _realize(self, s):
+        """Share of equity we keep when calling: earlier streets leave more bets to face."""
+        c = self.cfg
+        if not c.PLANNING or s.street == "river":
+            return 1.0
+        acted_before = any(st == s.street and seat == s.my_seat for st, seat, _, _ in s.history)
+        position = 1 if self.position(s) == "BTN" or not acted_before and self._players_left(s) > 2 else 0
+        return (c.REALIZE_FLOP if s.street == "flop" else c.REALIZE_TURN)[position]
 
     # ------------------------------------------------------------ postflop
     def _postflop(self, s):
@@ -227,12 +287,12 @@ class DeepOptimalBot(HuUpdatedOptimalBot):
         stack = s.me.stack
 
         if s.to_call == 0:
-            if c.DEEP_SIZING == "off" or stack <= 0:
+            if c.DEEP_SIZING == "off" or stack <= 0 or len(opps) > 1:
                 return base
             if c.DEEP_SIZING == "size_only" and base.kind == "check":
                 return base
             best, best_ev = None, eq * s.pot * c.CHECK_REALIZE if c.DEEP_SIZING == "full" else float("-inf")
-            for frac in c.BET_SIZES:
+            for frac in self._sizes(s, eq):
                 bet = min(stack, int(frac * s.pot))
                 ev = self._bet_ev(hands, seat, bet, s.pot, len(opps))
                 if ev > best_ev:
@@ -245,8 +305,8 @@ class DeepOptimalBot(HuUpdatedOptimalBot):
         self.last_ev["breakeven"] = be
         matched = min(s.to_call, stack)
         pot_after = s.pot + matched
-        call_ev = (eq - be) * pot_after
-        if c.DEEP_SIZING == "full":
+        call_ev = (eq * self._realize(s) - be) * pot_after
+        if c.DEEP_SIZING == "full" and len(opps) == 1:
             high = s.me.bet + s.to_call
             target = min(s.max_raise_to, max(s.min_raise_to, int(high + c.RAISE_SIZE * pot_after)))
             if target > high and s.max_raise_to > high:

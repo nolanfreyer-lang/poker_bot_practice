@@ -160,13 +160,14 @@ def play_hand(bot, token, verbose):
 def main():
     ap = argparse.ArgumentParser(description=__doc__, formatter_class=argparse.RawDescriptionHelpFormatter)
     ap.add_argument("--bot", type=str.upper, choices=list(BOTS), default="UPDATED_OPTIMAL")
+    ap.add_argument("--set", default="{}", help='bot settings as JSON, e.g. \'{"DEEP_SIZING": "full"}\'')
     ap.add_argument("--hands", type=int, default=1000)
     ap.add_argument("--seed", type=int, default=1)
     ap.add_argument("--log", default="slumbot_hands.jsonl")
     ap.add_argument("--verbose", action="store_true")
     args = ap.parse_args()
 
-    bot = BOTS[args.bot](seed=args.seed, overrides=BOT_OVERRIDES)
+    bot = BOTS[args.bot](seed=args.seed, overrides={**BOT_OVERRIDES, **json.loads(args.set)})
     token, results = None, []
     t0 = time.time()
     with open(args.log, "a") as log:

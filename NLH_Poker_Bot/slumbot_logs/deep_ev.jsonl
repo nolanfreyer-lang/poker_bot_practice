@@ -1,0 +1,1000 @@
+{"action": "b200b700c/b1400f", "client_pos": 0, "hole_cards": ["Qs", "9s"], "bot_hole_cards": ["Ts", "9h"], "board": ["6h", "4s", "2c"], "winnings": 700}
+{"action": "b250b750f", "client_pos": 1, "hole_cards": ["Js", "8c"], "bot_hole_cards": ["Kd", "5d"], "board": [], "winnings": -250}
+{"action": "b200f", "client_pos": 0, "hole_cards": ["9d", "2s"], "bot_hole_cards": ["As", "8h"], "board": [], "winnings": -100}
+{"action": "b250c/kb500c/kk/b750f", "client_pos": 1, "hole_cards": ["Ah", "6h"], "bot_hole_cards": ["Qh", "4d"], "board": ["Qs", "7d", "6c", "Qc", "9h"], "winnings": -750}
+{"action": "b200c/b300c/b750c/b1250c", "client_pos": 0, "hole_cards": ["9c", "8d"], "bot_hole_cards": ["As", "9s"], "board": ["8c", "2h", "2d", "Js", "5s"], "winnings": 2500}
+{"action": "b250b750c/kb1500c/b2250f", "client_pos": 1, "hole_cards": ["9d", "6d"], "bot_hole_cards": ["Qs", "Js"], "board": ["Ac", "Ks", "2s", "Kh"], "winnings": -2250}
+{"action": "b200b700c/b2100f", "client_pos": 0, "hole_cards": ["Ks", "Js"], "bot_hole_cards": ["Qd", "Jd"], "board": ["Kh", "5s", "3h"], "winnings": 700}
+{"action": "f", "client_pos": 1, "hole_cards": ["8s", "5c"], "bot_hole_cards": ["7h", "4h"], "board": [], "winnings": -50}
+{"action": "f", "client_pos": 0, "hole_cards": ["4c", "3s"], "bot_hole_cards": ["7s", "2d"], "board": [], "winnings": 50}
+{"action": "b250c/kb827c/kb3564f", "client_pos": 1, "hole_cards": ["Ah", "Qh"], "bot_hole_cards": ["3s", "3d"], "board": ["4s", "4c", "2c", "Qc"], "winnings": 1077}
+{"action": "b200b700c/b1400c/b4200c/kk", "client_pos": 0, "hole_cards": ["Ac", "Qh"], "bot_hole_cards": ["Kh", "3d"], "board": ["Kd", "5c", "4d", "9h", "8h"], "winnings": -6300}
+{"action": "b250b750c/kb1500f", "client_pos": 1, "hole_cards": ["6c", "5c"], "bot_hole_cards": ["Kc", "8s"], "board": ["Ah", "Ad", "5h"], "winnings": 750}
+{"action": "b200c/b400f", "client_pos": 0, "hole_cards": ["Jc", "9h"], "bot_hole_cards": ["9c", "8c"], "board": ["Ad", "Qh", "7s"], "winnings": 200}
+{"action": "b250c/kb375c/kb937c/kb18438f", "client_pos": 1, "hole_cards": ["Ac", "3s"], "bot_hole_cards": ["Ad", "Th"], "board": ["8s", "8h", "3d", "4s", "8c"], "winnings": 1562}
+{"action": "b200c/b400f", "client_pos": 0, "hole_cards": ["Kh", "9d"], "bot_hole_cards": ["Qc", "2c"], "board": ["8d", "5c", "3d"], "winnings": 200}
+{"action": "b250c/kb827f", "client_pos": 1, "hole_cards": ["Kc", "9d"], "bot_hole_cards": ["6c", "5s"], "board": ["Kh", "Td", "3h"], "winnings": 250}
+{"action": "b200f", "client_pos": 0, "hole_cards": ["7h", "3d"], "bot_hole_cards": ["Ks", "6d"], "board": [], "winnings": -100}
+{"action": "b250b750c/kb2250f", "client_pos": 1, "hole_cards": ["Kh", "7h"], "bot_hole_cards": ["Ah", "Qs"], "board": ["Kc", "8s", "7s"], "winnings": 750}
+{"action": "b200b700f", "client_pos": 0, "hole_cards": ["Ac", "Jc"], "bot_hole_cards": ["Jd", "3c"], "board": [], "winnings": 200}
+{"action": "f", "client_pos": 1, "hole_cards": ["Tc", "4d"], "bot_hole_cards": ["Qs", "8s"], "board": [], "winnings": -50}
+{"action": "b200b700b2400f", "client_pos": 0, "hole_cards": ["9h", "8h"], "bot_hole_cards": ["6d", "5d"], "board": [], "winnings": -700}
+{"action": "b250b750f", "client_pos": 1, "hole_cards": ["Qd", "4c"], "bot_hole_cards": ["Js", "Jd"], "board": [], "winnings": -250}
+{"action": "b200c/b400f", "client_pos": 0, "hole_cards": ["Kh", "2h"], "bot_hole_cards": ["Jd", "9s"], "board": ["8s", "8d", "4d"], "winnings": 200}
+{"action": "f", "client_pos": 1, "hole_cards": ["Th", "2s"], "bot_hole_cards": ["Ac", "8h"], "board": [], "winnings": -50}
+{"action": "b200c/b400f", "client_pos": 0, "hole_cards": ["8c", "6d"], "bot_hole_cards": ["Qc", "4d"], "board": ["Ah", "5s", "4c"], "winnings": 200}
+{"action": "b250c/kb375c/kb2910f", "client_pos": 1, "hole_cards": ["Kh", "5c"], "bot_hole_cards": ["8s", "8c"], "board": ["Ks", "4d", "2d", "6h"], "winnings": 625}
+{"action": "b200f", "client_pos": 0, "hole_cards": ["8s", "4h"], "bot_hole_cards": ["Ks", "2c"], "board": [], "winnings": -100}
+{"action": "b250c/kb500f", "client_pos": 1, "hole_cards": ["Td", "9d"], "bot_hole_cards": ["Th", "8c"], "board": ["Ks", "Js", "2h"], "winnings": 250}
+{"action": "b200c/b728c/b1856f", "client_pos": 0, "hole_cards": ["Kh", "4h"], "bot_hole_cards": ["Qs", "4s"], "board": ["8s", "4d", "3h", "6c"], "winnings": 928}
+{"action": "b250f", "client_pos": 1, "hole_cards": ["9h", "8s"], "bot_hole_cards": ["Ts", "2h"], "board": [], "winnings": 100}
+{"action": "b200f", "client_pos": 0, "hole_cards": ["6d", "2s"], "bot_hole_cards": ["Tc", "7c"], "board": [], "winnings": -100}
+{"action": "b250c/kb500f", "client_pos": 1, "hole_cards": ["Ad", "5s"], "bot_hole_cards": ["Qs", "Tc"], "board": ["6h", "6d", "2h"], "winnings": 250}
+{"action": "b200c/b400b1000f", "client_pos": 0, "hole_cards": ["Kh", "6s"], "bot_hole_cards": ["7d", "5h"], "board": ["Ah", "Ac", "3h"], "winnings": -600}
+{"action": "b250f", "client_pos": 1, "hole_cards": ["Ah", "7s"], "bot_hole_cards": ["3h", "2c"], "board": [], "winnings": 100}
+{"action": "b200f", "client_pos": 0, "hole_cards": ["Jd", "2s"], "bot_hole_cards": ["8h", "6s"], "board": [], "winnings": -100}
+{"action": "f", "client_pos": 1, "hole_cards": ["4d", "2h"], "bot_hole_cards": ["6d", "2c"], "board": [], "winnings": -50}
+{"action": "b200f", "client_pos": 0, "hole_cards": ["8h", "4c"], "bot_hole_cards": ["Js", "6c"], "board": [], "winnings": -100}
+{"action": "f", "client_pos": 1, "hole_cards": ["9d", "2h"], "bot_hole_cards": ["Ts", "Th"], "board": [], "winnings": -50}
+{"action": "b200b700f", "client_pos": 0, "hole_cards": ["6s", "5s"], "bot_hole_cards": ["Js", "2s"], "board": [], "winnings": 200}
+{"action": "b250f", "client_pos": 1, "hole_cards": ["Ad", "2c"], "bot_hole_cards": ["9s", "2h"], "board": [], "winnings": 100}
+{"action": "b200c/b400c/b1200c/kk", "client_pos": 0, "hole_cards": ["Js", "5s"], "bot_hole_cards": ["Ah", "4s"], "board": ["Ks", "Qd", "4h", "2s", "6h"], "winnings": -1800}
+{"action": "b250f", "client_pos": 1, "hole_cards": ["5h", "5d"], "bot_hole_cards": ["9c", "3h"], "board": [], "winnings": 100}
+{"action": "b200c/b400c/b1200c/kb3600f", "client_pos": 0, "hole_cards": ["Ts", "8c"], "bot_hole_cards": ["7h", "7c"], "board": ["Ad", "8d", "6c", "6s", "7s"], "winnings": -1800}
+{"action": "f", "client_pos": 1, "hole_cards": ["8c", "3h"], "bot_hole_cards": ["Qs", "4h"], "board": [], "winnings": -50}
+{"action": "b200c/b400f", "client_pos": 0, "hole_cards": ["Kc", "5d"], "bot_hole_cards": ["7d", "5s"], "board": ["As", "Ts", "2c"], "winnings": 200}
+{"action": "b250c/kb500f", "client_pos": 1, "hole_cards": ["Kh", "Qc"], "bot_hole_cards": ["Qd", "9c"], "board": ["Ah", "7h", "6s"], "winnings": 250}
+{"action": "b200f", "client_pos": 0, "hole_cards": ["Th", "3h"], "bot_hole_cards": ["Ks", "Kh"], "board": [], "winnings": -100}
+{"action": "b250b750f", "client_pos": 1, "hole_cards": ["Kc", "2c"], "bot_hole_cards": ["9s", "9c"], "board": [], "winnings": -250}
+{"action": "b200f", "client_pos": 0, "hole_cards": ["Jd", "4s"], "bot_hole_cards": ["Js", "4h"], "board": [], "winnings": -100}
+{"action": "b250f", "client_pos": 1, "hole_cards": ["Td", "3d"], "bot_hole_cards": ["8c", "2d"], "board": [], "winnings": 100}
+{"action": "b200c/b400c/b1200b3000f", "client_pos": 0, "hole_cards": ["Ad", "9s"], "bot_hole_cards": ["9h", "5h"], "board": ["Kc", "7s", "6s", "9c"], "winnings": -1800}
+{"action": "b250b750f", "client_pos": 1, "hole_cards": ["Kc", "8d"], "bot_hole_cards": ["7h", "7c"], "board": [], "winnings": -250}
+{"action": "b200c/b300f", "client_pos": 0, "hole_cards": ["Th", "9s"], "bot_hole_cards": ["Td", "3s"], "board": ["9c", "7d", "6h"], "winnings": 200}
+{"action": "b250b750c/b750b3150c/kb16100f", "client_pos": 1, "hole_cards": ["Kh", "9h"], "bot_hole_cards": ["Ks", "8c"], "board": ["As", "8h", "4h", "3h"], "winnings": 3900}
+{"action": "b200f", "client_pos": 0, "hole_cards": ["Ts", "6c"], "bot_hole_cards": ["7s", "4s"], "board": [], "winnings": -100}
+{"action": "b250b750f", "client_pos": 1, "hole_cards": ["6d", "3d"], "bot_hole_cards": ["7c", "5c"], "board": [], "winnings": -250}
+{"action": "b200c/b400b1000f", "client_pos": 0, "hole_cards": ["Jd", "8h"], "bot_hole_cards": ["Ks", "6s"], "board": ["Kc", "7s", "6c"], "winnings": -600}
+{"action": "f", "client_pos": 1, "hole_cards": ["6d", "4c"], "bot_hole_cards": ["As", "9c"], "board": [], "winnings": -50}
+{"action": "b200c/b300c/b1000c/kk", "client_pos": 0, "hole_cards": ["Jh", "8h"], "bot_hole_cards": ["7h", "6h"], "board": ["9c", "8s", "4d", "6c", "Kd"], "winnings": 1500}
+{"action": "b250c/kb375f", "client_pos": 1, "hole_cards": ["Tc", "7h"], "bot_hole_cards": ["Qc", "3d"], "board": ["Ts", "9c", "5h"], "winnings": 250}
+{"action": "b200c/b400f", "client_pos": 0, "hole_cards": ["As", "2d"], "bot_hole_cards": ["Jd", "4h"], "board": ["Ts", "Th", "6d"], "winnings": 200}
+{"action": "b250c/kb500c/kb1500c/kk", "client_pos": 1, "hole_cards": ["3h", "3d"], "bot_hole_cards": ["Qh", "5d"], "board": ["Ad", "Qc", "5h", "4h", "Qd"], "winnings": -2250}
+{"action": "b200b700b1800f", "client_pos": 0, "hole_cards": ["7h", "5h"], "bot_hole_cards": ["Qs", "4s"], "board": [], "winnings": -700}
+{"action": "b250c/kb500c/kb1500f", "client_pos": 1, "hole_cards": ["9c", "8c"], "bot_hole_cards": ["8s", "8d"], "board": ["Qs", "7d", "3h", "4h"], "winnings": 750}
+{"action": "b200f", "client_pos": 0, "hole_cards": ["Qh", "4c"], "bot_hole_cards": ["Js", "6h"], "board": [], "winnings": -100}
+{"action": "f", "client_pos": 1, "hole_cards": ["8s", "4h"], "bot_hole_cards": ["Kh", "4d"], "board": [], "winnings": -50}
+{"action": "b200c/b400f", "client_pos": 0, "hole_cards": ["Kc", "9s"], "bot_hole_cards": ["Kd", "4d"], "board": ["5h", "4h", "3s"], "winnings": 200}
+{"action": "b250f", "client_pos": 1, "hole_cards": ["Qs", "Jc"], "bot_hole_cards": ["Jd", "2c"], "board": [], "winnings": 100}
+{"action": "b200c/b400c/b2864f", "client_pos": 0, "hole_cards": ["Ac", "4d"], "bot_hole_cards": ["Qc", "Tc"], "board": ["9d", "8s", "6c", "Ah"], "winnings": 600}
+{"action": "b250f", "client_pos": 1, "hole_cards": ["6s", "5c"], "bot_hole_cards": ["8s", "4c"], "board": [], "winnings": 100}
+{"action": "b200c/b400f", "client_pos": 0, "hole_cards": ["6c", "4c"], "bot_hole_cards": ["Qc", "6d"], "board": ["9h", "8c", "2s"], "winnings": 200}
+{"action": "f", "client_pos": 1, "hole_cards": ["9s", "4d"], "bot_hole_cards": ["As", "2s"], "board": [], "winnings": -50}
+{"action": "b200c/b400f", "client_pos": 0, "hole_cards": ["9d", "8s"], "bot_hole_cards": ["Qd", "Jc"], "board": ["6d", "4h", "2d"], "winnings": 200}
+{"action": "b250c/b250c/b500c/kk", "client_pos": 1, "hole_cards": ["Kd", "Th"], "bot_hole_cards": ["Qs", "4h"], "board": ["As", "Ac", "6d", "Ts", "2h"], "winnings": 1000}
+{"action": "b200c/b400f", "client_pos": 0, "hole_cards": ["Jc", "8d"], "bot_hole_cards": ["Js", "3d"], "board": ["Tc", "7c", "5c"], "winnings": 200}
+{"action": "f", "client_pos": 1, "hole_cards": ["8h", "4c"], "bot_hole_cards": ["Qh", "8d"], "board": [], "winnings": -50}
+{"action": "b200c/b400c/b1200c/b3600b18200f", "client_pos": 0, "hole_cards": ["Ad", "6c"], "bot_hole_cards": ["As", "7s"], "board": ["5s", "4c", "3h", "Qd", "Td"], "winnings": -5400}
+{"action": "b250b750c/kb1500f", "client_pos": 1, "hole_cards": ["Qd", "9d"], "bot_hole_cards": ["As", "8s"], "board": ["Js", "5d", "3c"], "winnings": 750}
+{"action": "b200c/b300c/b750b3100b19500f", "client_pos": 0, "hole_cards": ["Th", "8s"], "bot_hole_cards": ["8h", "5d"], "board": ["Ts", "5s", "5c", "9d"], "winnings": 3600}
+{"action": "b250c/kb500f", "client_pos": 1, "hole_cards": ["9s", "6d"], "bot_hole_cards": ["8h", "7d"], "board": ["Qd", "Tc", "8c"], "winnings": 250}
+{"action": "b200b700f", "client_pos": 0, "hole_cards": ["Qh", "9h"], "bot_hole_cards": ["Jh", "3d"], "board": [], "winnings": 200}
+{"action": "b250c/kb500f", "client_pos": 1, "hole_cards": ["Ad", "4h"], "bot_hole_cards": ["Qd", "2s"], "board": ["Jc", "8c", "3h"], "winnings": 250}
+{"action": "b200c/b400c/b2864f", "client_pos": 0, "hole_cards": ["7h", "3h"], "bot_hole_cards": ["Ac", "Th"], "board": ["Ah", "Qc", "3s", "3c"], "winnings": 600}
+{"action": "f", "client_pos": 1, "hole_cards": ["9h", "3d"], "bot_hole_cards": ["Ah", "Qs"], "board": [], "winnings": -50}
+{"action": "b200b700b2400f", "client_pos": 0, "hole_cards": ["As", "Jc"], "bot_hole_cards": ["Ts", "Tc"], "board": [], "winnings": -700}
+{"action": "b250c/kb500f", "client_pos": 1, "hole_cards": ["Th", "8h"], "bot_hole_cards": ["Jc", "9c"], "board": ["Kh", "7d", "2s"], "winnings": 250}
+{"action": "f", "client_pos": 0, "hole_cards": ["Tc", "7s"], "bot_hole_cards": ["5c", "2h"], "board": [], "winnings": 50}
+{"action": "f", "client_pos": 1, "hole_cards": ["9s", "4c"], "bot_hole_cards": ["Qd", "3c"], "board": [], "winnings": -50}
+{"action": "b200c/b400f", "client_pos": 0, "hole_cards": ["9s", "8h"], "bot_hole_cards": ["Js", "7d"], "board": ["Ac", "5s", "4h"], "winnings": 200}
+{"action": "b250f", "client_pos": 1, "hole_cards": ["Kh", "3d"], "bot_hole_cards": ["7h", "4c"], "board": [], "winnings": 100}
+{"action": "b200f", "client_pos": 0, "hole_cards": ["8h", "3d"], "bot_hole_cards": ["5s", "3h"], "board": [], "winnings": -100}
+{"action": "b250f", "client_pos": 1, "hole_cards": ["Jh", "7h"], "bot_hole_cards": ["4s", "2d"], "board": [], "winnings": 100}
+{"action": "b200c/b400f", "client_pos": 0, "hole_cards": ["As", "6h"], "bot_hole_cards": ["Jh", "6c"], "board": ["9h", "9c", "2d"], "winnings": 200}
+{"action": "b250f", "client_pos": 1, "hole_cards": ["4h", "4c"], "bot_hole_cards": ["Js", "2d"], "board": [], "winnings": 100}
+{"action": "b200f", "client_pos": 0, "hole_cards": ["7h", "2d"], "bot_hole_cards": ["9d", "7c"], "board": [], "winnings": -100}
+{"action": "b250c/kb500f", "client_pos": 1, "hole_cards": ["Ad", "Tc"], "bot_hole_cards": ["Td", "6c"], "board": ["Kc", "Qs", "4s"], "winnings": 250}
+{"action": "b200c/b728f", "client_pos": 0, "hole_cards": ["Ah", "9c"], "bot_hole_cards": ["Kd", "5c"], "board": ["Ad", "Td", "6h"], "winnings": 200}
+{"action": "b250b750c/kb1500c/kk/kk", "client_pos": 1, "hole_cards": ["Js", "Jh"], "bot_hole_cards": ["Kc", "8h"], "board": ["Ac", "Kd", "7d", "Ts", "6h"], "winnings": -2250}
+{"action": "b200f", "client_pos": 0, "hole_cards": ["Ts", "6h"], "bot_hole_cards": ["Kh", "2s"], "board": [], "winnings": -100}
+{"action": "f", "client_pos": 1, "hole_cards": ["8d", "3h"], "bot_hole_cards": ["Kc", "8c"], "board": [], "winnings": -50}
+{"action": "b200c/b728f", "client_pos": 0, "hole_cards": ["8h", "8c"], "bot_hole_cards": ["Qs", "4s"], "board": ["Tc", "7c", "5c"], "winnings": 200}
+{"action": "b250c/kb827f", "client_pos": 1, "hole_cards": ["Kc", "Qd"], "bot_hole_cards": ["5c", "3h"], "board": ["Qs", "Jd", "8h"], "winnings": 250}
+{"action": "b200b700f", "client_pos": 0, "hole_cards": ["Jh", "Th"], "bot_hole_cards": ["9s", "2s"], "board": [], "winnings": 200}
+{"action": "b250c/kb500f", "client_pos": 1, "hole_cards": ["Th", "8s"], "bot_hole_cards": ["Qc", "8d"], "board": ["7d", "5c", "3s"], "winnings": 250}
+{"action": "b200c/b728f", "client_pos": 0, "hole_cards": ["Ts", "9d"], "bot_hole_cards": ["2d", "2c"], "board": ["9c", "6d", "4h"], "winnings": 200}
+{"action": "b250b750f", "client_pos": 1, "hole_cards": ["Kd", "6c"], "bot_hole_cards": ["Qc", "4c"], "board": [], "winnings": -250}
+{"action": "b200f", "client_pos": 0, "hole_cards": ["7h", "3d"], "bot_hole_cards": ["Js", "2d"], "board": [], "winnings": -100}
+{"action": "b250f", "client_pos": 1, "hole_cards": ["Td", "6d"], "bot_hole_cards": ["8d", "3c"], "board": [], "winnings": 100}
+{"action": "b200c/b400c/b1200f", "client_pos": 0, "hole_cards": ["Ks", "5s"], "bot_hole_cards": ["Ts", "5h"], "board": ["Td", "8c", "3d", "Qd"], "winnings": 600}
+{"action": "b250c/kb500f", "client_pos": 1, "hole_cards": ["Qs", "7d"], "bot_hole_cards": ["6h", "4c"], "board": ["9s", "7s", "3d"], "winnings": 250}
+{"action": "b200f", "client_pos": 0, "hole_cards": ["Jh", "5d"], "bot_hole_cards": ["9h", "3h"], "board": [], "winnings": -100}
+{"action": "b250c/kb375c/kb1250c/kb3750f", "client_pos": 1, "hole_cards": ["Qs", "Ts"], "bot_hole_cards": ["Td", "9h"], "board": ["Ad", "Th", "2c", "8s", "4s"], "winnings": 1875}
+{"action": "b200c/b728f", "client_pos": 0, "hole_cards": ["6h", "6c"], "bot_hole_cards": ["Kh", "4s"], "board": ["Ac", "9s", "6s"], "winnings": 200}
+{"action": "b250c/kb500c/kb1500f", "client_pos": 1, "hole_cards": ["Jd", "2d"], "bot_hole_cards": ["Kd", "9s"], "board": ["Qs", "7s", "3s", "8d"], "winnings": 750}
+{"action": "b200f", "client_pos": 0, "hole_cards": ["7h", "3c"], "bot_hole_cards": ["8c", "6c"], "board": [], "winnings": -100}
+{"action": "f", "client_pos": 1, "hole_cards": ["7h", "2d"], "bot_hole_cards": ["Jh", "3d"], "board": [], "winnings": -50}
+{"action": "b200c/b300f", "client_pos": 0, "hole_cards": ["Td", "9c"], "bot_hole_cards": ["Ks", "3d"], "board": ["Ac", "9h", "7d"], "winnings": 200}
+{"action": "b250f", "client_pos": 1, "hole_cards": ["Tc", "7s"], "bot_hole_cards": ["7c", "4d"], "board": [], "winnings": 100}
+{"action": "b200f", "client_pos": 0, "hole_cards": ["Qc", "3h"], "bot_hole_cards": ["Kd", "5c"], "board": [], "winnings": -100}
+{"action": "b250c/kb500f", "client_pos": 1, "hole_cards": ["9s", "6s"], "bot_hole_cards": ["Js", "5c"], "board": ["As", "Kd", "4d"], "winnings": 250}
+{"action": "b200f", "client_pos": 0, "hole_cards": ["5c", "4h"], "bot_hole_cards": ["Jd", "2c"], "board": [], "winnings": -100}
+{"action": "b250f", "client_pos": 1, "hole_cards": ["Th", "7d"], "bot_hole_cards": ["6s", "2h"], "board": [], "winnings": 100}
+{"action": "b200b700c/b1400c/b4200f", "client_pos": 0, "hole_cards": ["8c", "6c"], "bot_hole_cards": ["As", "9c"], "board": ["Ac", "5d", "4c", "2h"], "winnings": 2100}
+{"action": "b250b750c/b750f", "client_pos": 1, "hole_cards": ["9s", "6s"], "bot_hole_cards": ["8c", "7c"], "board": ["Ad", "Qc", "3c"], "winnings": -750}
+{"action": "b200c/b400f", "client_pos": 0, "hole_cards": ["Kc", "7s"], "bot_hole_cards": ["9h", "7d"], "board": ["Ad", "8d", "2c"], "winnings": 200}
+{"action": "f", "client_pos": 1, "hole_cards": ["Ts", "2c"], "bot_hole_cards": ["9s", "3s"], "board": [], "winnings": -50}
+{"action": "f", "client_pos": 0, "hole_cards": ["Th", "2c"], "bot_hole_cards": ["3c", "2s"], "board": [], "winnings": 50}
+{"action": "b250c/kb827f", "client_pos": 1, "hole_cards": ["Kd", "2s"], "bot_hole_cards": ["Qc", "8d"], "board": ["Kh", "Jh", "8s"], "winnings": 250}
+{"action": "b200c/b728f", "client_pos": 0, "hole_cards": ["Qd", "7h"], "bot_hole_cards": ["9c", "4d"], "board": ["Qs", "Qh", "6d"], "winnings": 200}
+{"action": "b250c/kb827c/kb3564c/kb15359f", "client_pos": 1, "hole_cards": ["Qc", "Jh"], "bot_hole_cards": ["Qh", "Ts"], "board": ["Qd", "Jd", "9s", "7c", "2c"], "winnings": 4641}
+{"action": "b200f", "client_pos": 0, "hole_cards": ["6h", "2h"], "bot_hole_cards": ["8c", "4s"], "board": [], "winnings": -100}
+{"action": "b250b750c/kb2250c/kb17000c/", "client_pos": 1, "hole_cards": ["8c", "5c"], "bot_hole_cards": ["9s", "6s"], "board": ["9d", "7h", "6h", "Qh", "7c"], "winnings": 20000}
+{"action": "b200c/b400f", "client_pos": 0, "hole_cards": ["Js", "5s"], "bot_hole_cards": ["Td", "5c"], "board": ["Th", "9c", "8h"], "winnings": 200}
+{"action": "f", "client_pos": 1, "hole_cards": ["5c", "2s"], "bot_hole_cards": ["As", "7c"], "board": [], "winnings": -50}
+{"action": "b200c/b300c/b1000f", "client_pos": 0, "hole_cards": ["Ks", "4c"], "bot_hole_cards": ["Ah", "4h"], "board": ["Kh", "8d", "8c", "9c"], "winnings": 500}
+{"action": "b250c/kb827c/b1423c/kk", "client_pos": 1, "hole_cards": ["7s", "7c"], "bot_hole_cards": ["Jd", "6h"], "board": ["8d", "6s", "4c", "3s", "Qd"], "winnings": 2500}
+{"action": "b200c/b400f", "client_pos": 0, "hole_cards": ["4h", "4c"], "bot_hole_cards": ["Jc", "7h"], "board": ["6d", "3s", "3h"], "winnings": 200}
+{"action": "b250c/kb500c/kb1500f", "client_pos": 1, "hole_cards": ["6h", "3h"], "bot_hole_cards": ["Qd", "Tc"], "board": ["7c", "2d", "2c", "Ks"], "winnings": 750}
+{"action": "b200c/b728c/b928b5072c/kk", "client_pos": 0, "hole_cards": ["Kc", "3c"], "bot_hole_cards": ["Jh", "9h"], "board": ["Kh", "Qc", "Td", "Ac", "4s"], "winnings": -6000}
+{"action": "b250c/kb500f", "client_pos": 1, "hole_cards": ["Ah", "5s"], "bot_hole_cards": ["Ks", "5h"], "board": ["Th", "6c", "2d"], "winnings": 250}
+{"action": "b200f", "client_pos": 0, "hole_cards": ["7d", "4c"], "bot_hole_cards": ["Qh", "Jc"], "board": [], "winnings": -100}
+{"action": "f", "client_pos": 1, "hole_cards": ["6c", "2d"], "bot_hole_cards": ["9c", "6s"], "board": [], "winnings": -50}
+{"action": "b200f", "client_pos": 0, "hole_cards": ["Jc", "7h"], "bot_hole_cards": ["6c", "3c"], "board": [], "winnings": -100}
+{"action": "b250c/kb500f", "client_pos": 1, "hole_cards": ["Td", "6c"], "bot_hole_cards": ["8c", "7s"], "board": ["Jh", "4d", "2s"], "winnings": 250}
+{"action": "b200c/b400c/b1200c/b3600f", "client_pos": 0, "hole_cards": ["Qd", "7d"], "bot_hole_cards": ["Jd", "3s"], "board": ["8d", "3h", "2c", "2s", "Kd"], "winnings": 1800}
+{"action": "b250c/kb500f", "client_pos": 1, "hole_cards": ["Ad", "8s"], "bot_hole_cards": ["7d", "6h"], "board": ["Qh", "Qd", "2c"], "winnings": 250}
+{"action": "b200c/b400f", "client_pos": 0, "hole_cards": ["Jd", "8d"], "bot_hole_cards": ["8s", "6h"], "board": ["Ks", "Kc", "Qh"], "winnings": 200}
+{"action": "b250c/kb500c/kb1500f", "client_pos": 1, "hole_cards": ["Qc", "8c"], "bot_hole_cards": ["Ks", "9s"], "board": ["Tc", "9h", "4d", "Ad"], "winnings": 750}
+{"action": "b200b700b1800f", "client_pos": 0, "hole_cards": ["Ks", "Qd"], "bot_hole_cards": ["As", "Ah"], "board": [], "winnings": -700}
+{"action": "b250c/b250f", "client_pos": 1, "hole_cards": ["Th", "3h"], "bot_hole_cards": ["5s", "3d"], "board": ["Js", "7s", "7h"], "winnings": -250}
+{"action": "b200f", "client_pos": 0, "hole_cards": ["7c", "4h"], "bot_hole_cards": ["Qs", "Jd"], "board": [], "winnings": -100}
+{"action": "b250c/kb500b2000f", "client_pos": 1, "hole_cards": ["Kd", "Th"], "bot_hole_cards": ["6d", "5s"], "board": ["Qh", "7s", "4c"], "winnings": -750}
+{"action": "b200f", "client_pos": 0, "hole_cards": ["9s", "3d"], "bot_hole_cards": ["Td", "4h"], "board": [], "winnings": -100}
+{"action": "f", "client_pos": 1, "hole_cards": ["3s", "2h"], "bot_hole_cards": ["Js", "5c"], "board": [], "winnings": -50}
+{"action": "b200f", "client_pos": 0, "hole_cards": ["Js", "3c"], "bot_hole_cards": ["Jd", "2s"], "board": [], "winnings": -100}
+{"action": "f", "client_pos": 1, "hole_cards": ["7s", "3c"], "bot_hole_cards": ["Ts", "7c"], "board": [], "winnings": -50}
+{"action": "b200b700c/b1400f", "client_pos": 0, "hole_cards": ["7c", "5c"], "bot_hole_cards": ["5s", "4c"], "board": ["Kd", "Tc", "2d"], "winnings": 700}
+{"action": "b250c/kb500f", "client_pos": 1, "hole_cards": ["Ah", "2h"], "bot_hole_cards": ["Td", "9s"], "board": ["Qh", "5h", "4s"], "winnings": 250}
+{"action": "b200b700f", "client_pos": 0, "hole_cards": ["Ac", "Ks"], "bot_hole_cards": ["Qc", "4c"], "board": [], "winnings": 200}
+{"action": "b250b750c/kb1500c/kb4500f", "client_pos": 1, "hole_cards": ["7c", "6c"], "bot_hole_cards": ["4d", "4c"], "board": ["Jd", "Jc", "3c", "8h"], "winnings": 2250}
+{"action": "b200c/b400f", "client_pos": 0, "hole_cards": ["8s", "7h"], "bot_hole_cards": ["As", "6d"], "board": ["9c", "8c", "7d"], "winnings": 200}
+{"action": "b250b750b1724c/b100b3018f", "client_pos": 1, "hole_cards": ["Ad", "Qd"], "bot_hole_cards": ["Kc", "Tc"], "board": ["Qs", "8h", "7h"], "winnings": 1824}
+{"action": "b200b700f", "client_pos": 0, "hole_cards": ["Qd", "9d"], "bot_hole_cards": ["Qs", "8h"], "board": [], "winnings": 200}
+{"action": "b250b750f", "client_pos": 1, "hole_cards": ["Ks", "5d"], "bot_hole_cards": ["Qd", "2d"], "board": [], "winnings": -250}
+{"action": "b200f", "client_pos": 0, "hole_cards": ["Jc", "7d"], "bot_hole_cards": ["Qd", "7s"], "board": [], "winnings": -100}
+{"action": "b250c/kb500c/kb1500f", "client_pos": 1, "hole_cards": ["9d", "6h"], "bot_hole_cards": ["6c", "5d"], "board": ["Qs", "Tc", "5h", "2s"], "winnings": 750}
+{"action": "b200b700c/b2100c/b17200f", "client_pos": 0, "hole_cards": ["As", "Ts"], "bot_hole_cards": ["Qs", "Th"], "board": ["Ah", "Tc", "3h", "Ac"], "winnings": 2800}
+{"action": "b250b750c/kb1500f", "client_pos": 1, "hole_cards": ["Jd", "8d"], "bot_hole_cards": ["6s", "6h"], "board": ["Ks", "9c", "7s"], "winnings": 750}
+{"action": "b200f", "client_pos": 0, "hole_cards": ["Jh", "4c"], "bot_hole_cards": ["Ks", "3c"], "board": [], "winnings": -100}
+{"action": "b250b750f", "client_pos": 1, "hole_cards": ["Jd", "3d"], "bot_hole_cards": ["Ks", "Js"], "board": [], "winnings": -250}
+{"action": "b200c/b728f", "client_pos": 0, "hole_cards": ["8c", "7h"], "bot_hole_cards": ["Qc", "2s"], "board": ["Ts", "6d", "5s"], "winnings": 200}
+{"action": "b250c/kb500f", "client_pos": 1, "hole_cards": ["Jc", "9s"], "bot_hole_cards": ["8c", "7s"], "board": ["Kd", "Qd", "6c"], "winnings": 250}
+{"action": "b200c/b400c/b1200c/b18200f", "client_pos": 0, "hole_cards": ["8s", "8c"], "bot_hole_cards": ["4s", "3s"], "board": ["Ad", "Jd", "3c", "5h", "8d"], "winnings": 1800}
+{"action": "f", "client_pos": 1, "hole_cards": ["9h", "2s"], "bot_hole_cards": ["8c", "6d"], "board": [], "winnings": -50}
+{"action": "b200c/b400f", "client_pos": 0, "hole_cards": ["Kc", "Ts"], "bot_hole_cards": ["Qh", "7c"], "board": ["4h", "2h", "2c"], "winnings": 200}
+{"action": "b250c/kb500f", "client_pos": 1, "hole_cards": ["3d", "3c"], "bot_hole_cards": ["Jd", "3s"], "board": ["Ah", "Ts", "7c"], "winnings": 250}
+{"action": "b200f", "client_pos": 0, "hole_cards": ["Ts", "4h"], "bot_hole_cards": ["Th", "2d"], "board": [], "winnings": -100}
+{"action": "b250c/kb500f", "client_pos": 1, "hole_cards": ["As", "6h"], "bot_hole_cards": ["8h", "6d"], "board": ["Js", "9h", "6s"], "winnings": 250}
+{"action": "b200c/b400f", "client_pos": 0, "hole_cards": ["6d", "5c"], "bot_hole_cards": ["As", "2d"], "board": ["Jh", "9s", "5s"], "winnings": 200}
+{"action": "b250f", "client_pos": 1, "hole_cards": ["5s", "5h"], "bot_hole_cards": ["8d", "3c"], "board": [], "winnings": 100}
+{"action": "b200c/b400c/b1200f", "client_pos": 0, "hole_cards": ["4h", "3h"], "bot_hole_cards": ["7h", "5c"], "board": ["8d", "5d", "3s", "Td"], "winnings": 600}
+{"action": "f", "client_pos": 1, "hole_cards": ["9h", "5s"], "bot_hole_cards": ["Qc", "Ts"], "board": [], "winnings": -50}
+{"action": "b200c/b400c/b1200f", "client_pos": 0, "hole_cards": ["Jh", "4h"], "bot_hole_cards": ["Ac", "6s"], "board": ["Jd", "6d", "3d", "Th"], "winnings": 600}
+{"action": "b250c/kb500f", "client_pos": 1, "hole_cards": ["7s", "6d"], "bot_hole_cards": ["Jc", "8d"], "board": ["Td", "5s", "5d"], "winnings": 250}
+{"action": "b200f", "client_pos": 0, "hole_cards": ["7d", "2s"], "bot_hole_cards": ["Td", "8s"], "board": [], "winnings": -100}
+{"action": "b250f", "client_pos": 1, "hole_cards": ["Ks", "Qd"], "bot_hole_cards": ["5c", "2h"], "board": [], "winnings": 100}
+{"action": "b200f", "client_pos": 0, "hole_cards": ["Js", "2d"], "bot_hole_cards": ["8s", "2s"], "board": [], "winnings": -100}
+{"action": "f", "client_pos": 1, "hole_cards": ["7s", "3d"], "bot_hole_cards": ["Kh", "2s"], "board": [], "winnings": -50}
+{"action": "b200c/b400f", "client_pos": 0, "hole_cards": ["Ac", "5s"], "bot_hole_cards": ["Qs", "2h"], "board": ["Kd", "Th", "7c"], "winnings": 200}
+{"action": "b250c/kb500c/kb1500f", "client_pos": 1, "hole_cards": ["Js", "9d"], "bot_hole_cards": ["Ad", "2d"], "board": ["Qd", "7h", "3c", "4s"], "winnings": 750}
+{"action": "b200f", "client_pos": 0, "hole_cards": ["Td", "2h"], "bot_hole_cards": ["Qc", "2c"], "board": [], "winnings": -100}
+{"action": "f", "client_pos": 1, "hole_cards": ["Jc", "3s"], "bot_hole_cards": ["Jd", "9s"], "board": [], "winnings": -50}
+{"action": "b200f", "client_pos": 0, "hole_cards": ["3d", "2s"], "bot_hole_cards": ["Ts", "7s"], "board": [], "winnings": -100}
+{"action": "b250c/kb500b1250c/b3000f", "client_pos": 1, "hole_cards": ["Ks", "4h"], "bot_hole_cards": ["6c", "5c"], "board": ["7c", "4s", "3d", "Jh"], "winnings": -1500}
+{"action": "b200b700f", "client_pos": 0, "hole_cards": ["Ac", "Kd"], "bot_hole_cards": ["Tc", "4h"], "board": [], "winnings": 200}
+{"action": "b250c/kb500c/kb1500f", "client_pos": 1, "hole_cards": ["Qc", "Js"], "bot_hole_cards": ["7d", "6c"], "board": ["Ah", "6s", "4h", "Kc"], "winnings": 750}
+{"action": "b200f", "client_pos": 0, "hole_cards": ["4c", "3d"], "bot_hole_cards": ["Kc", "9h"], "board": [], "winnings": -100}
+{"action": "b250f", "client_pos": 1, "hole_cards": ["Ah", "Ks"], "bot_hole_cards": ["7d", "3s"], "board": [], "winnings": 100}
+{"action": "f", "client_pos": 0, "hole_cards": ["Tc", "9d"], "bot_hole_cards": ["7d", "2h"], "board": [], "winnings": 50}
+{"action": "b250c/kb375f", "client_pos": 1, "hole_cards": ["Qd", "Th"], "bot_hole_cards": ["As", "3h"], "board": ["Ks", "Qc", "7h"], "winnings": 250}
+{"action": "f", "client_pos": 0, "hole_cards": ["Qd", "Jd"], "bot_hole_cards": ["7h", "4c"], "board": [], "winnings": 50}
+{"action": "b250c/kb500f", "client_pos": 1, "hole_cards": ["Kh", "9c"], "bot_hole_cards": ["Js", "5h"], "board": ["Jd", "7d", "6d"], "winnings": 250}
+{"action": "b200c/b400b1000f", "client_pos": 0, "hole_cards": ["Kh", "4c"], "bot_hole_cards": ["9s", "6s"], "board": ["Ad", "6h", "5h"], "winnings": -600}
+{"action": "b250c/kb500c/kb1500c/kk", "client_pos": 1, "hole_cards": ["Qc", "7s"], "bot_hole_cards": ["Tc", "3c"], "board": ["Ts", "6d", "5c", "6s", "3s"], "winnings": -2250}
+{"action": "b200c/b400c/b1200c/b3600f", "client_pos": 0, "hole_cards": ["Qs", "4s"], "bot_hole_cards": ["7c", "6h"], "board": ["Jd", "8d", "5h", "9d", "Ah"], "winnings": 1800}
+{"action": "b250c/kb827f", "client_pos": 1, "hole_cards": ["Jc", "6d"], "bot_hole_cards": ["Qd", "8s"], "board": ["Jh", "7c", "2c"], "winnings": 250}
+{"action": "b200f", "client_pos": 0, "hole_cards": ["Qd", "4s"], "bot_hole_cards": ["8d", "7h"], "board": [], "winnings": -100}
+{"action": "b250c/kb500f", "client_pos": 1, "hole_cards": ["Td", "6d"], "bot_hole_cards": ["Qs", "5h"], "board": ["Jd", "Th", "7h"], "winnings": 250}
+{"action": "b200c/b400f", "client_pos": 0, "hole_cards": ["Ts", "9c"], "bot_hole_cards": ["5h", "4h"], "board": ["Qh", "Jd", "5d"], "winnings": 200}
+{"action": "f", "client_pos": 1, "hole_cards": ["7c", "2h"], "bot_hole_cards": ["Jd", "8d"], "board": [], "winnings": -50}
+{"action": "b200b700c/b1400f", "client_pos": 0, "hole_cards": ["Ad", "Jc"], "bot_hole_cards": ["Ah", "4s"], "board": ["Ks", "7d", "6s"], "winnings": 700}
+{"action": "b250c/kb500f", "client_pos": 1, "hole_cards": ["Tc", "7c"], "bot_hole_cards": ["9c", "4d"], "board": ["Jh", "8d", "8c"], "winnings": 250}
+{"action": "b200f", "client_pos": 0, "hole_cards": ["6s", "3c"], "bot_hole_cards": ["5d", "4d"], "board": [], "winnings": -100}
+{"action": "b250c/b250f", "client_pos": 1, "hole_cards": ["8d", "7s"], "bot_hole_cards": ["5d", "3c"], "board": ["Qc", "9c", "5c"], "winnings": -250}
+{"action": "b200f", "client_pos": 0, "hole_cards": ["6s", "4d"], "bot_hole_cards": ["Td", "Tc"], "board": [], "winnings": -100}
+{"action": "f", "client_pos": 1, "hole_cards": ["7d", "4s"], "bot_hole_cards": ["Kd", "2h"], "board": [], "winnings": -50}
+{"action": "b200b700f", "client_pos": 0, "hole_cards": ["Kh", "Qc"], "bot_hole_cards": ["Ks", "6d"], "board": [], "winnings": 200}
+{"action": "b250c/kb500c/kb1500f", "client_pos": 1, "hole_cards": ["7d", "3d"], "bot_hole_cards": ["Qh", "6c"], "board": ["Ac", "Qc", "4s", "8h"], "winnings": 750}
+{"action": "b200f", "client_pos": 0, "hole_cards": ["9s", "2c"], "bot_hole_cards": ["Kd", "Qs"], "board": [], "winnings": -100}
+{"action": "f", "client_pos": 1, "hole_cards": ["3d", "2h"], "bot_hole_cards": ["3s", "2d"], "board": [], "winnings": -50}
+{"action": "b200c/b400c/b1200f", "client_pos": 0, "hole_cards": ["8d", "7h"], "bot_hole_cards": ["Kd", "3s"], "board": ["Jc", "3c", "2s", "7c"], "winnings": 600}
+{"action": "b250c/kb827f", "client_pos": 1, "hole_cards": ["Js", "Jh"], "bot_hole_cards": ["Ks", "2d"], "board": ["6d", "5c", "3h"], "winnings": 250}
+{"action": "b200f", "client_pos": 0, "hole_cards": ["Jc", "2s"], "bot_hole_cards": ["Ad", "Kh"], "board": [], "winnings": -100}
+{"action": "b250c/kb500f", "client_pos": 1, "hole_cards": ["5h", "2h"], "bot_hole_cards": ["Js", "5s"], "board": ["Kh", "Qd", "3c"], "winnings": 250}
+{"action": "b200b700f", "client_pos": 0, "hole_cards": ["Qc", "9c"], "bot_hole_cards": ["Js", "2c"], "board": [], "winnings": 200}
+{"action": "b250b750c/kb1500f", "client_pos": 1, "hole_cards": ["Jh", "Ts"], "bot_hole_cards": ["Ks", "4s"], "board": ["Ad", "Qd", "5h"], "winnings": 750}
+{"action": "b200c/b728f", "client_pos": 0, "hole_cards": ["As", "6c"], "bot_hole_cards": ["9h", "4c"], "board": ["Ac", "Ks", "2h"], "winnings": 200}
+{"action": "b250c/kb500f", "client_pos": 1, "hole_cards": ["8s", "6d"], "bot_hole_cards": ["7h", "2h"], "board": ["Ks", "8d", "5h"], "winnings": 250}
+{"action": "b200f", "client_pos": 0, "hole_cards": ["Td", "5c"], "bot_hole_cards": ["Ad", "4c"], "board": [], "winnings": -100}
+{"action": "b250b750f", "client_pos": 1, "hole_cards": ["7c", "6s"], "bot_hole_cards": ["Ts", "7s"], "board": [], "winnings": -250}
+{"action": "b200c/b400c/b1200f", "client_pos": 0, "hole_cards": ["8c", "4c"], "bot_hole_cards": ["4h", "3s"], "board": ["9h", "6s", "5c", "6c"], "winnings": 600}
+{"action": "f", "client_pos": 1, "hole_cards": ["9s", "2d"], "bot_hole_cards": ["8c", "5s"], "board": [], "winnings": -50}
+{"action": "b200f", "client_pos": 0, "hole_cards": ["Qh", "6c"], "bot_hole_cards": ["Jc", "4c"], "board": [], "winnings": -100}
+{"action": "b250c/kb500f", "client_pos": 1, "hole_cards": ["Qs", "6s"], "bot_hole_cards": ["Kh", "2s"], "board": ["Ts", "8h", "7h"], "winnings": 250}
+{"action": "b200f", "client_pos": 0, "hole_cards": ["8d", "2d"], "bot_hole_cards": ["Kc", "5s"], "board": [], "winnings": -100}
+{"action": "b250c/kb500f", "client_pos": 1, "hole_cards": ["Qh", "5s"], "bot_hole_cards": ["Ts", "8h"], "board": ["9c", "5h", "3c"], "winnings": 250}
+{"action": "b200c/b400c/b1200c/b3600c", "client_pos": 0, "hole_cards": ["Th", "7h"], "bot_hole_cards": ["Ah", "9c"], "board": ["Ac", "9s", "2s", "3h", "Jh"], "winnings": -5400}
+{"action": "b250b750f", "client_pos": 1, "hole_cards": ["Ts", "9c"], "bot_hole_cards": ["Kh", "8h"], "board": [], "winnings": -250}
+{"action": "b200f", "client_pos": 0, "hole_cards": ["9s", "2s"], "bot_hole_cards": ["Js", "3c"], "board": [], "winnings": -100}
+{"action": "b250b750c/kb1500c/b2250f", "client_pos": 1, "hole_cards": ["Jd", "Td"], "bot_hole_cards": ["As", "3s"], "board": ["9d", "5h", "2h", "2c"], "winnings": -2250}
+{"action": "f", "client_pos": 0, "hole_cards": ["9c", "5s"], "bot_hole_cards": ["7s", "3h"], "board": [], "winnings": 50}
+{"action": "b250c/kb500b2000f", "client_pos": 1, "hole_cards": ["Js", "7h"], "bot_hole_cards": ["Jh", "7s"], "board": ["Td", "9s", "2h"], "winnings": -750}
+{"action": "b200c/b400f", "client_pos": 0, "hole_cards": ["Ks", "9c"], "bot_hole_cards": ["Qs", "2s"], "board": ["Js", "Jc", "7c"], "winnings": 200}
+{"action": "f", "client_pos": 1, "hole_cards": ["4d", "2s"], "bot_hole_cards": ["7s", "6h"], "board": [], "winnings": -50}
+{"action": "b200c/b728f", "client_pos": 0, "hole_cards": ["Tc", "6c"], "bot_hole_cards": ["Qs", "Jh"], "board": ["Td", "5d", "4c"], "winnings": 200}
+{"action": "b250b750f", "client_pos": 1, "hole_cards": ["As", "7d"], "bot_hole_cards": ["Kc", "Jd"], "board": [], "winnings": -250}
+{"action": "b200f", "client_pos": 0, "hole_cards": ["Tc", "7d"], "bot_hole_cards": ["Jh", "2d"], "board": [], "winnings": -100}
+{"action": "f", "client_pos": 1, "hole_cards": ["9s", "5d"], "bot_hole_cards": ["Kh", "2c"], "board": [], "winnings": -50}
+{"action": "f", "client_pos": 0, "hole_cards": ["Ad", "8c"], "bot_hole_cards": ["5h", "2d"], "board": [], "winnings": 50}
+{"action": "b250c/kb500f", "client_pos": 1, "hole_cards": ["Ah", "8s"], "bot_hole_cards": ["Qh", "5s"], "board": ["7s", "6d", "2s"], "winnings": 250}
+{"action": "b200f", "client_pos": 0, "hole_cards": ["9c", "6s"], "bot_hole_cards": ["Jc", "8c"], "board": [], "winnings": -100}
+{"action": "b250c/kb500c/kb1500f", "client_pos": 1, "hole_cards": ["Ad", "2h"], "bot_hole_cards": ["5c", "4d"], "board": ["Qc", "9d", "5d", "Jc"], "winnings": 750}
+{"action": "b200f", "client_pos": 0, "hole_cards": ["4h", "2c"], "bot_hole_cards": ["Ts", "8h"], "board": [], "winnings": -100}
+{"action": "b250c/kb827f", "client_pos": 1, "hole_cards": ["Kc", "2h"], "bot_hole_cards": ["Ts", "5d"], "board": ["Ks", "8d", "2d"], "winnings": 250}
+{"action": "b200f", "client_pos": 0, "hole_cards": ["8d", "3s"], "bot_hole_cards": ["Kc", "8s"], "board": [], "winnings": -100}
+{"action": "f", "client_pos": 1, "hole_cards": ["9h", "5s"], "bot_hole_cards": ["Kd", "8h"], "board": [], "winnings": -50}
+{"action": "b200b700c/b1400f", "client_pos": 0, "hole_cards": ["Ad", "Qc"], "bot_hole_cards": ["Kh", "Ts"], "board": ["9s", "5s", "4d"], "winnings": 700}
+{"action": "b250c/kb827c/kb3564f", "client_pos": 1, "hole_cards": ["Ts", "Td"], "bot_hole_cards": ["9s", "8c"], "board": ["Th", "9d", "2c", "3s"], "winnings": 1077}
+{"action": "b200c/b728c/b3380f", "client_pos": 0, "hole_cards": ["Jh", "Tc"], "bot_hole_cards": ["Ah", "3d"], "board": ["Th", "8d", "3c", "6h"], "winnings": 928}
+{"action": "f", "client_pos": 1, "hole_cards": ["6d", "3s"], "bot_hole_cards": ["Th", "2h"], "board": [], "winnings": -50}
+{"action": "b200f", "client_pos": 0, "hole_cards": ["Tc", "5s"], "bot_hole_cards": ["Qd", "5c"], "board": [], "winnings": -100}
+{"action": "b250b750f", "client_pos": 1, "hole_cards": ["Ts", "7c"], "bot_hole_cards": ["5s", "4s"], "board": [], "winnings": -250}
+{"action": "b200c/b400f", "client_pos": 0, "hole_cards": ["Ks", "5h"], "bot_hole_cards": ["Td", "5c"], "board": ["As", "Jh", "2s"], "winnings": 200}
+{"action": "b250c/kb500f", "client_pos": 1, "hole_cards": ["5h", "4s"], "bot_hole_cards": ["3c", "2c"], "board": ["Ac", "Td", "8d"], "winnings": 250}
+{"action": "b200b700f", "client_pos": 0, "hole_cards": ["Td", "Tc"], "bot_hole_cards": ["Ts", "8c"], "board": [], "winnings": 200}
+{"action": "b250c/kb500f", "client_pos": 1, "hole_cards": ["Kd", "4c"], "bot_hole_cards": ["Js", "3c"], "board": ["Qc", "6h", "2d"], "winnings": 250}
+{"action": "b200c/b400c/b1200b3000f", "client_pos": 0, "hole_cards": ["Jh", "Ts"], "bot_hole_cards": ["Ac", "7c"], "board": ["6h", "6c", "3c", "4c"], "winnings": -1800}
+{"action": "b250f", "client_pos": 1, "hole_cards": ["Qh", "Jd"], "bot_hole_cards": ["7c", "3h"], "board": [], "winnings": 100}
+{"action": "b200c/b400c/b1200c/b18200f", "client_pos": 0, "hole_cards": ["Qh", "9c"], "bot_hole_cards": ["Ad", "6h"], "board": ["8h", "6s", "2h", "Th", "7c"], "winnings": 1800}
+{"action": "b250c/b250f", "client_pos": 1, "hole_cards": ["Qh", "8s"], "bot_hole_cards": ["8h", "5c"], "board": ["Kc", "Jc", "6c"], "winnings": -250}
+{"action": "f", "client_pos": 0, "hole_cards": ["4d", "3c"], "bot_hole_cards": ["6s", "2h"], "board": [], "winnings": 50}
+{"action": "b250c/kb500f", "client_pos": 1, "hole_cards": ["9h", "8d"], "bot_hole_cards": ["Td", "2d"], "board": ["Ah", "5h", "4c"], "winnings": 250}
+{"action": "b200c/b400f", "client_pos": 0, "hole_cards": ["Ac", "8h"], "bot_hole_cards": ["9s", "6c"], "board": ["Qs", "Jd", "4h"], "winnings": 200}
+{"action": "b250b750f", "client_pos": 1, "hole_cards": ["7s", "6h"], "bot_hole_cards": ["As", "5s"], "board": [], "winnings": -250}
+{"action": "b200f", "client_pos": 0, "hole_cards": ["Td", "5s"], "bot_hole_cards": ["6d", "3c"], "board": [], "winnings": -100}
+{"action": "b250c/kb827f", "client_pos": 1, "hole_cards": ["Qc", "4s"], "bot_hole_cards": ["As", "4c"], "board": ["Qd", "9d", "6s"], "winnings": 250}
+{"action": "f", "client_pos": 0, "hole_cards": ["Ac", "3d"], "bot_hole_cards": ["6c", "2h"], "board": [], "winnings": 50}
+{"action": "b250f", "client_pos": 1, "hole_cards": ["Qc", "4d"], "bot_hole_cards": ["Ts", "2c"], "board": [], "winnings": 100}
+{"action": "b200c/b400c/b1200c/b3600c", "client_pos": 0, "hole_cards": ["Qs", "7c"], "bot_hole_cards": ["Jd", "9s"], "board": ["Ts", "9c", "8s", "4c", "Kd"], "winnings": -5400}
+{"action": "b250c/kb500c/kb1500c/kb4500f", "client_pos": 1, "hole_cards": ["Qd", "5c"], "bot_hole_cards": ["Ah", "9s"], "board": ["Js", "Ts", "7d", "4s", "2d"], "winnings": 2250}
+{"action": "b200c/b728f", "client_pos": 0, "hole_cards": ["Ah", "7d"], "bot_hole_cards": ["Qs", "7c"], "board": ["As", "Jc", "2c"], "winnings": 200}
+{"action": "f", "client_pos": 1, "hole_cards": ["Ts", "2h"], "bot_hole_cards": ["4c", "3d"], "board": [], "winnings": -50}
+{"action": "b200b700f", "client_pos": 0, "hole_cards": ["Ad", "Kc"], "bot_hole_cards": ["5h", "3d"], "board": [], "winnings": 200}
+{"action": "b250c/kb500f", "client_pos": 1, "hole_cards": ["Jc", "7h"], "bot_hole_cards": ["Jh", "6s"], "board": ["Qc", "5c", "2s"], "winnings": 250}
+{"action": "b200b700c/b1050f", "client_pos": 0, "hole_cards": ["Ad", "Ac"], "bot_hole_cards": ["Ks", "6h"], "board": ["Qs", "Qh", "Jc"], "winnings": 700}
+{"action": "f", "client_pos": 1, "hole_cards": ["Td", "2s"], "bot_hole_cards": ["7s", "6c"], "board": [], "winnings": -50}
+{"action": "b200f", "client_pos": 0, "hole_cards": ["9s", "5d"], "bot_hole_cards": ["Kh", "Qh"], "board": [], "winnings": -100}
+{"action": "b250f", "client_pos": 1, "hole_cards": ["Kh", "Jd"], "bot_hole_cards": ["7h", "3d"], "board": [], "winnings": 100}
+{"action": "b200c/b400c/b1200f", "client_pos": 0, "hole_cards": ["Th", "5h"], "bot_hole_cards": ["8c", "7c"], "board": ["9s", "6d", "3s", "6c"], "winnings": 600}
+{"action": "b250c/kb500f", "client_pos": 1, "hole_cards": ["8h", "6d"], "bot_hole_cards": ["Jd", "Tc"], "board": ["Ah", "7s", "6h"], "winnings": 250}
+{"action": "b200b700c/b2100c/b17200f", "client_pos": 0, "hole_cards": ["As", "Ad"], "bot_hole_cards": ["Kc", "3c"], "board": ["Jh", "Td", "3h", "6s"], "winnings": 2800}
+{"action": "b250c/kb827c/kb2154c/kk", "client_pos": 1, "hole_cards": ["Jc", "5s"], "bot_hole_cards": ["Js", "8c"], "board": ["Jh", "9c", "8h", "Ts", "4s"], "winnings": -3231}
+{"action": "b200c/b400c/b1800c/b17600f", "client_pos": 0, "hole_cards": ["Jd", "4d"], "bot_hole_cards": ["Js", "9c"], "board": ["Qd", "Jh", "9s", "Kd", "4s"], "winnings": 2400}
+{"action": "b250f", "client_pos": 1, "hole_cards": ["Jh", "Ts"], "bot_hole_cards": ["Th", "2s"], "board": [], "winnings": 100}
+{"action": "b200f", "client_pos": 0, "hole_cards": ["7c", "2c"], "bot_hole_cards": ["Ad", "8s"], "board": [], "winnings": -100}
+{"action": "b250c/kb500f", "client_pos": 1, "hole_cards": ["Jc", "5d"], "bot_hole_cards": ["Kh", "3s"], "board": ["Tc", "8d", "5c"], "winnings": 250}
+{"action": "b200b700f", "client_pos": 0, "hole_cards": ["Ah", "Kh"], "bot_hole_cards": ["9s", "4s"], "board": [], "winnings": 200}
+{"action": "b250c/kb500f", "client_pos": 1, "hole_cards": ["8c", "2c"], "bot_hole_cards": ["Qs", "7d"], "board": ["Jd", "Td", "2d"], "winnings": 250}
+{"action": "b200c/b400b1000f", "client_pos": 0, "hole_cards": ["8s", "5s"], "bot_hole_cards": ["Tc", "3h"], "board": ["Th", "7c", "2h"], "winnings": -600}
+{"action": "b250b750f", "client_pos": 1, "hole_cards": ["Ad", "4s"], "bot_hole_cards": ["Ts", "Th"], "board": [], "winnings": -250}
+{"action": "f", "client_pos": 0, "hole_cards": ["Qd", "8s"], "bot_hole_cards": ["7c", "3d"], "board": [], "winnings": 50}
+{"action": "b250c/kb827f", "client_pos": 1, "hole_cards": ["9s", "3s"], "bot_hole_cards": ["Kh", "Td"], "board": ["9h", "5c", "2s"], "winnings": 250}
+{"action": "f", "client_pos": 0, "hole_cards": ["7s", "6s"], "bot_hole_cards": ["8s", "2h"], "board": [], "winnings": 50}
+{"action": "b250c/kb500c/kb1500c/kb4500c", "client_pos": 1, "hole_cards": ["Ac", "6d"], "bot_hole_cards": ["Kh", "3d"], "board": ["Qh", "5s", "3s", "Kc", "9h"], "winnings": -6750}
+{"action": "f", "client_pos": 0, "hole_cards": ["Ks", "8h"], "bot_hole_cards": ["9d", "2h"], "board": [], "winnings": 50}
+{"action": "f", "client_pos": 1, "hole_cards": ["9s", "4h"], "bot_hole_cards": ["8h", "7c"], "board": [], "winnings": -50}
+{"action": "b200c/b400c/b1200f", "client_pos": 0, "hole_cards": ["Qc", "Jd"], "bot_hole_cards": ["Ks", "7h"], "board": ["8h", "7c", "5d", "9d"], "winnings": 600}
+{"action": "b250c/kb500c/kb1500f", "client_pos": 1, "hole_cards": ["Qd", "8s"], "bot_hole_cards": ["2h", "2d"], "board": ["As", "Ad", "Qh", "4d"], "winnings": 750}
+{"action": "b200c/b400f", "client_pos": 0, "hole_cards": ["Jh", "8d"], "bot_hole_cards": ["Jd", "4c"], "board": ["Tc", "9s", "8c"], "winnings": 200}
+{"action": "b250b750f", "client_pos": 1, "hole_cards": ["9s", "8h"], "bot_hole_cards": ["Ac", "Jd"], "board": [], "winnings": -250}
+{"action": "b200c/b400c/b1200b4800f", "client_pos": 0, "hole_cards": ["Ad", "9d"], "bot_hole_cards": ["Jd", "Td"], "board": ["Tc", "6h", "5d", "Jh"], "winnings": -1800}
+{"action": "b250c/b250f", "client_pos": 1, "hole_cards": ["Kc", "7s"], "bot_hole_cards": ["Qc", "5h"], "board": ["Ah", "6h", "6c"], "winnings": -250}
+{"action": "b200f", "client_pos": 0, "hole_cards": ["Jh", "7d"], "bot_hole_cards": ["Qs", "8s"], "board": [], "winnings": -100}
+{"action": "b250c/kb500c/kb1500c/kb4500f", "client_pos": 1, "hole_cards": ["Jc", "Th"], "bot_hole_cards": ["Tc", "8d"], "board": ["9s", "8s", "3s", "8h", "Ac"], "winnings": 2250}
+{"action": "b200f", "client_pos": 0, "hole_cards": ["3s", "2c"], "bot_hole_cards": ["Qh", "4h"], "board": [], "winnings": -100}
+{"action": "b250b750c/b1500f", "client_pos": 1, "hole_cards": ["Ad", "9c"], "bot_hole_cards": ["Jh", "Jd"], "board": ["Tc", "7s", "3c"], "winnings": -750}
+{"action": "b200b700c/b1400c/b4200f", "client_pos": 0, "hole_cards": ["Kc", "9c"], "bot_hole_cards": ["Qd", "Ts"], "board": ["Tc", "7d", "4s", "9h"], "winnings": 2100}
+{"action": "b250c/kb827f", "client_pos": 1, "hole_cards": ["Qc", "4s"], "bot_hole_cards": ["Ks", "7h"], "board": ["Qs", "5c", "3d"], "winnings": 250}
+{"action": "b200c/b400b1000f", "client_pos": 0, "hole_cards": ["Qc", "8c"], "bot_hole_cards": ["5d", "3h"], "board": ["Ts", "5s", "2h"], "winnings": -600}
+{"action": "b250b750f", "client_pos": 1, "hole_cards": ["7s", "2s"], "bot_hole_cards": ["Kh", "Qc"], "board": [], "winnings": -250}
+{"action": "b200f", "client_pos": 0, "hole_cards": ["4d", "3c"], "bot_hole_cards": ["Tc", "4h"], "board": [], "winnings": -100}
+{"action": "b250c/kb500f", "client_pos": 1, "hole_cards": ["Ad", "7h"], "bot_hole_cards": ["Qh", "6s"], "board": ["Th", "3h", "3d"], "winnings": 250}
+{"action": "b200c/b400c/kk/b1200c", "client_pos": 0, "hole_cards": ["Ah", "Td"], "bot_hole_cards": ["Jc", "9d"], "board": ["Js", "8d", "2s", "5s", "9c"], "winnings": -1800}
+{"action": "b250b750f", "client_pos": 1, "hole_cards": ["8d", "7h"], "bot_hole_cards": ["Ad", "Qh"], "board": [], "winnings": -250}
+{"action": "b200c/b400c/b1200f", "client_pos": 0, "hole_cards": ["Jh", "3h"], "bot_hole_cards": ["7d", "5c"], "board": ["Ts", "Td", "7c", "4h"], "winnings": 600}
+{"action": "b250c/kb500c/kb1500f", "client_pos": 1, "hole_cards": ["Ad", "8d"], "bot_hole_cards": ["Ac", "9h"], "board": ["4d", "3s", "3c", "5s"], "winnings": 750}
+{"action": "b200c/b400f", "client_pos": 0, "hole_cards": ["8s", "6d"], "bot_hole_cards": ["Jc", "8h"], "board": ["Kc", "Qc", "4s"], "winnings": 200}
+{"action": "b250c/kb500f", "client_pos": 1, "hole_cards": ["9h", "6h"], "bot_hole_cards": ["Tc", "5d"], "board": ["Ac", "Kd", "7s"], "winnings": 250}
+{"action": "b200f", "client_pos": 0, "hole_cards": ["Jh", "5c"], "bot_hole_cards": ["7h", "6c"], "board": [], "winnings": -100}
+{"action": "b250c/kb500c/kb1500c/kk", "client_pos": 1, "hole_cards": ["Kh", "5d"], "bot_hole_cards": ["8s", "6d"], "board": ["Jd", "8d", "2h", "3d", "5c"], "winnings": -2250}
+{"action": "b200b700f", "client_pos": 0, "hole_cards": ["Jh", "9h"], "bot_hole_cards": ["6s", "3c"], "board": [], "winnings": 200}
+{"action": "b250c/kb827f", "client_pos": 1, "hole_cards": ["Qh", "Ts"], "bot_hole_cards": ["Jh", "9h"], "board": ["Qd", "7c", "6s"], "winnings": 250}
+{"action": "b200c/b400c/b1200f", "client_pos": 0, "hole_cards": ["As", "6h"], "bot_hole_cards": ["Ac", "5s"], "board": ["Qc", "6c", "3h", "5d"], "winnings": 600}
+{"action": "b250c/kb827f", "client_pos": 1, "hole_cards": ["Ah", "7h"], "bot_hole_cards": ["5d", "4h"], "board": ["As", "Ts", "8s"], "winnings": 250}
+{"action": "b200f", "client_pos": 0, "hole_cards": ["Tc", "7d"], "bot_hole_cards": ["Jd", "6c"], "board": [], "winnings": -100}
+{"action": "b250c/kb500f", "client_pos": 1, "hole_cards": ["Kh", "5h"], "bot_hole_cards": ["4c", "3d"], "board": ["Jd", "Tc", "7s"], "winnings": 250}
+{"action": "b200f", "client_pos": 0, "hole_cards": ["8h", "3d"], "bot_hole_cards": ["Qs", "5h"], "board": [], "winnings": -100}
+{"action": "b250c/kb500f", "client_pos": 1, "hole_cards": ["6h", "6c"], "bot_hole_cards": ["Qd", "3d"], "board": ["Ah", "Ad", "5s"], "winnings": 250}
+{"action": "b200f", "client_pos": 0, "hole_cards": ["Qh", "3d"], "bot_hole_cards": ["Th", "6c"], "board": [], "winnings": -100}
+{"action": "b250c/kb500f", "client_pos": 1, "hole_cards": ["Ah", "2h"], "bot_hole_cards": ["9c", "4d"], "board": ["Qc", "Td", "7s"], "winnings": 250}
+{"action": "b200c/b728f", "client_pos": 0, "hole_cards": ["5h", "4h"], "bot_hole_cards": ["8s", "7s"], "board": ["9c", "5d", "4c"], "winnings": 200}
+{"action": "b250b750c/b1500f", "client_pos": 1, "hole_cards": ["Kd", "Td"], "bot_hole_cards": ["As", "Ad"], "board": ["8h", "5d", "2h"], "winnings": -750}
+{"action": "b200f", "client_pos": 0, "hole_cards": ["5s", "4d"], "bot_hole_cards": ["Jc", "7h"], "board": [], "winnings": -100}
+{"action": "b250c/b250c/b500f", "client_pos": 1, "hole_cards": ["Ah", "2s"], "bot_hole_cards": ["Kh", "5d"], "board": ["7h", "4d", "3h", "2h"], "winnings": -500}
+{"action": "f", "client_pos": 0, "hole_cards": ["Qd", "6d"], "bot_hole_cards": ["9s", "3d"], "board": [], "winnings": 50}
+{"action": "b250f", "client_pos": 1, "hole_cards": ["Js", "6h"], "bot_hole_cards": ["4h", "2s"], "board": [], "winnings": 100}
+{"action": "f", "client_pos": 0, "hole_cards": ["6s", "4s"], "bot_hole_cards": ["8c", "2h"], "board": [], "winnings": 50}
+{"action": "b250c/b250c/kb1000f", "client_pos": 1, "hole_cards": ["9c", "8c"], "bot_hole_cards": ["Td", "6h"], "board": ["Kh", "8s", "5s", "2c"], "winnings": 500}
+{"action": "b200f", "client_pos": 0, "hole_cards": ["7s", "4h"], "bot_hole_cards": ["3h", "3c"], "board": [], "winnings": -100}
+{"action": "b250c/kb500f", "client_pos": 1, "hole_cards": ["9c", "8h"], "bot_hole_cards": ["Ah", "9d"], "board": ["Kd", "5c", "2s"], "winnings": 250}
+{"action": "b200c/b400f", "client_pos": 0, "hole_cards": ["4s", "4c"], "bot_hole_cards": ["6s", "4h"], "board": ["Ts", "8c", "5d"], "winnings": 200}
+{"action": "b250c/kb500f", "client_pos": 1, "hole_cards": ["Ah", "9d"], "bot_hole_cards": ["Td", "4s"], "board": ["Kd", "3s", "3c"], "winnings": 250}
+{"action": "b200b700f", "client_pos": 0, "hole_cards": ["As", "Ah"], "bot_hole_cards": ["7c", "5d"], "board": [], "winnings": 200}
+{"action": "b250b750f", "client_pos": 1, "hole_cards": ["4c", "2c"], "bot_hole_cards": ["Kc", "8d"], "board": [], "winnings": -250}
+{"action": "b200c/b400f", "client_pos": 0, "hole_cards": ["4s", "2s"], "bot_hole_cards": ["As", "5c"], "board": ["Qs", "9d", "6c"], "winnings": 200}
+{"action": "b250c/kb500f", "client_pos": 1, "hole_cards": ["Ks", "Tc"], "bot_hole_cards": ["Qs", "7c"], "board": ["8s", "5h", "5d"], "winnings": 250}
+{"action": "b200f", "client_pos": 0, "hole_cards": ["Js", "6d"], "bot_hole_cards": ["Ac", "Tc"], "board": [], "winnings": -100}
+{"action": "b250c/kb500c/kb1500c/kb4500c", "client_pos": 1, "hole_cards": ["Kc", "8c"], "bot_hole_cards": ["Ad", "3c"], "board": ["Ah", "Qd", "9c", "4h", "Kd"], "winnings": -6750}
+{"action": "b200c/b400c/b1200c/kb1800f", "client_pos": 0, "hole_cards": ["Jd", "4d"], "bot_hole_cards": ["Ks", "Kc"], "board": ["8c", "3h", "2s", "Tc", "4c"], "winnings": -1800}
+{"action": "b250b750f", "client_pos": 1, "hole_cards": ["9d", "6s"], "bot_hole_cards": ["Ac", "Jc"], "board": [], "winnings": -250}
+{"action": "b200f", "client_pos": 0, "hole_cards": ["7d", "3s"], "bot_hole_cards": ["Th", "6c"], "board": [], "winnings": -100}
+{"action": "b250c/kb500f", "client_pos": 1, "hole_cards": ["Qd", "3s"], "bot_hole_cards": ["Ts", "5h"], "board": ["Jd", "8h", "2c"], "winnings": 250}
+{"action": "b200b700f", "client_pos": 0, "hole_cards": ["Qs", "Qd"], "bot_hole_cards": ["Td", "5c"], "board": [], "winnings": 200}
+{"action": "b250b750c/b750b3150f", "client_pos": 1, "hole_cards": ["7h", "7d"], "bot_hole_cards": ["Ks", "Jd"], "board": ["7s", "4h", "4d"], "winnings": 1500}
+{"action": "b200c/b400b1600f", "client_pos": 0, "hole_cards": ["7c", "6d"], "bot_hole_cards": ["Tc", "6s"], "board": ["Ks", "8c", "6c"], "winnings": -600}
+{"action": "b250c/kb500f", "client_pos": 1, "hole_cards": ["Ah", "8c"], "bot_hole_cards": ["5h", "4s"], "board": ["Ts", "8h", "5d"], "winnings": 250}
+{"action": "b200c/b400c/b1200c/kk", "client_pos": 0, "hole_cards": ["Jh", "8c"], "bot_hole_cards": ["9c", "8d"], "board": ["9s", "6d", "2c", "4s", "6s"], "winnings": -1800}
+{"action": "f", "client_pos": 1, "hole_cards": ["4s", "2d"], "bot_hole_cards": ["9c", "5h"], "board": [], "winnings": -50}
+{"action": "b200f", "client_pos": 0, "hole_cards": ["9s", "2c"], "bot_hole_cards": ["8d", "4h"], "board": [], "winnings": -100}
+{"action": "b250c/kb500f", "client_pos": 1, "hole_cards": ["Qd", "5c"], "bot_hole_cards": ["Jc", "5d"], "board": ["As", "9c", "4s"], "winnings": 250}
+{"action": "b200f", "client_pos": 0, "hole_cards": ["7d", "2h"], "bot_hole_cards": ["Js", "6c"], "board": [], "winnings": -100}
+{"action": "b250c/kb500c/kb1500c/kb4500c", "client_pos": 1, "hole_cards": ["9s", "6s"], "bot_hole_cards": ["Ad", "5s"], "board": ["Ah", "Jd", "3d", "9c", "2c"], "winnings": -6750}
+{"action": "b200c/b728c/b3380f", "client_pos": 0, "hole_cards": ["9d", "7s"], "bot_hole_cards": ["Qd", "Qc"], "board": ["Kh", "9s", "7h", "5c"], "winnings": 928}
+{"action": "b250c/kb500c/kb1500c/b2250f", "client_pos": 1, "hole_cards": ["Qc", "Td"], "bot_hole_cards": ["Ad", "5h"], "board": ["6s", "5d", "3s", "Ac", "8s"], "winnings": -2250}
+{"action": "b200c/b400c/b1200f", "client_pos": 0, "hole_cards": ["Kd", "Js"], "bot_hole_cards": ["Ts", "8c"], "board": ["7s", "6s", "2h", "Ad"], "winnings": 600}
+{"action": "b250c/kb500c/kb1500f", "client_pos": 1, "hole_cards": ["Qc", "8c"], "bot_hole_cards": ["6d", "4c"], "board": ["As", "6s", "2c", "8h"], "winnings": 750}
+{"action": "b200f", "client_pos": 0, "hole_cards": ["7s", "2d"], "bot_hole_cards": ["Jd", "Ts"], "board": [], "winnings": -100}
+{"action": "f", "client_pos": 1, "hole_cards": ["6d", "2s"], "bot_hole_cards": ["6s", "3s"], "board": [], "winnings": -50}
+{"action": "b200c/b400c/b1200f", "client_pos": 0, "hole_cards": ["Kc", "8c"], "bot_hole_cards": ["7s", "4s"], "board": ["As", "Qc", "4h", "Ah"], "winnings": 600}
+{"action": "f", "client_pos": 1, "hole_cards": ["Tc", "5s"], "bot_hole_cards": ["Kh", "4d"], "board": [], "winnings": -50}
+{"action": "b200c/b400f", "client_pos": 0, "hole_cards": ["Ad", "4s"], "bot_hole_cards": ["Qc", "6s"], "board": ["Ks", "7d", "3c"], "winnings": 200}
+{"action": "b250b750f", "client_pos": 1, "hole_cards": ["Qs", "8c"], "bot_hole_cards": ["Kc", "3c"], "board": [], "winnings": -250}
+{"action": "b200c/b400f", "client_pos": 0, "hole_cards": ["6d", "5c"], "bot_hole_cards": ["As", "Ts"], "board": ["7h", "5h", "4h"], "winnings": 200}
+{"action": "f", "client_pos": 1, "hole_cards": ["6d", "4h"], "bot_hole_cards": ["8s", "8h"], "board": [], "winnings": -50}
+{"action": "b200c/b400b1000c/kb1200c/kk", "client_pos": 0, "hole_cards": ["Ks", "9c"], "bot_hole_cards": ["Jh", "Tc"], "board": ["Jd", "7d", "6c", "Td", "6h"], "winnings": -2400}
+{"action": "b250c/kb500f", "client_pos": 1, "hole_cards": ["Jd", "9d"], "bot_hole_cards": ["Td", "6s"], "board": ["Qd", "4h", "2d"], "winnings": 250}
+{"action": "b200c/b400c/b1200f", "client_pos": 0, "hole_cards": ["Kd", "5d"], "bot_hole_cards": ["Qd", "9c"], "board": ["Ah", "Qs", "4c", "Tc"], "winnings": 600}
+{"action": "b250c/kb500f", "client_pos": 1, "hole_cards": ["Kc", "3d"], "bot_hole_cards": ["Kd", "7s"], "board": ["8s", "6h", "4d"], "winnings": 250}
+{"action": "f", "client_pos": 0, "hole_cards": ["3h", "2c"], "bot_hole_cards": ["8h", "3s"], "board": [], "winnings": 50}
+{"action": "b250c/kb500b1250f", "client_pos": 1, "hole_cards": ["Js", "9h"], "bot_hole_cards": ["8h", "7c"], "board": ["8s", "8d", "3d"], "winnings": -750}
+{"action": "f", "client_pos": 0, "hole_cards": ["Ac", "3d"], "bot_hole_cards": ["3s", "2h"], "board": [], "winnings": 50}
+{"action": "b250b750f", "client_pos": 1, "hole_cards": ["Kc", "7s"], "bot_hole_cards": ["Kh", "Qh"], "board": [], "winnings": -250}
+{"action": "b200b700c/b2100f", "client_pos": 0, "hole_cards": ["Ks", "Js"], "bot_hole_cards": ["4d", "2d"], "board": ["Kc", "Qc", "5h"], "winnings": 700}
+{"action": "f", "client_pos": 1, "hole_cards": ["4h", "2s"], "bot_hole_cards": ["Qh", "7h"], "board": [], "winnings": -50}
+{"action": "b200b700b1800f", "client_pos": 0, "hole_cards": ["As", "Jd"], "bot_hole_cards": ["Ah", "Kc"], "board": [], "winnings": -700}
+{"action": "b250c/kb500c/kb1500f", "client_pos": 1, "hole_cards": ["Td", "7d"], "bot_hole_cards": ["Kc", "4d"], "board": ["Ks", "Qs", "3h", "Ac"], "winnings": 750}
+{"action": "b200b700f", "client_pos": 0, "hole_cards": ["Ah", "5h"], "bot_hole_cards": ["6d", "2d"], "board": [], "winnings": 200}
+{"action": "f", "client_pos": 1, "hole_cards": ["Js", "2c"], "bot_hole_cards": ["Kc", "4h"], "board": [], "winnings": -50}
+{"action": "b200c/b400b1000f", "client_pos": 0, "hole_cards": ["Qd", "7h"], "bot_hole_cards": ["7c", "6h"], "board": ["9s", "8d", "5d"], "winnings": -600}
+{"action": "b250b750b1724f", "client_pos": 1, "hole_cards": ["Ah", "Kd"], "bot_hole_cards": ["Ac", "8s"], "board": [], "winnings": 750}
+{"action": "b200c/b400c/kk/kk", "client_pos": 0, "hole_cards": ["Qc", "Ts"], "bot_hole_cards": ["As", "Kd"], "board": ["6s", "4d", "3s", "2d", "4c"], "winnings": -600}
+{"action": "b250f", "client_pos": 1, "hole_cards": ["Kc", "Tc"], "bot_hole_cards": ["9h", "2s"], "board": [], "winnings": 100}
+{"action": "b200c/b400f", "client_pos": 0, "hole_cards": ["As", "5d"], "bot_hole_cards": ["Ah", "8c"], "board": ["Ks", "7h", "4d"], "winnings": 200}
+{"action": "f", "client_pos": 1, "hole_cards": ["8c", "3s"], "bot_hole_cards": ["As", "8s"], "board": [], "winnings": -50}
+{"action": "b200f", "client_pos": 0, "hole_cards": ["Ts", "5c"], "bot_hole_cards": ["Kc", "Qd"], "board": [], "winnings": -100}
+{"action": "b250b750c/kb1500f", "client_pos": 1, "hole_cards": ["Js", "Tc"], "bot_hole_cards": ["9s", "9h"], "board": ["Ad", "4d", "2c"], "winnings": 750}
+{"action": "f", "client_pos": 0, "hole_cards": ["5d", "2d"], "bot_hole_cards": ["3h", "2c"], "board": [], "winnings": 50}
+{"action": "b250c/kb500f", "client_pos": 1, "hole_cards": ["Ac", "7d"], "bot_hole_cards": ["Ad", "4s"], "board": ["Qs", "Ts", "3d"], "winnings": 250}
+{"action": "b200c/b400c/kb600f", "client_pos": 0, "hole_cards": ["2s", "2h"], "bot_hole_cards": ["Jc", "9s"], "board": ["As", "9d", "6d", "7d"], "winnings": -600}
+{"action": "f", "client_pos": 1, "hole_cards": ["5c", "3h"], "bot_hole_cards": ["Ac", "9h"], "board": [], "winnings": -50}
+{"action": "b200b700f", "client_pos": 0, "hole_cards": ["Ad", "Jc"], "bot_hole_cards": ["Qc", "7s"], "board": [], "winnings": 200}
+{"action": "f", "client_pos": 1, "hole_cards": ["Jd", "2c"], "bot_hole_cards": ["7s", "6d"], "board": [], "winnings": -50}
+{"action": "b200f", "client_pos": 0, "hole_cards": ["5s", "2d"], "bot_hole_cards": ["As", "8s"], "board": [], "winnings": -100}
+{"action": "b250c/kb500c/b750b3150f", "client_pos": 1, "hole_cards": ["Qc", "3d"], "bot_hole_cards": ["8h", "7c"], "board": ["Tc", "9s", "2c", "Qh"], "winnings": 1500}
+{"action": "b200f", "client_pos": 0, "hole_cards": ["Jd", "4s"], "bot_hole_cards": ["Jc", "2c"], "board": [], "winnings": -100}
+{"action": "f", "client_pos": 1, "hole_cards": ["Jd", "2h"], "bot_hole_cards": ["4h", "4d"], "board": [], "winnings": -50}
+{"action": "b200f", "client_pos": 0, "hole_cards": ["Tc", "5h"], "bot_hole_cards": ["Jd", "Td"], "board": [], "winnings": -100}
+{"action": "b250c/kb500f", "client_pos": 1, "hole_cards": ["6d", "5c"], "bot_hole_cards": ["9d", "8s"], "board": ["Kd", "Jd", "3h"], "winnings": 250}
+{"action": "b200f", "client_pos": 0, "hole_cards": ["3c", "2d"], "bot_hole_cards": ["6s", "4s"], "board": [], "winnings": -100}
+{"action": "f", "client_pos": 1, "hole_cards": ["3h", "2d"], "bot_hole_cards": ["As", "6c"], "board": [], "winnings": -50}
+{"action": "b200c/b400c/kk/kb1200f", "client_pos": 0, "hole_cards": ["6h", "6d"], "bot_hole_cards": ["Ac", "9s"], "board": ["Ah", "Tc", "7s", "3d", "Th"], "winnings": -600}
+{"action": "b250c/kb827c/kb3564c/kb15359f", "client_pos": 1, "hole_cards": ["Qs", "9d"], "bot_hole_cards": ["Kc", "Td"], "board": ["Qh", "Ts", "3c", "6s", "Ac"], "winnings": 4641}
+{"action": "b200c/b400f", "client_pos": 0, "hole_cards": ["Ks", "7s"], "bot_hole_cards": ["Kd", "6c"], "board": ["5s", "5d", "4d"], "winnings": 200}
+{"action": "b250b750f", "client_pos": 1, "hole_cards": ["Ts", "6h"], "bot_hole_cards": ["5h", "4h"], "board": [], "winnings": -250}
+{"action": "b200c/b400f", "client_pos": 0, "hole_cards": ["Jc", "Ts"], "bot_hole_cards": ["Tc", "4s"], "board": ["Qc", "7d", "2d"], "winnings": 200}
+{"action": "b250f", "client_pos": 1, "hole_cards": ["Qc", "3h"], "bot_hole_cards": ["Jh", "2c"], "board": [], "winnings": 100}
+{"action": "b200c/b400c/kk/b1200c", "client_pos": 0, "hole_cards": ["Jd", "9s"], "bot_hole_cards": ["Kd", "Qs"], "board": ["Qh", "Qc", "5h", "4h", "2c"], "winnings": -1800}
+{"action": "b250b750c/kb1500c/kb4500c/kb13250f", "client_pos": 1, "hole_cards": ["Ks", "Qd"], "bot_hole_cards": ["Ah", "Th"], "board": ["7h", "6h", "4c", "Jd", "9s"], "winnings": 6750}
+{"action": "b200c/b400c/b1200f", "client_pos": 0, "hole_cards": ["Qs", "Jc"], "bot_hole_cards": ["Kc", "5d"], "board": ["Ac", "Ts", "2c", "Js"], "winnings": 600}
+{"action": "b250f", "client_pos": 1, "hole_cards": ["Qs", "Jh"], "bot_hole_cards": ["Tc", "3d"], "board": [], "winnings": 100}
+{"action": "b200c/b728f", "client_pos": 0, "hole_cards": ["Ad", "3s"], "bot_hole_cards": ["Kd", "9c"], "board": ["As", "Ks", "4c"], "winnings": 200}
+{"action": "f", "client_pos": 1, "hole_cards": ["9d", "3s"], "bot_hole_cards": ["Ks", "8c"], "board": [], "winnings": -50}
+{"action": "b200f", "client_pos": 0, "hole_cards": ["9d", "6s"], "bot_hole_cards": ["7s", "7h"], "board": [], "winnings": -100}
+{"action": "b250b750c/kb1125c/kb5625f", "client_pos": 1, "hole_cards": ["Th", "Tc"], "bot_hole_cards": ["Kd", "8d"], "board": ["Ts", "8s", "2d", "6s"], "winnings": 1875}
+{"action": "b200f", "client_pos": 0, "hole_cards": ["9h", "5d"], "bot_hole_cards": ["Tc", "5c"], "board": [], "winnings": -100}
+{"action": "b250b750f", "client_pos": 1, "hole_cards": ["Ts", "7h"], "bot_hole_cards": ["As", "Kd"], "board": [], "winnings": -250}
+{"action": "b200f", "client_pos": 0, "hole_cards": ["Jd", "3c"], "bot_hole_cards": ["Js", "Jc"], "board": [], "winnings": -100}
+{"action": "b250c/kb500c/kb1500f", "client_pos": 1, "hole_cards": ["Ad", "5d"], "bot_hole_cards": ["As", "9d"], "board": ["6s", "6c", "4d", "Th"], "winnings": 750}
+{"action": "b200c/b400f", "client_pos": 0, "hole_cards": ["Ac", "9d"], "bot_hole_cards": ["Qc", "6s"], "board": ["9s", "5h", "5d"], "winnings": 200}
+{"action": "b250c/kb500c/kb3122c/kb16128f", "client_pos": 1, "hole_cards": ["Ad", "8c"], "bot_hole_cards": ["Th", "4h"], "board": ["Jh", "7c", "3h", "Ah", "Ac"], "winnings": 3872}
+{"action": "b200f", "client_pos": 0, "hole_cards": ["Th", "5c"], "bot_hole_cards": ["Jh", "6h"], "board": [], "winnings": -100}
+{"action": "b250f", "client_pos": 1, "hole_cards": ["Ac", "6h"], "bot_hole_cards": ["7h", "3s"], "board": [], "winnings": 100}
+{"action": "b200f", "client_pos": 0, "hole_cards": ["3c", "2s"], "bot_hole_cards": ["Ks", "6d"], "board": [], "winnings": -100}
+{"action": "b250c/kb500b2000b5600f", "client_pos": 1, "hole_cards": ["Ac", "Tc"], "bot_hole_cards": ["Qs", "2c"], "board": ["9d", "4c", "2h"], "winnings": 2250}
+{"action": "b200c/b300f", "client_pos": 0, "hole_cards": ["Qc", "7c"], "bot_hole_cards": ["Qs", "Js"], "board": ["Kd", "Qd", "2c"], "winnings": 200}
+{"action": "b250c/kb375c/kb2910f", "client_pos": 1, "hole_cards": ["Js", "Jd"], "bot_hole_cards": ["8s", "7h"], "board": ["Qh", "7d", "6s", "2h"], "winnings": 625}
+{"action": "b200f", "client_pos": 0, "hole_cards": ["Kh", "2c"], "bot_hole_cards": ["9d", "4c"], "board": [], "winnings": -100}
+{"action": "b250c/kb827b1654b4700c/kb15050c/", "client_pos": 1, "hole_cards": ["Qh", "Tc"], "bot_hole_cards": ["3s", "3d"], "board": ["Qs", "3c", "2h", "Ah", "Ks"], "winnings": -20000}
+{"action": "b200f", "client_pos": 0, "hole_cards": ["Th", "7s"], "bot_hole_cards": ["Ac", "Qs"], "board": [], "winnings": -100}
+{"action": "f", "client_pos": 1, "hole_cards": ["5c", "2h"], "bot_hole_cards": ["Ah", "4h"], "board": [], "winnings": -50}
+{"action": "b200b700f", "client_pos": 0, "hole_cards": ["Qs", "Qd"], "bot_hole_cards": ["Kh", "5d"], "board": [], "winnings": 200}
+{"action": "f", "client_pos": 1, "hole_cards": ["4d", "3h"], "bot_hole_cards": ["Qc", "8d"], "board": [], "winnings": -50}
+{"action": "b200f", "client_pos": 0, "hole_cards": ["Qd", "5h"], "bot_hole_cards": ["2h", "2c"], "board": [], "winnings": -100}
+{"action": "b250c/kb500c/b1500f", "client_pos": 1, "hole_cards": ["Ah", "3d"], "bot_hole_cards": ["8c", "7h"], "board": ["Th", "9c", "2d", "Qc"], "winnings": -750}
+{"action": "b200c/b728f", "client_pos": 0, "hole_cards": ["Kd", "7s"], "bot_hole_cards": ["9s", "6d"], "board": ["Kh", "7c", "6h"], "winnings": 200}
+{"action": "b250f", "client_pos": 1, "hole_cards": ["Tc", "7d"], "bot_hole_cards": ["6c", "2h"], "board": [], "winnings": 100}
+{"action": "b200c/b728f", "client_pos": 0, "hole_cards": ["Ac", "7c"], "bot_hole_cards": ["Kh", "Js"], "board": ["Ah", "5h", "3d"], "winnings": 200}
+{"action": "b250c/kb500f", "client_pos": 1, "hole_cards": ["Qc", "4d"], "bot_hole_cards": ["As", "3c"], "board": ["Jd", "Th", "9d"], "winnings": 250}
+{"action": "b200c/b400c/b1200c/kk", "client_pos": 0, "hole_cards": ["As", "4h"], "bot_hole_cards": ["9h", "9d"], "board": ["Qd", "Jd", "7h", "Th", "3c"], "winnings": -1800}
+{"action": "b250c/kb500f", "client_pos": 1, "hole_cards": ["9s", "6s"], "bot_hole_cards": ["Qh", "7s"], "board": ["Kh", "8s", "4c"], "winnings": 250}
+{"action": "b200c/b728c/b3380f", "client_pos": 0, "hole_cards": ["Jh", "Ts"], "bot_hole_cards": ["Qd", "9d"], "board": ["Jd", "8s", "3s", "7s"], "winnings": 928}
+{"action": "b250c/kb500c/kb1500f", "client_pos": 1, "hole_cards": ["Ks", "6s"], "bot_hole_cards": ["Js", "7d"], "board": ["Jh", "8c", "6c", "Ah"], "winnings": 750}
+{"action": "b200f", "client_pos": 0, "hole_cards": ["Kd", "3c"], "bot_hole_cards": ["Th", "4c"], "board": [], "winnings": -100}
+{"action": "b250c/b250f", "client_pos": 1, "hole_cards": ["Ad", "6d"], "bot_hole_cards": ["9d", "5h"], "board": ["Qd", "Th", "8s"], "winnings": -250}
+{"action": "b200b700c/b2100c/b4683f", "client_pos": 0, "hole_cards": ["Qh", "Qd"], "bot_hole_cards": ["Ac", "Jd"], "board": ["6h", "6d", "5d", "Kc"], "winnings": 2800}
+{"action": "b250c/b250f", "client_pos": 1, "hole_cards": ["Jh", "6d"], "bot_hole_cards": ["Ad", "9h"], "board": ["Qc", "9d", "3d"], "winnings": -250}
+{"action": "b200c/b400f", "client_pos": 0, "hole_cards": ["3h", "3c"], "bot_hole_cards": ["Js", "2s"], "board": ["Kd", "Ts", "5d"], "winnings": 200}
+{"action": "b250c/kb500b1250c/b1500f", "client_pos": 1, "hole_cards": ["Qs", "6c"], "bot_hole_cards": ["Td", "4c"], "board": ["Ac", "Tc", "7c", "2h"], "winnings": -1500}
+{"action": "b200f", "client_pos": 0, "hole_cards": ["7h", "2d"], "bot_hole_cards": ["Kd", "4d"], "board": [], "winnings": -100}
+{"action": "b250c/kb827f", "client_pos": 1, "hole_cards": ["Ad", "9d"], "bot_hole_cards": ["6s", "5d"], "board": ["Ah", "Kd", "3s"], "winnings": 250}
+{"action": "f", "client_pos": 0, "hole_cards": ["Qh", "2h"], "bot_hole_cards": ["8s", "2c"], "board": [], "winnings": 50}
+{"action": "b250b750f", "client_pos": 1, "hole_cards": ["Qh", "4s"], "bot_hole_cards": ["Ac", "Jh"], "board": [], "winnings": -250}
+{"action": "b200b700f", "client_pos": 0, "hole_cards": ["7s", "5s"], "bot_hole_cards": ["3d", "2d"], "board": [], "winnings": 200}
+{"action": "b250c/kb500c/kb1500f", "client_pos": 1, "hole_cards": ["8d", "6d"], "bot_hole_cards": ["Js", "9c"], "board": ["Ac", "Qd", "9h", "Qs"], "winnings": 750}
+{"action": "f", "client_pos": 0, "hole_cards": ["9d", "4h"], "bot_hole_cards": ["5h", "2d"], "board": [], "winnings": 50}
+{"action": "f", "client_pos": 1, "hole_cards": ["9h", "5c"], "bot_hole_cards": ["Qs", "3s"], "board": [], "winnings": -50}
+{"action": "b200b700f", "client_pos": 0, "hole_cards": ["Ad", "Qh"], "bot_hole_cards": ["Qd", "6c"], "board": [], "winnings": 200}
+{"action": "b250b750f", "client_pos": 1, "hole_cards": ["3h", "2h"], "bot_hole_cards": ["Kd", "5d"], "board": [], "winnings": -250}
+{"action": "b200b700c/b1400c/b4200f", "client_pos": 0, "hole_cards": ["Ad", "Td"], "bot_hole_cards": ["6d", "6c"], "board": ["9c", "8h", "2c", "2s"], "winnings": 2100}
+{"action": "b250c/kb500f", "client_pos": 1, "hole_cards": ["Ad", "7d"], "bot_hole_cards": ["Js", "4s"], "board": ["Qh", "3s", "3d"], "winnings": 250}
+{"action": "b200c/b728b1456b4105c/b15695f", "client_pos": 0, "hole_cards": ["Ks", "2s"], "bot_hole_cards": ["9c", "8d"], "board": ["Kd", "Td", "7c", "Qc"], "winnings": 4305}
+{"action": "b250c/kb500f", "client_pos": 1, "hole_cards": ["Ac", "3c"], "bot_hole_cards": ["9s", "4s"], "board": ["Jh", "Tc", "5c"], "winnings": 250}
+{"action": "b200b700b1800c/b3600b9000f", "client_pos": 0, "hole_cards": ["Js", "Jd"], "bot_hole_cards": ["Qh", "8h"], "board": ["Ac", "8s", "8d"], "winnings": -5400}
+{"action": "b250c/kb500f", "client_pos": 1, "hole_cards": ["Ks", "3c"], "bot_hole_cards": ["9h", "5h"], "board": ["Jd", "8d", "5d"], "winnings": 250}
+{"action": "b200b700f", "client_pos": 0, "hole_cards": ["Kc", "Tc"], "bot_hole_cards": ["6h", "3s"], "board": [], "winnings": 200}
+{"action": "f", "client_pos": 1, "hole_cards": ["7h", "3s"], "bot_hole_cards": ["Js", "6d"], "board": [], "winnings": -50}
+{"action": "b200b700f", "client_pos": 0, "hole_cards": ["6d", "5d"], "bot_hole_cards": ["Th", "2h"], "board": [], "winnings": 200}
+{"action": "f", "client_pos": 1, "hole_cards": ["9s", "5h"], "bot_hole_cards": ["Tc", "5s"], "board": [], "winnings": -50}
+{"action": "b200c/b400f", "client_pos": 0, "hole_cards": ["As", "6h"], "bot_hole_cards": ["Qs", "5c"], "board": ["Kh", "Js", "3h"], "winnings": 200}
+{"action": "f", "client_pos": 1, "hole_cards": ["7s", "2d"], "bot_hole_cards": ["9s", "4c"], "board": [], "winnings": -50}
+{"action": "b200c/b400f", "client_pos": 0, "hole_cards": ["7h", "6d"], "bot_hole_cards": ["Kd", "5c"], "board": ["Ad", "Kc", "Qc"], "winnings": 200}
+{"action": "b250c/kb500f", "client_pos": 1, "hole_cards": ["9h", "7d"], "bot_hole_cards": ["Qh", "5s"], "board": ["Td", "7h", "3s"], "winnings": 250}
+{"action": "b200c/b400b1000f", "client_pos": 0, "hole_cards": ["Ah", "4s"], "bot_hole_cards": ["Ac", "9s"], "board": ["9c", "2s", "2c"], "winnings": -600}
+{"action": "b250f", "client_pos": 1, "hole_cards": ["Ah", "Qh"], "bot_hole_cards": ["8d", "3s"], "board": [], "winnings": 100}
+{"action": "b200c/b400b1000f", "client_pos": 0, "hole_cards": ["Kc", "6h"], "bot_hole_cards": ["6d", "3h"], "board": ["8d", "3d", "2h"], "winnings": -600}
+{"action": "f", "client_pos": 1, "hole_cards": ["Qs", "2h"], "bot_hole_cards": ["6h", "5d"], "board": [], "winnings": -50}
+{"action": "b200f", "client_pos": 0, "hole_cards": ["8h", "3c"], "bot_hole_cards": ["Kc", "Qc"], "board": [], "winnings": -100}
+{"action": "b250f", "client_pos": 1, "hole_cards": ["Ac", "Qh"], "bot_hole_cards": ["6h", "3s"], "board": [], "winnings": 100}
+{"action": "b200b700c/b1400f", "client_pos": 0, "hole_cards": ["Ac", "4c"], "bot_hole_cards": ["8h", "6h"], "board": ["Qd", "Ts", "8c"], "winnings": 700}
+{"action": "b250f", "client_pos": 1, "hole_cards": ["Qh", "7d"], "bot_hole_cards": ["7h", "3d"], "board": [], "winnings": 100}
+{"action": "b200f", "client_pos": 0, "hole_cards": ["9d", "2s"], "bot_hole_cards": ["Jh", "2d"], "board": [], "winnings": -100}
+{"action": "b250c/kb500f", "client_pos": 1, "hole_cards": ["7c", "3c"], "bot_hole_cards": ["Td", "9h"], "board": ["Jh", "6c", "2d"], "winnings": 250}
+{"action": "f", "client_pos": 0, "hole_cards": ["Ah", "Jc"], "bot_hole_cards": ["4d", "2h"], "board": [], "winnings": 50}
+{"action": "f", "client_pos": 1, "hole_cards": ["7c", "2h"], "bot_hole_cards": ["7s", "2d"], "board": [], "winnings": -50}
+{"action": "b200f", "client_pos": 0, "hole_cards": ["9d", "4h"], "bot_hole_cards": ["Ac", "6d"], "board": [], "winnings": -100}
+{"action": "f", "client_pos": 1, "hole_cards": ["8s", "2h"], "bot_hole_cards": ["7c", "2c"], "board": [], "winnings": -50}
+{"action": "b200c/b728c/b3380f", "client_pos": 0, "hole_cards": ["Kd", "6d"], "bot_hole_cards": ["Ac", "Js"], "board": ["Kc", "Tc", "4d", "6h"], "winnings": 928}
+{"action": "b250c/kb500c/kb1500f", "client_pos": 1, "hole_cards": ["Jc", "5s"], "bot_hole_cards": ["7h", "6c"], "board": ["9d", "8c", "2h", "3s"], "winnings": 750}
+{"action": "b200f", "client_pos": 0, "hole_cards": ["4h", "2s"], "bot_hole_cards": ["Kd", "3h"], "board": [], "winnings": -100}
+{"action": "b250b750c/kb2250f", "client_pos": 1, "hole_cards": ["8d", "8c"], "bot_hole_cards": ["Ah", "3h"], "board": ["8s", "5c", "4c"], "winnings": 750}
+{"action": "b200c/b728f", "client_pos": 0, "hole_cards": ["Ah", "8c"], "bot_hole_cards": ["Ks", "5c"], "board": ["8h", "4d", "2h"], "winnings": 200}
+{"action": "b250c/kb500c/kb3122f", "client_pos": 1, "hole_cards": ["Qh", "Th"], "bot_hole_cards": ["4s", "3s"], "board": ["Ah", "6c", "3h", "2h"], "winnings": 750}
+{"action": "b200f", "client_pos": 0, "hole_cards": ["4h", "3d"], "bot_hole_cards": ["Ac", "6h"], "board": [], "winnings": -100}
+{"action": "f", "client_pos": 1, "hole_cards": ["5h", "2c"], "bot_hole_cards": ["9c", "4s"], "board": [], "winnings": -50}
+{"action": "b200c/b400f", "client_pos": 0, "hole_cards": ["Jc", "Th"], "bot_hole_cards": ["Qs", "8h"], "board": ["Kh", "Tc", "2c"], "winnings": 200}
+{"action": "b250c/kb500f", "client_pos": 1, "hole_cards": ["8d", "4d"], "bot_hole_cards": ["Kd", "3h"], "board": ["Js", "8h", "5d"], "winnings": 250}
+{"action": "b200b700f", "client_pos": 0, "hole_cards": ["9c", "8c"], "bot_hole_cards": ["9s", "7d"], "board": [], "winnings": 200}
+{"action": "b250c/kb500c/kb1500f", "client_pos": 1, "hole_cards": ["Kc", "8c"], "bot_hole_cards": ["Qs", "7h"], "board": ["7c", "3s", "2s", "Ah"], "winnings": 750}
+{"action": "b200f", "client_pos": 0, "hole_cards": ["Js", "2s"], "bot_hole_cards": ["6c", "4d"], "board": [], "winnings": -100}
+{"action": "b250c/kb500f", "client_pos": 1, "hole_cards": ["Kc", "5s"], "bot_hole_cards": ["6s", "3s"], "board": ["Ad", "8d", "2d"], "winnings": 250}
+{"action": "b200f", "client_pos": 0, "hole_cards": ["9c", "6h"], "bot_hole_cards": ["Jd", "Jc"], "board": [], "winnings": -100}
+{"action": "f", "client_pos": 1, "hole_cards": ["Js", "3c"], "bot_hole_cards": ["Tc", "6h"], "board": [], "winnings": -50}
+{"action": "b200c/b400b1000f", "client_pos": 0, "hole_cards": ["Kc", "9d"], "bot_hole_cards": ["6c", "4h"], "board": ["As", "Ad", "4s"], "winnings": -600}
+{"action": "b250f", "client_pos": 1, "hole_cards": ["As", "Qc"], "bot_hole_cards": ["3d", "2s"], "board": [], "winnings": 100}
+{"action": "b200c/b300f", "client_pos": 0, "hole_cards": ["Qc", "8s"], "bot_hole_cards": ["6h", "3c"], "board": ["Ad", "Qs", "2c"], "winnings": 200}
+{"action": "b250b750f", "client_pos": 1, "hole_cards": ["Js", "6h"], "bot_hole_cards": ["5h", "5d"], "board": [], "winnings": -250}
+{"action": "f", "client_pos": 0, "hole_cards": ["6h", "4h"], "bot_hole_cards": ["6s", "2c"], "board": [], "winnings": 50}
+{"action": "f", "client_pos": 1, "hole_cards": ["7h", "4s"], "bot_hole_cards": ["Qh", "9c"], "board": [], "winnings": -50}
+{"action": "b200b700f", "client_pos": 0, "hole_cards": ["Ac", "3c"], "bot_hole_cards": ["Kh", "2s"], "board": [], "winnings": 200}
+{"action": "f", "client_pos": 1, "hole_cards": ["5c", "3h"], "bot_hole_cards": ["As", "9s"], "board": [], "winnings": -50}
+{"action": "f", "client_pos": 0, "hole_cards": ["Ts", "9d"], "bot_hole_cards": ["8h", "2s"], "board": [], "winnings": 50}
+{"action": "b250c/kb500f", "client_pos": 1, "hole_cards": ["Jh", "6d"], "bot_hole_cards": ["Qc", "8h"], "board": ["Ad", "7c", "5s"], "winnings": 250}
+{"action": "b200f", "client_pos": 0, "hole_cards": ["Ks", "3h"], "bot_hole_cards": ["5s", "4d"], "board": [], "winnings": -100}
+{"action": "b250c/kb500c/kb1500f", "client_pos": 1, "hole_cards": ["Jd", "7s"], "bot_hole_cards": ["8h", "7c"], "board": ["As", "Th", "6s", "5s"], "winnings": 750}
+{"action": "b200f", "client_pos": 0, "hole_cards": ["Jd", "7s"], "bot_hole_cards": ["Td", "7c"], "board": [], "winnings": -100}
+{"action": "b250c/kb500f", "client_pos": 1, "hole_cards": ["Ts", "6s"], "bot_hole_cards": ["Tc", "4c"], "board": ["Ks", "Js", "3c"], "winnings": 250}
+{"action": "b200c/b400c/b1200f", "client_pos": 0, "hole_cards": ["Jh", "Td"], "bot_hole_cards": ["7d", "6d"], "board": ["Qd", "5d", "5c", "2c"], "winnings": 600}
+{"action": "b250c/b250f", "client_pos": 1, "hole_cards": ["Jd", "6s"], "bot_hole_cards": ["Qs", "2d"], "board": ["Qh", "Th", "7d"], "winnings": -250}
+{"action": "b200c/b728b1800b5000c/b14800f", "client_pos": 0, "hole_cards": ["2h", "2d"], "bot_hole_cards": ["Kc", "4s"], "board": ["4h", "2s", "2c", "Jd"], "winnings": 5200}
+{"action": "b250b750f", "client_pos": 1, "hole_cards": ["3h", "2h"], "bot_hole_cards": ["Ac", "Jc"], "board": [], "winnings": -250}
+{"action": "b200c/b400f", "client_pos": 0, "hole_cards": ["As", "2d"], "bot_hole_cards": ["Ad", "6c"], "board": ["Qs", "Js", "4c"], "winnings": 200}
+{"action": "b250c/kb500f", "client_pos": 1, "hole_cards": ["Ad", "Js"], "bot_hole_cards": ["7s", "6h"], "board": ["Kc", "Tc", "2c"], "winnings": 250}
+{"action": "b200b700c/b1400f", "client_pos": 0, "hole_cards": ["Ah", "Js"], "bot_hole_cards": ["Kh", "6c"], "board": ["Tc", "3h", "2s"], "winnings": 700}
+{"action": "b250b750f", "client_pos": 1, "hole_cards": ["9d", "6h"], "bot_hole_cards": ["As", "Qh"], "board": [], "winnings": -250}
+{"action": "b200f", "client_pos": 0, "hole_cards": ["Ts", "5d"], "bot_hole_cards": ["Js", "3s"], "board": [], "winnings": -100}
+{"action": "b250b750f", "client_pos": 1, "hole_cards": ["Ac", "5s"], "bot_hole_cards": ["9d", "7h"], "board": [], "winnings": -250}
+{"action": "b200b700c/b1400b2900f", "client_pos": 0, "hole_cards": ["Ad", "Qc"], "bot_hole_cards": ["Kd", "6h"], "board": ["Ks", "6s", "5h"], "winnings": -2100}
+{"action": "b250b750c/b750f", "client_pos": 1, "hole_cards": ["Kh", "Jc"], "bot_hole_cards": ["Qd", "4d"], "board": ["Td", "7h", "6c"], "winnings": -750}
+{"action": "b200c/b400c/b1200c/kk", "client_pos": 0, "hole_cards": ["6s", "6d"], "bot_hole_cards": ["Jc", "9c"], "board": ["Kh", "Qs", "7h", "Ah", "9s"], "winnings": -1800}
+{"action": "b250c/kb500f", "client_pos": 1, "hole_cards": ["Kh", "2c"], "bot_hole_cards": ["9h", "4s"], "board": ["Qd", "5h", "2h"], "winnings": 250}
+{"action": "b200c/b400f", "client_pos": 0, "hole_cards": ["8h", "6d"], "bot_hole_cards": ["Qc", "6s"], "board": ["Th", "2h", "2d"], "winnings": 200}
+{"action": "b250c/kb827f", "client_pos": 1, "hole_cards": ["Qh", "8d"], "bot_hole_cards": ["7c", "5d"], "board": ["Qs", "8c", "3h"], "winnings": 250}
+{"action": "b200c/b400c/b1200f", "client_pos": 0, "hole_cards": ["Ks", "Tc"], "bot_hole_cards": ["Ah", "3c"], "board": ["Qd", "4s", "2s", "Qh"], "winnings": 600}
+{"action": "b250b750f", "client_pos": 1, "hole_cards": ["6h", "3h"], "bot_hole_cards": ["9s", "7h"], "board": [], "winnings": -250}
+{"action": "b200b700f", "client_pos": 0, "hole_cards": ["As", "5s"], "bot_hole_cards": ["Kd", "7c"], "board": [], "winnings": 200}
+{"action": "b250c/kb500f", "client_pos": 1, "hole_cards": ["As", "Jh"], "bot_hole_cards": ["Kd", "4c"], "board": ["Qs", "Th", "3h"], "winnings": 250}
+{"action": "b200f", "client_pos": 0, "hole_cards": ["9s", "6h"], "bot_hole_cards": ["Ad", "Kc"], "board": [], "winnings": -100}
+{"action": "b250c/kb500c/b750c/kk", "client_pos": 1, "hole_cards": ["Kh", "2d"], "bot_hole_cards": ["Jc", "3s"], "board": ["7s", "7h", "3c", "Kd", "Ah"], "winnings": 1500}
+{"action": "b200f", "client_pos": 0, "hole_cards": ["Jc", "2s"], "bot_hole_cards": ["Ac", "Qd"], "board": [], "winnings": -100}
+{"action": "b250c/kb500c/kb1500f", "client_pos": 1, "hole_cards": ["9d", "7c"], "bot_hole_cards": ["6d", "4s"], "board": ["Ac", "3h", "2s", "Jh"], "winnings": 750}
+{"action": "b200c/b400f", "client_pos": 0, "hole_cards": ["7c", "6d"], "bot_hole_cards": ["Kd", "2c"], "board": ["Ac", "Qc", "6s"], "winnings": 200}
+{"action": "b250c/kb827f", "client_pos": 1, "hole_cards": ["Ah", "5d"], "bot_hole_cards": ["Ks", "4c"], "board": ["Ac", "7h", "6h"], "winnings": 250}
+{"action": "b200f", "client_pos": 0, "hole_cards": ["6d", "2s"], "bot_hole_cards": ["4h", "3c"], "board": [], "winnings": -100}
+{"action": "b250b750f", "client_pos": 1, "hole_cards": ["9h", "6d"], "bot_hole_cards": ["Kh", "Jc"], "board": [], "winnings": -250}
+{"action": "b200b700c/b1050c/b3500b18250f", "client_pos": 0, "hole_cards": ["Js", "Jc"], "bot_hole_cards": ["Ah", "Tc"], "board": ["Ac", "Td", "4s", "5d"], "winnings": -5250}
+{"action": "b250b750c/b750f", "client_pos": 1, "hole_cards": ["3s", "3c"], "bot_hole_cards": ["7h", "7d"], "board": ["Jc", "6d", "2h"], "winnings": -750}
+{"action": "b200f", "client_pos": 0, "hole_cards": ["6d", "2c"], "bot_hole_cards": ["Jd", "8c"], "board": [], "winnings": -100}
+{"action": "f", "client_pos": 1, "hole_cards": ["Ts", "5d"], "bot_hole_cards": ["Ks", "4d"], "board": [], "winnings": -50}
+{"action": "b200c/b400f", "client_pos": 0, "hole_cards": ["Qs", "9c"], "bot_hole_cards": ["Ks", "Qc"], "board": ["7h", "3h", "3c"], "winnings": 200}
+{"action": "f", "client_pos": 1, "hole_cards": ["9d", "2c"], "bot_hole_cards": ["Tc", "4c"], "board": [], "winnings": -50}
+{"action": "b200c/b400f", "client_pos": 0, "hole_cards": ["9d", "7c"], "bot_hole_cards": ["4c", "3s"], "board": ["8c", "7s", "2c"], "winnings": 200}
+{"action": "b250c/kb500c/b750c/b1500f", "client_pos": 1, "hole_cards": ["7c", "6h"], "bot_hole_cards": ["Qc", "Th"], "board": ["9c", "6c", "4h", "2c", "8s"], "winnings": -1500}
+{"action": "b200c/b400c/b1200c/kb1800f", "client_pos": 0, "hole_cards": ["Ah", "4c"], "bot_hole_cards": ["Ks", "Kc"], "board": ["Kh", "Qd", "Tc", "5s", "8c"], "winnings": -1800}
+{"action": "f", "client_pos": 1, "hole_cards": ["8h", "3d"], "bot_hole_cards": ["Jd", "8d"], "board": [], "winnings": -50}
+{"action": "b200c/b400f", "client_pos": 0, "hole_cards": ["9c", "4c"], "bot_hole_cards": ["Qd", "2c"], "board": ["Ts", "5s", "4s"], "winnings": 200}
+{"action": "b250b750f", "client_pos": 1, "hole_cards": ["Jc", "6c"], "bot_hole_cards": ["As", "Ac"], "board": [], "winnings": -250}
+{"action": "b200f", "client_pos": 0, "hole_cards": ["7c", "2d"], "bot_hole_cards": ["Kh", "8c"], "board": [], "winnings": -100}
+{"action": "b250c/kb827c/kb3564f", "client_pos": 1, "hole_cards": ["Kc", "8c"], "bot_hole_cards": ["Kh", "Td"], "board": ["Ks", "8h", "3s", "6d"], "winnings": 1077}
+{"action": "b200b700f", "client_pos": 0, "hole_cards": ["Th", "Td"], "bot_hole_cards": ["Jc", "5d"], "board": [], "winnings": 200}
+{"action": "b250c/kb500f", "client_pos": 1, "hole_cards": ["As", "7h"], "bot_hole_cards": ["5c", "3h"], "board": ["Js", "Jh", "9s"], "winnings": 250}
+{"action": "b200f", "client_pos": 0, "hole_cards": ["Tc", "2d"], "bot_hole_cards": ["As", "4s"], "board": [], "winnings": -100}
+{"action": "b250c/kb500f", "client_pos": 1, "hole_cards": ["7d", "5h"], "bot_hole_cards": ["Qs", "Td"], "board": ["9c", "6d", "3d"], "winnings": 250}
+{"action": "b200b700c/b1050f", "client_pos": 0, "hole_cards": ["Jd", "Jc"], "bot_hole_cards": ["5c", "4h"], "board": ["Ah", "7s", "4c"], "winnings": 700}
+{"action": "b250b750f", "client_pos": 1, "hole_cards": ["Kh", "5s"], "bot_hole_cards": ["Ac", "4c"], "board": [], "winnings": -250}
+{"action": "b200c/b400c/b1200c/b3600f", "client_pos": 0, "hole_cards": ["Jc", "8d"], "bot_hole_cards": ["Th", "Td"], "board": ["6h", "5h", "4h", "Tc", "Ks"], "winnings": 1800}
+{"action": "f", "client_pos": 1, "hole_cards": ["8h", "5s"], "bot_hole_cards": ["9d", "5h"], "board": [], "winnings": -50}
+{"action": "b200f", "client_pos": 0, "hole_cards": ["6d", "2c"], "bot_hole_cards": ["9d", "7s"], "board": [], "winnings": -100}
+{"action": "b250b750c/kb2250f", "client_pos": 1, "hole_cards": ["Ah", "Td"], "bot_hole_cards": ["Kc", "Qd"], "board": ["As", "9s", "5s"], "winnings": 750}
+{"action": "b200c/b400b1000f", "client_pos": 0, "hole_cards": ["9d", "6d"], "bot_hole_cards": ["Qs", "7d"], "board": ["As", "Ac", "Td"], "winnings": -600}
+{"action": "b250c/kb500c/kb1500f", "client_pos": 1, "hole_cards": ["9d", "6c"], "bot_hole_cards": ["Qd", "5c"], "board": ["Kc", "5d", "3s", "8h"], "winnings": 750}
+{"action": "b200c/b400f", "client_pos": 0, "hole_cards": ["Ad", "8h"], "bot_hole_cards": ["Kd", "7c"], "board": ["9s", "9d", "8s"], "winnings": 200}
+{"action": "b250b750c/kb1500c/kb4500f", "client_pos": 1, "hole_cards": ["Qd", "Th"], "bot_hole_cards": ["Js", "Jh"], "board": ["Kh", "8s", "7d", "8c"], "winnings": 2250}
+{"action": "f", "client_pos": 0, "hole_cards": ["7s", "7c"], "bot_hole_cards": ["5s", "2d"], "board": [], "winnings": 50}
+{"action": "b250b750f", "client_pos": 1, "hole_cards": ["Ad", "8h"], "bot_hole_cards": ["6s", "6d"], "board": [], "winnings": -250}
+{"action": "b200c/b400c/b1200f", "client_pos": 0, "hole_cards": ["Jd", "Th"], "bot_hole_cards": ["Ah", "6h"], "board": ["7d", "6c", "2d", "Kd"], "winnings": 600}
+{"action": "f", "client_pos": 1, "hole_cards": ["7d", "4s"], "bot_hole_cards": ["Qh", "2d"], "board": [], "winnings": -50}
+{"action": "b200c/b400b1000c/kk/kk", "client_pos": 0, "hole_cards": ["Qh", "5h"], "bot_hole_cards": ["Ah", "7h"], "board": ["8c", "7d", "3d", "5c", "3h"], "winnings": -1200}
+{"action": "b250b750c/b750f", "client_pos": 1, "hole_cards": ["Kh", "Qh"], "bot_hole_cards": ["As", "4s"], "board": ["Td", "7c", "5s"], "winnings": -750}
+{"action": "b200b700f", "client_pos": 0, "hole_cards": ["Kh", "Qs"], "bot_hole_cards": ["Td", "4h"], "board": [], "winnings": 200}
+{"action": "f", "client_pos": 1, "hole_cards": ["9c", "2s"], "bot_hole_cards": ["8d", "5d"], "board": [], "winnings": -50}
+{"action": "b200b700b2400b5280c/b14720f", "client_pos": 0, "hole_cards": ["Kh", "Kc"], "bot_hole_cards": ["Kd", "Js"], "board": ["Ac", "5c", "4h"], "winnings": 5280}
+{"action": "b250c/kb827f", "client_pos": 1, "hole_cards": ["Qs", "Tc"], "bot_hole_cards": ["Ac", "9s"], "board": ["Qh", "Ts", "4d"], "winnings": 250}
+{"action": "b200c/b728f", "client_pos": 0, "hole_cards": ["9d", "6d"], "bot_hole_cards": ["Jc", "3s"], "board": ["6h", "4c", "2h"], "winnings": 200}
+{"action": "f", "client_pos": 1, "hole_cards": ["8s", "4d"], "bot_hole_cards": ["Kh", "9d"], "board": [], "winnings": -50}
+{"action": "b200c/b400b1000f", "client_pos": 0, "hole_cards": ["8d", "6h"], "bot_hole_cards": ["Qs", "2s"], "board": ["Kc", "5d", "2c"], "winnings": -600}
+{"action": "b250f", "client_pos": 1, "hole_cards": ["8s", "7c"], "bot_hole_cards": ["Th", "3d"], "board": [], "winnings": 100}
+{"action": "b200f", "client_pos": 0, "hole_cards": ["Jh", "2d"], "bot_hole_cards": ["Kc", "6s"], "board": [], "winnings": -100}
+{"action": "b250c/kb500f", "client_pos": 1, "hole_cards": ["8h", "6d"], "bot_hole_cards": ["Kh", "3s"], "board": ["5d", "4d", "3h"], "winnings": 250}
+{"action": "f", "client_pos": 0, "hole_cards": ["8h", "4d"], "bot_hole_cards": ["7d", "2s"], "board": [], "winnings": 50}
+{"action": "b250c/kb500f", "client_pos": 1, "hole_cards": ["Kh", "9s"], "bot_hole_cards": ["Qc", "3c"], "board": ["Ac", "Ts", "6d"], "winnings": 250}
+{"action": "b200b700c/b1400f", "client_pos": 0, "hole_cards": ["Kh", "Th"], "bot_hole_cards": ["As", "Td"], "board": ["Js", "8c", "6c"], "winnings": 700}
+{"action": "b250c/b250c/kb1000f", "client_pos": 1, "hole_cards": ["Tc", "8d"], "bot_hole_cards": ["9d", "4h"], "board": ["Qc", "Jd", "8c", "Jh"], "winnings": 500}
+{"action": "b200c/b400f", "client_pos": 0, "hole_cards": ["Ks", "3s"], "bot_hole_cards": ["9h", "6c"], "board": ["8s", "8h", "3c"], "winnings": 200}
+{"action": "f", "client_pos": 1, "hole_cards": ["8c", "4d"], "bot_hole_cards": ["7s", "5h"], "board": [], "winnings": -50}
+{"action": "b200c/b400c/b1200b3000c/kk", "client_pos": 0, "hole_cards": ["Td", "9h"], "bot_hole_cards": ["Jh", "5s"], "board": ["Jd", "7h", "6c", "2h", "9d"], "winnings": -3600}
+{"action": "b250b750c/b750b3150c/b2100c/b14000f", "client_pos": 1, "hole_cards": ["Qc", "Td"], "bot_hole_cards": ["Qd", "Jd"], "board": ["Tc", "9s", "2h", "Kc", "5c"], "winnings": -6000}
+{"action": "b200c/b400c/kb600f", "client_pos": 0, "hole_cards": ["5s", "5c"], "bot_hole_cards": ["Qs", "Jd"], "board": ["Ks", "Ts", "Td", "9s"], "winnings": -600}
+{"action": "f", "client_pos": 1, "hole_cards": ["6h", "2s"], "bot_hole_cards": ["6c", "5c"], "board": [], "winnings": -50}
+{"action": "b200c/b400f", "client_pos": 0, "hole_cards": ["8c", "7h"], "bot_hole_cards": ["Jc", "5s"], "board": ["6s", "6d", "2c"], "winnings": 200}
+{"action": "f", "client_pos": 1, "hole_cards": ["7c", "2d"], "bot_hole_cards": ["Ks", "3s"], "board": [], "winnings": -50}
+{"action": "b200c/b728f", "client_pos": 0, "hole_cards": ["Qd", "9h"], "bot_hole_cards": ["Kd", "7c"], "board": ["Qs", "6s", "5d"], "winnings": 200}
+{"action": "b250f", "client_pos": 1, "hole_cards": ["Kh", "2d"], "bot_hole_cards": ["6d", "3c"], "board": [], "winnings": 100}
+{"action": "b200f", "client_pos": 0, "hole_cards": ["7s", "5c"], "bot_hole_cards": ["Td", "9d"], "board": [], "winnings": -100}
+{"action": "b250b750f", "client_pos": 1, "hole_cards": ["Th", "6s"], "bot_hole_cards": ["Kc", "Jc"], "board": [], "winnings": -250}
+{"action": "b200f", "client_pos": 0, "hole_cards": ["8h", "3d"], "bot_hole_cards": ["Tc", "2h"], "board": [], "winnings": -100}
+{"action": "b250b750c/kb1500f", "client_pos": 1, "hole_cards": ["Ks", "Qs"], "bot_hole_cards": ["4s", "4c"], "board": ["Jd", "8d", "8c"], "winnings": 750}
+{"action": "b200f", "client_pos": 0, "hole_cards": ["8s", "5c"], "bot_hole_cards": ["Jc", "Th"], "board": [], "winnings": -100}
+{"action": "b250c/kb500f", "client_pos": 1, "hole_cards": ["Ah", "Qd"], "bot_hole_cards": ["9d", "8s"], "board": ["Kc", "Jc", "3d"], "winnings": 250}
+{"action": "b200f", "client_pos": 0, "hole_cards": ["5d", "3h"], "bot_hole_cards": ["7s", "3s"], "board": [], "winnings": -100}
+{"action": "b250b750f", "client_pos": 1, "hole_cards": ["Qd", "7c"], "bot_hole_cards": ["Ac", "9c"], "board": [], "winnings": -250}
+{"action": "b200b700f", "client_pos": 0, "hole_cards": ["Qh", "Jh"], "bot_hole_cards": ["9d", "4c"], "board": [], "winnings": 200}
+{"action": "b250b750f", "client_pos": 1, "hole_cards": ["Kd", "7h"], "bot_hole_cards": ["Kc", "8h"], "board": [], "winnings": -250}
+{"action": "b200f", "client_pos": 0, "hole_cards": ["Tc", "4d"], "bot_hole_cards": ["As", "3s"], "board": [], "winnings": -100}
+{"action": "b250c/kb827f", "client_pos": 1, "hole_cards": ["Ah", "6h"], "bot_hole_cards": ["Qc", "7c"], "board": ["Ad", "Th", "3c"], "winnings": 250}
+{"action": "f", "client_pos": 0, "hole_cards": ["Ks", "5s"], "bot_hole_cards": ["9d", "2h"], "board": [], "winnings": 50}
+{"action": "b250c/kb500f", "client_pos": 1, "hole_cards": ["Ts", "Tc"], "bot_hole_cards": ["Qh", "2c"], "board": ["Ac", "Ks", "5c"], "winnings": 250}
+{"action": "b200b700c/b2100f", "client_pos": 0, "hole_cards": ["Kh", "Kc"], "bot_hole_cards": ["7s", "5s"], "board": ["Ks", "2h", "2c"], "winnings": 700}
+{"action": "b250b750b1724f", "client_pos": 1, "hole_cards": ["Kh", "Kc"], "bot_hole_cards": ["Qs", "Jd"], "board": [], "winnings": 750}
+{"action": "b200f", "client_pos": 0, "hole_cards": ["Ts", "7d"], "bot_hole_cards": ["5h", "3h"], "board": [], "winnings": -100}
+{"action": "b250c/kb500c/b750f", "client_pos": 1, "hole_cards": ["Kd", "4c"], "bot_hole_cards": ["Jc", "9s"], "board": ["8c", "7d", "4h", "Jd"], "winnings": -750}
+{"action": "b200b700c/b2100b7300b19300c//", "client_pos": 0, "hole_cards": ["Jh", "Jc"], "bot_hole_cards": ["4h", "3h"], "board": ["6h", "4d", "3c", "Ac", "7d"], "winnings": -20000}
+{"action": "b250f", "client_pos": 1, "hole_cards": ["6d", "5h"], "bot_hole_cards": ["6c", "2s"], "board": [], "winnings": 100}
+{"action": "b200c/b400f", "client_pos": 0, "hole_cards": ["6d", "4d"], "bot_hole_cards": ["Th", "2s"], "board": ["9h", "9c", "7s"], "winnings": 200}
+{"action": "f", "client_pos": 1, "hole_cards": ["6d", "2c"], "bot_hole_cards": ["As", "5c"], "board": [], "winnings": -50}
+{"action": "b200c/b400c/b1200f", "client_pos": 0, "hole_cards": ["9h", "5h"], "bot_hole_cards": ["Ac", "3h"], "board": ["Ks", "7s", "3c", "Td"], "winnings": 600}
+{"action": "f", "client_pos": 1, "hole_cards": ["4c", "3s"], "bot_hole_cards": ["9s", "8c"], "board": [], "winnings": -50}
+{"action": "b200b700c/b1400c/b4200f", "client_pos": 0, "hole_cards": ["As", "5s"], "bot_hole_cards": ["Ad", "Th"], "board": ["Js", "Jc", "5c", "3d"], "winnings": 2100}
+{"action": "f", "client_pos": 1, "hole_cards": ["6c", "3h"], "bot_hole_cards": ["As", "6h"], "board": [], "winnings": -50}
+{"action": "b200b700c/b2100f", "client_pos": 0, "hole_cards": ["8s", "7s"], "bot_hole_cards": ["Ks", "4c"], "board": ["Ac", "6c", "5d"], "winnings": 700}
+{"action": "b250c/kb500c/kb1500c/kb4500c", "client_pos": 1, "hole_cards": ["Kd", "Tc"], "bot_hole_cards": ["4d", "3c"], "board": ["Qc", "3s", "2s", "3d", "6c"], "winnings": -6750}
+{"action": "b200c/b400f", "client_pos": 0, "hole_cards": ["Kh", "5s"], "bot_hole_cards": ["Ks", "4s"], "board": ["Jd", "9d", "2h"], "winnings": 200}
+{"action": "f", "client_pos": 1, "hole_cards": ["5s", "2c"], "bot_hole_cards": ["7d", "2h"], "board": [], "winnings": -50}
+{"action": "b200f", "client_pos": 0, "hole_cards": ["Th", "6s"], "bot_hole_cards": ["Ts", "8s"], "board": [], "winnings": -100}
+{"action": "b250c/kb500f", "client_pos": 1, "hole_cards": ["Kh", "6c"], "bot_hole_cards": ["Ac", "3s"], "board": ["9c", "8s", "4h"], "winnings": 250}
+{"action": "f", "client_pos": 0, "hole_cards": ["Qc", "6d"], "bot_hole_cards": ["8h", "2c"], "board": [], "winnings": 50}
+{"action": "b250c/kb500f", "client_pos": 1, "hole_cards": ["8d", "3d"], "bot_hole_cards": ["Jh", "4c"], "board": ["Kd", "Qs", "Jc"], "winnings": 250}
+{"action": "b200c/b400f", "client_pos": 0, "hole_cards": ["Qd", "6d"], "bot_hole_cards": ["6c", "5d"], "board": ["Ts", "Tc", "2h"], "winnings": 200}
+{"action": "b250f", "client_pos": 1, "hole_cards": ["7d", "2d"], "bot_hole_cards": ["9d", "2c"], "board": [], "winnings": 100}
+{"action": "b200f", "client_pos": 0, "hole_cards": ["7s", "2s"], "bot_hole_cards": ["4c", "3s"], "board": [], "winnings": -100}
+{"action": "b250b750f", "client_pos": 1, "hole_cards": ["8s", "7h"], "bot_hole_cards": ["5d", "5c"], "board": [], "winnings": -250}
+{"action": "f", "client_pos": 0, "hole_cards": ["9s", "2h"], "bot_hole_cards": ["6d", "2c"], "board": [], "winnings": 50}
+{"action": "b250c/kb500c/kk/b1500f", "client_pos": 1, "hole_cards": ["Js", "9s"], "bot_hole_cards": ["Kd", "9h"], "board": ["As", "Kh", "2h", "6h", "7h"], "winnings": -750}
+{"action": "b200f", "client_pos": 0, "hole_cards": ["Tc", "3s"], "bot_hole_cards": ["Kd", "3h"], "board": [], "winnings": -100}
+{"action": "b250c/kb500f", "client_pos": 1, "hole_cards": ["Qh", "9c"], "bot_hole_cards": ["8d", "3d"], "board": ["Tc", "6d", "4h"], "winnings": 250}
+{"action": "b200c/b400c/b1200c/kb1800f", "client_pos": 0, "hole_cards": ["Qh", "2h"], "bot_hole_cards": ["Ah", "Ks"], "board": ["Ad", "Kh", "3d", "3s", "4c"], "winnings": -1800}
+{"action": "b250c/kb500b1250c/b1500f", "client_pos": 1, "hole_cards": ["Ad", "8s"], "bot_hole_cards": ["5d", "3h"], "board": ["6d", "4s", "2d", "Js"], "winnings": -1500}
+{"action": "f", "client_pos": 0, "hole_cards": ["Ac", "Jc"], "bot_hole_cards": ["9d", "2h"], "board": [], "winnings": 50}
+{"action": "b250f", "client_pos": 1, "hole_cards": ["Kc", "Qh"], "bot_hole_cards": ["9h", "3c"], "board": [], "winnings": 100}
+{"action": "b200f", "client_pos": 0, "hole_cards": ["8h", "4d"], "bot_hole_cards": ["9s", "7d"], "board": [], "winnings": -100}
+{"action": "f", "client_pos": 1, "hole_cards": ["6d", "4h"], "bot_hole_cards": ["5d", "4d"], "board": [], "winnings": -50}
+{"action": "f", "client_pos": 0, "hole_cards": ["8c", "5c"], "bot_hole_cards": ["9s", "2d"], "board": [], "winnings": 50}
+{"action": "b250c/kb500c/kb1500f", "client_pos": 1, "hole_cards": ["Jd", "Jc"], "bot_hole_cards": ["Tc", "9s"], "board": ["Kc", "Qd", "9c", "Ks"], "winnings": 750}
+{"action": "b200c/b400f", "client_pos": 0, "hole_cards": ["5h", "5d"], "bot_hole_cards": ["Qd", "Jh"], "board": ["8h", "6c", "3d"], "winnings": 200}
+{"action": "b250c/kb827f", "client_pos": 1, "hole_cards": ["Ks", "Jc"], "bot_hole_cards": ["Qd", "Ts"], "board": ["Jh", "6d", "5s"], "winnings": 250}
+{"action": "b200f", "client_pos": 0, "hole_cards": ["Td", "2d"], "bot_hole_cards": ["9h", "7c"], "board": [], "winnings": -100}
+{"action": "b250b750c/kb1500f", "client_pos": 1, "hole_cards": ["Qd", "Td"], "bot_hole_cards": ["Ah", "8c"], "board": ["Kd", "6s", "5s"], "winnings": 750}
+{"action": "b200c/b400f", "client_pos": 0, "hole_cards": ["As", "5d"], "bot_hole_cards": ["5c", "4h"], "board": ["Kc", "Jh", "3c"], "winnings": 200}
+{"action": "b250f", "client_pos": 1, "hole_cards": ["Ad", "3h"], "bot_hole_cards": ["7c", "3d"], "board": [], "winnings": 100}
+{"action": "f", "client_pos": 0, "hole_cards": ["Ts", "9h"], "bot_hole_cards": ["8c", "2d"], "board": [], "winnings": 50}
+{"action": "b250c/kb500f", "client_pos": 1, "hole_cards": ["8d", "7d"], "bot_hole_cards": ["4c", "3s"], "board": ["Kh", "9s", "5h"], "winnings": 250}
+{"action": "b200c/b400f", "client_pos": 0, "hole_cards": ["Ah", "4c"], "bot_hole_cards": ["As", "Qd"], "board": ["Tc", "7s", "5c"], "winnings": 200}
+{"action": "b250f", "client_pos": 1, "hole_cards": ["Kh", "9s"], "bot_hole_cards": ["9d", "2h"], "board": [], "winnings": 100}
+{"action": "b200f", "client_pos": 0, "hole_cards": ["Js", "4h"], "bot_hole_cards": ["Jh", "7d"], "board": [], "winnings": -100}
+{"action": "b250c/kb827f", "client_pos": 1, "hole_cards": ["Ks", "3h"], "bot_hole_cards": ["5d", "4c"], "board": ["Qh", "3d", "3c"], "winnings": 250}
+{"action": "b200c/b728c/b3380f", "client_pos": 0, "hole_cards": ["Kh", "6h"], "bot_hole_cards": ["Js", "Td"], "board": ["Ks", "Jh", "9d", "2s"], "winnings": 928}
+{"action": "b250c/kb500f", "client_pos": 1, "hole_cards": ["7s", "4s"], "bot_hole_cards": ["9h", "6d"], "board": ["Ah", "7h", "2h"], "winnings": 250}
+{"action": "b200c/b300f", "client_pos": 0, "hole_cards": ["Td", "9s"], "bot_hole_cards": ["Ks", "6h"], "board": ["Js", "Jd", "Th"], "winnings": 200}
+{"action": "f", "client_pos": 1, "hole_cards": ["9c", "4s"], "bot_hole_cards": ["Kd", "7s"], "board": [], "winnings": -50}
+{"action": "b200b700f", "client_pos": 0, "hole_cards": ["Ts", "8s"], "bot_hole_cards": ["9c", "6s"], "board": [], "winnings": 200}
+{"action": "b250f", "client_pos": 1, "hole_cards": ["8h", "7s"], "bot_hole_cards": ["9c", "2h"], "board": [], "winnings": 100}
+{"action": "b200c/b400f", "client_pos": 0, "hole_cards": ["Qs", "8h"], "bot_hole_cards": ["2d", "2c"], "board": ["Ts", "7h", "6s"], "winnings": 200}
+{"action": "b250b750c/b750f", "client_pos": 1, "hole_cards": ["7c", "6c"], "bot_hole_cards": ["5c", "4c"], "board": ["Ad", "Td", "9h"], "winnings": -750}
+{"action": "b200b700f", "client_pos": 0, "hole_cards": ["Ad", "Td"], "bot_hole_cards": ["Kd", "7s"], "board": [], "winnings": 200}
+{"action": "b250c/kb500c/kb1500f", "client_pos": 1, "hole_cards": ["Qc", "4c"], "bot_hole_cards": ["Jd", "7h"], "board": ["Ks", "Jh", "5c", "Ac"], "winnings": 750}
+{"action": "f", "client_pos": 0, "hole_cards": ["5c", "2d"], "bot_hole_cards": ["5h", "2s"], "board": [], "winnings": 50}
+{"action": "b250b750b1724c/kb3448f", "client_pos": 1, "hole_cards": ["Ac", "Kh"], "bot_hole_cards": ["5h", "5d"], "board": ["9s", "8c", "2c"], "winnings": 1724}
+{"action": "b200f", "client_pos": 0, "hole_cards": ["Js", "2s"], "bot_hole_cards": ["6c", "3c"], "board": [], "winnings": -100}
+{"action": "b250b750f", "client_pos": 1, "hole_cards": ["Qc", "4d"], "bot_hole_cards": ["Qs", "5s"], "board": [], "winnings": -250}
+{"action": "b200f", "client_pos": 0, "hole_cards": ["6s", "3h"], "bot_hole_cards": ["Jh", "9c"], "board": [], "winnings": -100}
+{"action": "b250c/kb500f", "client_pos": 1, "hole_cards": ["Td", "5d"], "bot_hole_cards": ["Ah", "2c"], "board": ["Kh", "Js", "8s"], "winnings": 250}
+{"action": "f", "client_pos": 0, "hole_cards": ["Jh", "Ts"], "bot_hole_cards": ["8c", "3d"], "board": [], "winnings": 50}
+{"action": "b250b750f", "client_pos": 1, "hole_cards": ["Qd", "3d"], "bot_hole_cards": ["9h", "7h"], "board": [], "winnings": -250}
+{"action": "b200c/b400b1000f", "client_pos": 0, "hole_cards": ["Kc", "7s"], "bot_hole_cards": ["6s", "5d"], "board": ["Ah", "Jc", "3d"], "winnings": -600}
+{"action": "b250c/b250b1050f", "client_pos": 1, "hole_cards": ["Ks", "6s"], "bot_hole_cards": ["Qd", "2h"], "board": ["Ts", "Td", "9s"], "winnings": 500}
+{"action": "b200f", "client_pos": 0, "hole_cards": ["Jh", "7s"], "bot_hole_cards": ["9c", "6s"], "board": [], "winnings": -100}
+{"action": "f", "client_pos": 1, "hole_cards": ["Jc", "2s"], "bot_hole_cards": ["9s", "4h"], "board": [], "winnings": -50}
+{"action": "b200b700b2400f", "client_pos": 0, "hole_cards": ["Kh", "Qc"], "bot_hole_cards": ["As", "Ac"], "board": [], "winnings": -700}
+{"action": "b250c/kb500f", "client_pos": 1, "hole_cards": ["5d", "4h"], "bot_hole_cards": ["Ks", "5c"], "board": ["Ah", "8c", "6s"], "winnings": 250}
+{"action": "b200c/b400f", "client_pos": 0, "hole_cards": ["Jc", "5c"], "bot_hole_cards": ["Td", "6s"], "board": ["Qh", "9d", "4d"], "winnings": 200}
+{"action": "f", "client_pos": 1, "hole_cards": ["6h", "2c"], "bot_hole_cards": ["7h", "5d"], "board": [], "winnings": -50}
+{"action": "b200c/b400c/b1200f", "client_pos": 0, "hole_cards": ["9c", "5c"], "bot_hole_cards": ["Kc", "9s"], "board": ["Ac", "Ks", "7s", "Jc"], "winnings": 600}
+{"action": "f", "client_pos": 1, "hole_cards": ["9d", "4c"], "bot_hole_cards": ["7s", "5s"], "board": [], "winnings": -50}
+{"action": "b200f", "client_pos": 0, "hole_cards": ["5h", "2c"], "bot_hole_cards": ["9d", "7h"], "board": [], "winnings": -100}
+{"action": "f", "client_pos": 1, "hole_cards": ["4c", "2s"], "bot_hole_cards": ["4d", "3d"], "board": [], "winnings": -50}
+{"action": "b200f", "client_pos": 0, "hole_cards": ["8d", "2d"], "bot_hole_cards": ["Qh", "4h"], "board": [], "winnings": -100}
+{"action": "b250c/kb827c/kb3564f", "client_pos": 1, "hole_cards": ["Qs", "Jc"], "bot_hole_cards": ["Ah", "Ts"], "board": ["Ac", "Jh", "Jd", "8d"], "winnings": 1077}
+{"action": "b200b700c/b1400c/b4200b12300f", "client_pos": 0, "hole_cards": ["Ks", "Qh"], "bot_hole_cards": ["9d", "8h"], "board": ["8c", "7c", "4d", "9s"], "winnings": -6300}
+{"action": "f", "client_pos": 1, "hole_cards": ["9d", "5s"], "bot_hole_cards": ["6s", "4c"], "board": [], "winnings": -50}
+{"action": "b200f", "client_pos": 0, "hole_cards": ["9c", "5d"], "bot_hole_cards": ["Jc", "2s"], "board": [], "winnings": -100}
+{"action": "b250c/kb500f", "client_pos": 1, "hole_cards": ["5h", "3h"], "bot_hole_cards": ["Qh", "2c"], "board": ["Jh", "7s", "5s"], "winnings": 250}
+{"action": "b200c/b728f", "client_pos": 0, "hole_cards": ["Ad", "5h"], "bot_hole_cards": ["Ts", "2s"], "board": ["6h", "5d", "5c"], "winnings": 200}
+{"action": "b250f", "client_pos": 1, "hole_cards": ["Ac", "2s"], "bot_hole_cards": ["8d", "2c"], "board": [], "winnings": 100}
+{"action": "b200c/b728f", "client_pos": 0, "hole_cards": ["Kc", "Th"], "bot_hole_cards": ["Ks", "5h"], "board": ["Kd", "Jh", "2h"], "winnings": 200}
+{"action": "b250f", "client_pos": 1, "hole_cards": ["8s", "7c"], "bot_hole_cards": ["7s", "4c"], "board": [], "winnings": 100}
+{"action": "b200f", "client_pos": 0, "hole_cards": ["Qd", "3c"], "bot_hole_cards": ["9c", "7c"], "board": [], "winnings": -100}
+{"action": "f", "client_pos": 1, "hole_cards": ["9h", "3c"], "bot_hole_cards": ["Kd", "Qs"], "board": [], "winnings": -50}
+{"action": "b200c/b400c/b1200f", "client_pos": 0, "hole_cards": ["Qs", "7c"], "bot_hole_cards": ["4c", "3c"], "board": ["As", "Js", "6c", "7d"], "winnings": 600}
+{"action": "f", "client_pos": 1, "hole_cards": ["Qc", "2h"], "bot_hole_cards": ["Kh", "5d"], "board": [], "winnings": -50}
+{"action": "b200f", "client_pos": 0, "hole_cards": ["5c", "4s"], "bot_hole_cards": ["Kc", "3h"], "board": [], "winnings": -100}
+{"action": "b250c/kb500c/kb1500f", "client_pos": 1, "hole_cards": ["8s", "6d"], "bot_hole_cards": ["Ad", "2c"], "board": ["Kd", "6h", "2s", "Th"], "winnings": 750}
+{"action": "b200c/b400f", "client_pos": 0, "hole_cards": ["As", "9h"], "bot_hole_cards": ["8c", "4s"], "board": ["Ts", "6h", "3c"], "winnings": 200}
+{"action": "b250f", "client_pos": 1, "hole_cards": ["Js", "8h"], "bot_hole_cards": ["4s", "2d"], "board": [], "winnings": 100}
+{"action": "b200f", "client_pos": 0, "hole_cards": ["Ts", "2s"], "bot_hole_cards": ["Ks", "8s"], "board": [], "winnings": -100}
+{"action": "f", "client_pos": 1, "hole_cards": ["9d", "5s"], "bot_hole_cards": ["Kc", "8d"], "board": [], "winnings": -50}
+{"action": "b200f", "client_pos": 0, "hole_cards": ["Js", "2s"], "bot_hole_cards": ["6s", "5s"], "board": [], "winnings": -100}
+{"action": "b250c/kb500c/kb1500c/kb17750f", "client_pos": 1, "hole_cards": ["6d", "6c"], "bot_hole_cards": ["Qd", "7d"], "board": ["Ad", "3c", "2d", "As", "6s"], "winnings": 2250}
+{"action": "b200b700c/b1400c/b6300f", "client_pos": 0, "hole_cards": ["Ts", "8s"], "bot_hole_cards": ["As", "7s"], "board": ["Qs", "Jd", "4s", "9c"], "winnings": 2100}
+{"action": "b250c/b250f", "client_pos": 1, "hole_cards": ["8c", "6c"], "bot_hole_cards": ["Jd", "3c"], "board": ["Ts", "9d", "4d"], "winnings": -250}
+{"action": "b200f", "client_pos": 0, "hole_cards": ["Ts", "6h"], "bot_hole_cards": ["Qd", "Jh"], "board": [], "winnings": -100}
+{"action": "f", "client_pos": 1, "hole_cards": ["7s", "4h"], "bot_hole_cards": ["Kh", "5h"], "board": [], "winnings": -50}
+{"action": "b200c/b728c/b3380b19072c/", "client_pos": 0, "hole_cards": ["Qc", "Jh"], "bot_hole_cards": ["Ac", "Kc"], "board": ["Jd", "Td", "9s", "Qs", "4c"], "winnings": -20000}
+{"action": "f", "client_pos": 1, "hole_cards": ["Jc", "3h"], "bot_hole_cards": ["As", "7s"], "board": [], "winnings": -50}
+{"action": "b200f", "client_pos": 0, "hole_cards": ["Qc", "4s"], "bot_hole_cards": ["Kc", "5d"], "board": [], "winnings": -100}
+{"action": "b250c/kb500f", "client_pos": 1, "hole_cards": ["Tc", "9d"], "bot_hole_cards": ["Qd", "2c"], "board": ["Jh", "8d", "3s"], "winnings": 250}
+{"action": "b200c/b400c/b1200c/kk", "client_pos": 0, "hole_cards": ["Tc", "8h"], "bot_hole_cards": ["Jh", "Jc"], "board": ["Qs", "9d", "3h", "2s", "5d"], "winnings": -1800}
+{"action": "b250c/kb500f", "client_pos": 1, "hole_cards": ["As", "Jc"], "bot_hole_cards": ["8h", "5h"], "board": ["Kc", "9c", "2s"], "winnings": 250}
+{"action": "b200f", "client_pos": 0, "hole_cards": ["7h", "4s"], "bot_hole_cards": ["Jd", "5h"], "board": [], "winnings": -100}
+{"action": "b250c/kb500f", "client_pos": 1, "hole_cards": ["Kc", "Jh"], "bot_hole_cards": ["Kd", "7c"], "board": ["Ah", "8h", "7h"], "winnings": 250}
+{"action": "b200f", "client_pos": 0, "hole_cards": ["Ts", "6c"], "bot_hole_cards": ["9c", "7h"], "board": [], "winnings": -100}
+{"action": "b250b750c/b750f", "client_pos": 1, "hole_cards": ["Ad", "Jc"], "bot_hole_cards": ["Ks", "5s"], "board": ["9h", "7s", "2h"], "winnings": -750}
+{"action": "f", "client_pos": 0, "hole_cards": ["Ad", "Jd"], "bot_hole_cards": ["7c", "2s"], "board": [], "winnings": 50}
+{"action": "b250b750f", "client_pos": 1, "hole_cards": ["As", "8h"], "bot_hole_cards": ["9d", "8d"], "board": [], "winnings": -250}
+{"action": "b200f", "client_pos": 0, "hole_cards": ["6d", "2c"], "bot_hole_cards": ["6h", "5s"], "board": [], "winnings": -100}
+{"action": "f", "client_pos": 1, "hole_cards": ["Jd", "3s"], "bot_hole_cards": ["Js", "9c"], "board": [], "winnings": -50}
+{"action": "b200f", "client_pos": 0, "hole_cards": ["9c", "5s"], "bot_hole_cards": ["Qh", "Jh"], "board": [], "winnings": -100}
+{"action": "b250c/kb500f", "client_pos": 1, "hole_cards": ["6c", "5s"], "bot_hole_cards": ["Jh", "6d"], "board": ["Kc", "8h", "6h"], "winnings": 250}
+{"action": "b200f", "client_pos": 0, "hole_cards": ["Jd", "5c"], "bot_hole_cards": ["Kc", "7s"], "board": [], "winnings": -100}
+{"action": "b250f", "client_pos": 1, "hole_cards": ["9s", "9d"], "bot_hole_cards": ["Th", "3s"], "board": [], "winnings": 100}
+{"action": "b200c/b400f", "client_pos": 0, "hole_cards": ["Kd", "Jc"], "bot_hole_cards": ["4s", "2s"], "board": ["Qc", "9c", "8s"], "winnings": 200}
+{"action": "f", "client_pos": 1, "hole_cards": ["7c", "3h"], "bot_hole_cards": ["7h", "4h"], "board": [], "winnings": -50}
+{"action": "b200c/b728f", "client_pos": 0, "hole_cards": ["Jd", "7d"], "bot_hole_cards": ["9d", "8s"], "board": ["Js", "5s", "4h"], "winnings": 200}
+{"action": "b250c/kb500f", "client_pos": 1, "hole_cards": ["9h", "7h"], "bot_hole_cards": ["Qd", "9s"], "board": ["Kc", "5s", "4c"], "winnings": 250}
+{"action": "f", "client_pos": 0, "hole_cards": ["Td", "7c"], "bot_hole_cards": ["5s", "2d"], "board": [], "winnings": 50}
+{"action": "b250c/kb827f", "client_pos": 1, "hole_cards": ["4d", "4c"], "bot_hole_cards": ["Td", "6s"], "board": ["Kd", "4s", "4h"], "winnings": 250}
+{"action": "b200c/b400f", "client_pos": 0, "hole_cards": ["Kc", "Jd"], "bot_hole_cards": ["Kh", "4h"], "board": ["Qd", "9h", "3s"], "winnings": 200}
+{"action": "b250b750c/b1500c/b4500f", "client_pos": 1, "hole_cards": ["6h", "6d"], "bot_hole_cards": ["Qd", "Td"], "board": ["8s", "5d", "3c", "Kd"], "winnings": -2250}
+{"action": "b200f", "client_pos": 0, "hole_cards": ["9h", "5s"], "bot_hole_cards": ["Js", "5c"], "board": [], "winnings": -100}
+{"action": "b250c/kb500f", "client_pos": 1, "hole_cards": ["Kc", "4s"], "bot_hole_cards": ["Jc", "7d"], "board": ["As", "Qh", "6h"], "winnings": 250}
+{"action": "b200c/b728f", "client_pos": 0, "hole_cards": ["As", "7s"], "bot_hole_cards": ["Jh", "3h"], "board": ["Th", "7d", "7c"], "winnings": 200}
+{"action": "b250c/b250f", "client_pos": 1, "hole_cards": ["Ac", "8s"], "bot_hole_cards": ["Jd", "4h"], "board": ["Td", "7h", "4d"], "winnings": -250}
+{"action": "b200b700b1800f", "client_pos": 0, "hole_cards": ["Ah", "3h"], "bot_hole_cards": ["Kh", "Jc"], "board": [], "winnings": -700}
+{"action": "b250c/kb500c/kk/b750f", "client_pos": 1, "hole_cards": ["4d", "3d"], "bot_hole_cards": ["Jh", "2h"], "board": ["Qh", "8d", "4h", "8h", "Ad"], "winnings": -750}
+{"action": "b200c/b728f", "client_pos": 0, "hole_cards": ["Th", "9c"], "bot_hole_cards": ["Kc", "5h"], "board": ["Ts", "9d", "5c"], "winnings": 200}
+{"action": "b250c/kb827f", "client_pos": 1, "hole_cards": ["Js", "Jd"], "bot_hole_cards": ["Th", "5d"], "board": ["Jc", "8d", "6d"], "winnings": 250}
+{"action": "b200f", "client_pos": 0, "hole_cards": ["9c", "5s"], "bot_hole_cards": ["Kh", "Js"], "board": [], "winnings": -100}
+{"action": "b250c/kb500f", "client_pos": 1, "hole_cards": ["Kc", "Jd"], "bot_hole_cards": ["6c", "2c"], "board": ["Ad", "Ks", "9s"], "winnings": 250}
+{"action": "f", "client_pos": 0, "hole_cards": ["Kh", "6s"], "bot_hole_cards": ["7h", "4s"], "board": [], "winnings": 50}
+{"action": "b250c/kb500f", "client_pos": 1, "hole_cards": ["Qs", "9s"], "bot_hole_cards": ["7s", "5c"], "board": ["Ks", "9c", "3c"], "winnings": 250}
+{"action": "b200c/b400b1000c/b3698f", "client_pos": 0, "hole_cards": ["Jd", "6d"], "bot_hole_cards": ["As", "7h"], "board": ["8d", "6h", "5d", "Js"], "winnings": 1200}
+{"action": "f", "client_pos": 1, "hole_cards": ["8h", "5c"], "bot_hole_cards": ["Th", "6c"], "board": [], "winnings": -50}
+{"action": "b200c/b728f", "client_pos": 0, "hole_cards": ["Jc", "3c"], "bot_hole_cards": ["Qd", "Tc"], "board": ["Jd", "4d", "2c"], "winnings": 200}
+{"action": "b250b750f", "client_pos": 1, "hole_cards": ["8c", "7s"], "bot_hole_cards": ["4s", "4d"], "board": [], "winnings": -250}
+{"action": "b200c/b400b1000c/b2400c/b2376c", "client_pos": 0, "hole_cards": ["Ah", "4c"], "bot_hole_cards": ["As", "9c"], "board": ["9s", "5h", "4d", "Tc", "Qc"], "winnings": -5976}
+{"action": "f", "client_pos": 1, "hole_cards": ["9h", "3d"], "bot_hole_cards": ["Ad", "Qc"], "board": [], "winnings": -50}
+{"action": "b200c/b400f", "client_pos": 0, "hole_cards": ["Ks", "8s"], "bot_hole_cards": ["Jc", "2h"], "board": ["Jh", "8h", "3s"], "winnings": 200}
+{"action": "b250c/kb500f", "client_pos": 1, "hole_cards": ["Qc", "5h"], "bot_hole_cards": ["Kd", "2d"], "board": ["Tc", "7h", "4s"], "winnings": 250}
+{"action": "b200c/b400c/b2864f", "client_pos": 0, "hole_cards": ["Jh", "5h"], "bot_hole_cards": ["5c", "3d"], "board": ["Ks", "5s", "4c", "Js"], "winnings": 600}
+{"action": "b250c/kb500f", "client_pos": 1, "hole_cards": ["6h", "6d"], "bot_hole_cards": ["Tc", "4c"], "board": ["Ah", "Ad", "8h"], "winnings": 250}
+{"action": "b200f", "client_pos": 0, "hole_cards": ["8h", "5s"], "bot_hole_cards": ["Qc", "6d"], "board": [], "winnings": -100}
+{"action": "f", "client_pos": 1, "hole_cards": ["8d", "5c"], "bot_hole_cards": ["Kd", "8h"], "board": [], "winnings": -50}
+{"action": "b200f", "client_pos": 0, "hole_cards": ["Ks", "3h"], "bot_hole_cards": ["Kc", "3d"], "board": [], "winnings": -100}
+{"action": "b250c/kb500c/kb1500f", "client_pos": 1, "hole_cards": ["Js", "2s"], "bot_hole_cards": ["Tc", "6h"], "board": ["9h", "7c", "6d", "Kc"], "winnings": 750}
+{"action": "f", "client_pos": 0, "hole_cards": ["5s", "4s"], "bot_hole_cards": ["7c", "3h"], "board": [], "winnings": 50}
+{"action": "b250c/kb500f", "client_pos": 1, "hole_cards": ["7s", "5c"], "bot_hole_cards": ["5h", "3s"], "board": ["Qh", "Jc", "3c"], "winnings": 250}
+{"action": "b200b700c/b1400c/b4200f", "client_pos": 0, "hole_cards": ["Qd", "9d"], "bot_hole_cards": ["7h", "7d"], "board": ["Kd", "6h", "2h", "4s"], "winnings": 2100}
+{"action": "b250c/kb827c/kb3564f", "client_pos": 1, "hole_cards": ["Ts", "Td"], "bot_hole_cards": ["As", "3c"], "board": ["Qh", "Th", "3d", "9c"], "winnings": 1077}
+{"action": "b200b700f", "client_pos": 0, "hole_cards": ["Kc", "Tc"], "bot_hole_cards": ["Td", "6d"], "board": [], "winnings": 200}
+{"action": "b250c/kb500f", "client_pos": 1, "hole_cards": ["Kc", "4d"], "bot_hole_cards": ["2s", "2h"], "board": ["Jd", "Tc", "9s"], "winnings": 250}
+{"action": "b200f", "client_pos": 0, "hole_cards": ["Jc", "2c"], "bot_hole_cards": ["Kc", "2s"], "board": [], "winnings": -100}
+{"action": "b250c/kb500f", "client_pos": 1, "hole_cards": ["Qh", "7c"], "bot_hole_cards": ["Ks", "4h"], "board": ["5d", "4c", "3c"], "winnings": 250}
+{"action": "b200b700c/b2100c/b17200f", "client_pos": 0, "hole_cards": ["Ks", "Qh"], "bot_hole_cards": ["Qc", "Js"], "board": ["Kd", "Kc", "Jc", "Ts"], "winnings": 2800}
+{"action": "b250f", "client_pos": 1, "hole_cards": ["Ts", "Tc"], "bot_hole_cards": ["8c", "3h"], "board": [], "winnings": 100}
+{"action": "b200f", "client_pos": 0, "hole_cards": ["Td", "7s"], "bot_hole_cards": ["Ah", "9d"], "board": [], "winnings": -100}
+{"action": "b250b750c/b1500f", "client_pos": 1, "hole_cards": ["Qc", "Jh"], "bot_hole_cards": ["5s", "2s"], "board": ["Ad", "Kh", "2d"], "winnings": -750}
+{"action": "b200c/b400b1000f", "client_pos": 0, "hole_cards": ["8h", "6s"], "bot_hole_cards": ["Qh", "3h"], "board": ["5h", "3s", "3d"], "winnings": -600}
+{"action": "b250f", "client_pos": 1, "hole_cards": ["Ks", "6d"], "bot_hole_cards": ["8d", "2h"], "board": [], "winnings": 100}
+{"action": "b200b700f", "client_pos": 0, "hole_cards": ["Kc", "Tc"], "bot_hole_cards": ["5h", "3s"], "board": [], "winnings": 200}
+{"action": "b250c/kb827c/kb3564b18923c/", "client_pos": 1, "hole_cards": ["Td", "Tc"], "bot_hole_cards": ["9c", "5c"], "board": ["5s", "2s", "2c", "Kd", "8h"], "winnings": 20000}
+{"action": "b200c/b728f", "client_pos": 0, "hole_cards": ["Kc", "5h"], "bot_hole_cards": ["As", "2s"], "board": ["Ks", "Td", "7h"], "winnings": 200}
+{"action": "f", "client_pos": 1, "hole_cards": ["Qd", "2s"], "bot_hole_cards": ["Ah", "3s"], "board": [], "winnings": -50}
+{"action": "b200c/b400f", "client_pos": 0, "hole_cards": ["Kh", "8c"], "bot_hole_cards": ["Qh", "3s"], "board": ["As", "Ah", "4s"], "winnings": 200}
+{"action": "b250f", "client_pos": 1, "hole_cards": ["Qh", "6c"], "bot_hole_cards": ["Jh", "2d"], "board": [], "winnings": 100}
+{"action": "b200b700c/b1400f", "client_pos": 0, "hole_cards": ["As", "Jh"], "bot_hole_cards": ["Ac", "4s"], "board": ["Qs", "Td", "5s"], "winnings": 700}
+{"action": "b250f", "client_pos": 1, "hole_cards": ["5c", "2c"], "bot_hole_cards": ["8c", "2s"], "board": [], "winnings": 100}
+{"action": "f", "client_pos": 0, "hole_cards": ["Kd", "9c"], "bot_hole_cards": ["3h", "2d"], "board": [], "winnings": 50}
+{"action": "f", "client_pos": 1, "hole_cards": ["8c", "2d"], "bot_hole_cards": ["8s", "4s"], "board": [], "winnings": -50}
+{"action": "f", "client_pos": 0, "hole_cards": ["7c", "6c"], "bot_hole_cards": ["4s", "2d"], "board": [], "winnings": 50}
+{"action": "b250b750f", "client_pos": 1, "hole_cards": ["Qc", "7d"], "bot_hole_cards": ["Qh", "Js"], "board": [], "winnings": -250}
+{"action": "b200b700f", "client_pos": 0, "hole_cards": ["9c", "8c"], "bot_hole_cards": ["8d", "3d"], "board": [], "winnings": 200}
+{"action": "b250c/kb500c/kb1500f", "client_pos": 1, "hole_cards": ["Ad", "Qh"], "bot_hole_cards": ["Qc", "5s"], "board": ["9s", "6s", "5h", "Jc"], "winnings": 750}
+{"action": "b200c/b400f", "client_pos": 0, "hole_cards": ["Qc", "2c"], "bot_hole_cards": ["4h", "3h"], "board": ["Ts", "9d", "8s"], "winnings": 200}
+{"action": "b250c/kb500f", "client_pos": 1, "hole_cards": ["Ts", "9c"], "bot_hole_cards": ["7c", "3c"], "board": ["Js", "Td", "8s"], "winnings": 250}
+{"action": "b200c/b728c/b3380b9072b19072c/", "client_pos": 0, "hole_cards": ["Ac", "2h"], "bot_hole_cards": ["Tc", "2c"], "board": ["4c", "2s", "2d", "Ah", "8s"], "winnings": 20000}
+{"action": "f", "client_pos": 1, "hole_cards": ["Qs", "2c"], "bot_hole_cards": ["Kc", "6d"], "board": [], "winnings": -50}
+{"action": "b200c/b728b1800b5000f", "client_pos": 0, "hole_cards": ["Ac", "4h"], "bot_hole_cards": ["Th", "9c"], "board": ["Ah", "9s", "5h"], "winnings": 2000}
+{"action": "b250b750f", "client_pos": 1, "hole_cards": ["9s", "8c"], "bot_hole_cards": ["As", "Qd"], "board": [], "winnings": -250}
+{"action": "b200b700f", "client_pos": 0, "hole_cards": ["Ah", "Ks"], "bot_hole_cards": ["Qc", "4h"], "board": [], "winnings": 200}
+{"action": "b250c/kb500c/kb1500f", "client_pos": 1, "hole_cards": ["7h", "3h"], "bot_hole_cards": ["Kh", "Tc"], "board": ["Qh", "9c", "2c", "5h"], "winnings": 750}
+{"action": "b200f", "client_pos": 0, "hole_cards": ["3d", "2c"], "bot_hole_cards": ["Qh", "Qd"], "board": [], "winnings": -100}
+{"action": "b250c/b250c/b1000c/kk", "client_pos": 1, "hole_cards": ["Ts", "6c"], "bot_hole_cards": ["Td", "4h"], "board": ["Qs", "Jd", "9h", "Ac", "Jh"], "winnings": 0}
+{"action": "b200b700f", "client_pos": 0, "hole_cards": ["9c", "8c"], "bot_hole_cards": ["Qs", "4h"], "board": [], "winnings": 200}
+{"action": "f", "client_pos": 1, "hole_cards": ["5s", "2c"], "bot_hole_cards": ["8h", "6d"], "board": [], "winnings": -50}
+{"action": "b200f", "client_pos": 0, "hole_cards": ["8s", "2c"], "bot_hole_cards": ["Tc", "5s"], "board": [], "winnings": -100}
+{"action": "b250b750f", "client_pos": 1, "hole_cards": ["Ks", "7d"], "bot_hole_cards": ["Ad", "Qs"], "board": [], "winnings": -250}
+{"action": "b200f", "client_pos": 0, "hole_cards": ["6h", "3c"], "bot_hole_cards": ["Jd", "8h"], "board": [], "winnings": -100}
+{"action": "b250f", "client_pos": 1, "hole_cards": ["9h", "8c"], "bot_hole_cards": ["9s", "3c"], "board": [], "winnings": 100}
+{"action": "b200c/b400f", "client_pos": 0, "hole_cards": ["Js", "6s"], "bot_hole_cards": ["Ts", "7c"], "board": ["7d", "5d", "4s"], "winnings": 200}
+{"action": "b250f", "client_pos": 1, "hole_cards": ["Kd", "Jh"], "bot_hole_cards": ["5s", "2d"], "board": [], "winnings": 100}
+{"action": "b200c/b400f", "client_pos": 0, "hole_cards": ["Ah", "8c"], "bot_hole_cards": ["Qs", "7c"], "board": ["Kc", "9c", "6h"], "winnings": 200}
+{"action": "b250c/b250b1050c/kb3900c/kb14800f", "client_pos": 1, "hole_cards": ["Ad", "3h"], "bot_hole_cards": ["9s", "8h"], "board": ["As", "9c", "3s", "Ah", "2c"], "winnings": 5200}
+{"action": "b200b700f", "client_pos": 0, "hole_cards": ["Ad", "Kd"], "bot_hole_cards": ["Jh", "5s"], "board": [], "winnings": 200}
+{"action": "b250c/kb500f", "client_pos": 1, "hole_cards": ["Kh", "Jc"], "bot_hole_cards": ["9h", "2h"], "board": ["Qs", "8s", "5c"], "winnings": 250}
+{"action": "b200c/b400f", "client_pos": 0, "hole_cards": ["Kh", "9c"], "bot_hole_cards": ["Ac", "7h"], "board": ["Qh", "4s", "3s"], "winnings": 200}
+{"action": "b250b750c/kb1500c/kb4500f", "client_pos": 1, "hole_cards": ["9h", "6h"], "bot_hole_cards": ["Ad", "3d"], "board": ["Qd", "Td", "5c", "8c"], "winnings": 2250}
+{"action": "b200b700c/b1439f", "client_pos": 0, "hole_cards": ["As", "Kc"], "bot_hole_cards": ["5d", "4c"], "board": ["Js", "Td", "6c"], "winnings": 700}
+{"action": "f", "client_pos": 1, "hole_cards": ["9c", "2h"], "bot_hole_cards": ["8d", "6d"], "board": [], "winnings": -50}
+{"action": "b200f", "client_pos": 0, "hole_cards": ["Kh", "3c"], "bot_hole_cards": ["Tc", "3h"], "board": [], "winnings": -100}
+{"action": "b250b750c/b750b3150f", "client_pos": 1, "hole_cards": ["Tc", "7c"], "bot_hole_cards": ["9c", "8c"], "board": ["Kc", "7s", "7h"], "winnings": 1500}
+{"action": "b200f", "client_pos": 0, "hole_cards": ["Tc", "6h"], "bot_hole_cards": ["Kd", "6c"], "board": [], "winnings": -100}
+{"action": "b250c/kb500f", "client_pos": 1, "hole_cards": ["Kd", "3d"], "bot_hole_cards": ["Jh", "5c"], "board": ["Qh", "3c", "2s"], "winnings": 250}
+{"action": "b200c/b400c/b1200f", "client_pos": 0, "hole_cards": ["8s", "4s"], "bot_hole_cards": ["Qh", "2c"], "board": ["Tc", "5d", "2s", "6s"], "winnings": 600}
+{"action": "b250b750c/b750f", "client_pos": 1, "hole_cards": ["Kh", "Tc"], "bot_hole_cards": ["Ks", "Kc"], "board": ["8d", "6s", "4h"], "winnings": -750}
+{"action": "b200c/b400f", "client_pos": 0, "hole_cards": ["Qs", "Td"], "bot_hole_cards": ["Kc", "2s"], "board": ["Jc", "7s", "3h"], "winnings": 200}
+{"action": "b250c/kb500f", "client_pos": 1, "hole_cards": ["Ac", "2s"], "bot_hole_cards": ["7c", "4c"], "board": ["Qc", "Jh", "Td"], "winnings": 250}
+{"action": "b200c/b400c/b1200f", "client_pos": 0, "hole_cards": ["Qd", "4d"], "bot_hole_cards": ["Jd", "9d"], "board": ["Ts", "2h", "2d", "5s"], "winnings": 600}
+{"action": "b250c/b250b1050f", "client_pos": 1, "hole_cards": ["Qh", "5h"], "bot_hole_cards": ["Ts", "4h"], "board": ["Ah", "6c", "2h"], "winnings": 500}
+{"action": "b200c/b400c/b1200f", "client_pos": 0, "hole_cards": ["Jc", "8d"], "bot_hole_cards": ["Js", "8h"], "board": ["9h", "7s", "3d", "2c"], "winnings": 600}
+{"action": "b250f", "client_pos": 1, "hole_cards": ["Ks", "Js"], "bot_hole_cards": ["Jc", "2h"], "board": [], "winnings": 100}
+{"action": "b200f", "client_pos": 0, "hole_cards": ["8s", "2s"], "bot_hole_cards": ["Th", "2h"], "board": [], "winnings": -100}
+{"action": "b250b750b1724c/b100c/kb3648c/kk", "client_pos": 1, "hole_cards": ["Ah", "Qh"], "bot_hole_cards": ["Kc", "Jh"], "board": ["Kd", "9c", "7c", "6c", "3s"], "winnings": -5472}
+{"action": "b200f", "client_pos": 0, "hole_cards": ["Th", "5c"], "bot_hole_cards": ["9h", "8s"], "board": [], "winnings": -100}
+{"action": "b250c/kb500c/b750f", "client_pos": 1, "hole_cards": ["Ks", "Jc"], "bot_hole_cards": ["Th", "7d"], "board": ["Ah", "7h", "4c", "7c"], "winnings": -750}
+{"action": "b200f", "client_pos": 0, "hole_cards": ["Tc", "6d"], "bot_hole_cards": ["Jc", "6h"], "board": [], "winnings": -100}
+{"action": "b250c/kb500f", "client_pos": 1, "hole_cards": ["Qs", "9d"], "bot_hole_cards": ["Ts", "3s"], "board": ["7s", "2h", "2d"], "winnings": 250}
+{"action": "b200c/b728f", "client_pos": 0, "hole_cards": ["6d", "3d"], "bot_hole_cards": ["Kh", "Js"], "board": ["7c", "6s", "3s"], "winnings": 200}
+{"action": "f", "client_pos": 1, "hole_cards": ["7c", "3s"], "bot_hole_cards": ["Qh", "6c"], "board": [], "winnings": -50}
+{"action": "b200c/b400c/b2864f", "client_pos": 0, "hole_cards": ["6h", "5c"], "bot_hole_cards": ["As", "Ad"], "board": ["Jc", "7s", "4h", "3s"], "winnings": 600}
+{"action": "b250c/kb500c/kb1500c/kk", "client_pos": 1, "hole_cards": ["As", "8d"], "bot_hole_cards": ["Js", "4s"], "board": ["9s", "9h", "2s", "Jc", "7s"], "winnings": -2250}
+{"action": "f", "client_pos": 0, "hole_cards": ["Ac", "Th"], "bot_hole_cards": ["3c", "2s"], "board": [], "winnings": 50}
+{"action": "f", "client_pos": 1, "hole_cards": ["8s", "3h"], "bot_hole_cards": ["Ks", "Kh"], "board": [], "winnings": -50}
+{"action": "b200b700c/b1400f", "client_pos": 0, "hole_cards": ["Qh", "9h"], "bot_hole_cards": ["As", "Td"], "board": ["Qc", "8h", "8c"], "winnings": 700}
+{"action": "b250f", "client_pos": 1, "hole_cards": ["Kh", "2c"], "bot_hole_cards": ["Tc", "2d"], "board": [], "winnings": 100}
+{"action": "b200f", "client_pos": 0, "hole_cards": ["9h", "4c"], "bot_hole_cards": ["Ac", "8s"], "board": [], "winnings": -100}
+{"action": "b250f", "client_pos": 1, "hole_cards": ["Kc", "8s"], "bot_hole_cards": ["6d", "2h"], "board": [], "winnings": 100}
+{"action": "b200f", "client_pos": 0, "hole_cards": ["6h", "4d"], "bot_hole_cards": ["As", "Ah"], "board": [], "winnings": -100}
+{"action": "f", "client_pos": 1, "hole_cards": ["Js", "3d"], "bot_hole_cards": ["5d", "4s"], "board": [], "winnings": -50}
+{"action": "b200c/b400c/b1200c/kb1800f", "client_pos": 0, "hole_cards": ["Ac", "8h"], "bot_hole_cards": ["Kh", "2s"], "board": ["9d", "2d", "2c", "Tc", "7s"], "winnings": -1800}
+{"action": "b250f", "client_pos": 1, "hole_cards": ["9h", "9c"], "bot_hole_cards": ["Jc", "2h"], "board": [], "winnings": 100}
+{"action": "b200c/b400c/b1200c/b18200f", "client_pos": 0, "hole_cards": ["As", "8d"], "bot_hole_cards": ["Qh", "9c"], "board": ["Kc", "9s", "3s", "2s", "4s"], "winnings": 1800}
+{"action": "b250c/kb500f", "client_pos": 1, "hole_cards": ["6c", "5d"], "bot_hole_cards": ["Ts", "2s"], "board": ["Qd", "5h", "4c"], "winnings": 250}
+{"action": "b200c/b400c/b1200f", "client_pos": 0, "hole_cards": ["9s", "7c"], "bot_hole_cards": ["Ah", "Jd"], "board": ["Kh", "9h", "8c", "3s"], "winnings": 600}
+{"action": "b250f", "client_pos": 1, "hole_cards": ["Ad", "Ks"], "bot_hole_cards": ["7d", "2s"], "board": [], "winnings": 100}
+{"action": "b200c/b728f", "client_pos": 0, "hole_cards": ["Kh", "Tc"], "bot_hole_cards": ["Qs", "8h"], "board": ["Ts", "4c", "3h"], "winnings": 200}
+{"action": "f", "client_pos": 1, "hole_cards": ["9h", "5s"], "bot_hole_cards": ["Ts", "3d"], "board": [], "winnings": -50}
+{"action": "b200c/b728c/b1856f", "client_pos": 0, "hole_cards": ["Qh", "Js"], "bot_hole_cards": ["7h", "7c"], "board": ["Ah", "Td", "6h", "8d"], "winnings": 928}
+{"action": "b250f", "client_pos": 1, "hole_cards": ["Ah", "7c"], "bot_hole_cards": ["9c", "3h"], "board": [], "winnings": 100}
+{"action": "b200f", "client_pos": 0, "hole_cards": ["Qs", "4h"], "bot_hole_cards": ["Qc", "8c"], "board": [], "winnings": -100}
+{"action": "b250f", "client_pos": 1, "hole_cards": ["Jd", "8c"], "bot_hole_cards": ["4c", "2s"], "board": [], "winnings": 100}
+{"action": "b200c/b400f", "client_pos": 0, "hole_cards": ["Jc", "8s"], "bot_hole_cards": ["As", "Th"], "board": ["Kc", "6h", "4c"], "winnings": 200}
+{"action": "f", "client_pos": 1, "hole_cards": ["8d", "2s"], "bot_hole_cards": ["Ac", "Td"], "board": [], "winnings": -50}
+{"action": "b200c/b400f", "client_pos": 0, "hole_cards": ["9c", "7d"], "bot_hole_cards": ["Qh", "5d"], "board": ["9s", "8s", "2s"], "winnings": 200}
+{"action": "b250c/kb500f", "client_pos": 1, "hole_cards": ["8d", "4d"], "bot_hole_cards": ["Ad", "6d"], "board": ["Th", "9h", "9c"], "winnings": 250}
+{"action": "b200c/b400c/b1200f", "client_pos": 0, "hole_cards": ["Ks", "6h"], "bot_hole_cards": ["Qh", "Th"], "board": ["8c", "5h", "2s", "Ad"], "winnings": 600}
+{"action": "b250f", "client_pos": 1, "hole_cards": ["Ac", "5s"], "bot_hole_cards": ["Td", "2h"], "board": [], "winnings": 100}
+{"action": "f", "client_pos": 0, "hole_cards": ["6h", "3d"], "bot_hole_cards": ["7d", "3h"], "board": [], "winnings": 50}
+{"action": "f", "client_pos": 1, "hole_cards": ["8h", "3s"], "bot_hole_cards": ["Qs", "3c"], "board": [], "winnings": -50}
+{"action": "b200b700c/b2100b8300b19300c//", "client_pos": 0, "hole_cards": ["Ts", "Th"], "bot_hole_cards": ["4s", "4h"], "board": ["6h", "4d", "3c", "Kd", "7h"], "winnings": -20000}
+{"action": "b250c/kb500c/kb1500c/kk", "client_pos": 1, "hole_cards": ["Js", "9s"], "bot_hole_cards": ["6d", "4c"], "board": ["Kh", "Kc", "6h", "Tc", "9d"], "winnings": 2250}
+{"action": "b200f", "client_pos": 0, "hole_cards": ["6h", "3s"], "bot_hole_cards": ["9s", "5s"], "board": [], "winnings": -100}
+{"action": "b250c/kb500c/kk/kb1500f", "client_pos": 1, "hole_cards": ["As", "6c"], "bot_hole_cards": ["6h", "2h"], "board": ["Th", "7h", "4h", "3h", "Qh"], "winnings": 750}
+{"action": "b200f", "client_pos": 0, "hole_cards": ["Js", "5h"], "bot_hole_cards": ["Jd", "6h"], "board": [], "winnings": -100}
+{"action": "b250c/kb500c/kb1500f", "client_pos": 1, "hole_cards": ["9s", "8s"], "bot_hole_cards": ["Ah", "2s"], "board": ["Ac", "Qc", "7d", "8h"], "winnings": 750}
+{"action": "b200f", "client_pos": 0, "hole_cards": ["4c", "3h"], "bot_hole_cards": ["Qd", "2c"], "board": [], "winnings": -100}
+{"action": "b250b750f", "client_pos": 1, "hole_cards": ["6s", "2s"], "bot_hole_cards": ["Jh", "7h"], "board": [], "winnings": -250}
+{"action": "b200c/b400b1600f", "client_pos": 0, "hole_cards": ["9h", "4h"], "bot_hole_cards": ["Js", "2c"], "board": ["6s", "2h", "2d"], "winnings": -600}
+{"action": "b250c/kb500c/kb1500f", "client_pos": 1, "hole_cards": ["6s", "6d"], "bot_hole_cards": ["Qs", "9s"], "board": ["Tc", "3d", "2s", "Kh"], "winnings": 750}
+{"action": "b200f", "client_pos": 0, "hole_cards": ["Td", "7s"], "bot_hole_cards": ["9d", "6c"], "board": [], "winnings": -100}
+{"action": "b250c/kb500c/kb1500f", "client_pos": 1, "hole_cards": ["Ts", "7s"], "bot_hole_cards": ["Qh", "9d"], "board": ["Kd", "Js", "2d", "2c"], "winnings": 750}
+{"action": "b200c/b400c/b2864c/b16536f", "client_pos": 0, "hole_cards": ["Tc", "6c"], "bot_hole_cards": ["Jh", "Td"], "board": ["Kh", "Ts", "3h", "Th", "3s"], "winnings": 3464}
+{"action": "f", "client_pos": 1, "hole_cards": ["8s", "5h"], "bot_hole_cards": ["7s", "2d"], "board": [], "winnings": -50}
+{"action": "b200f", "client_pos": 0, "hole_cards": ["5c", "4s"], "bot_hole_cards": ["Jd", "4d"], "board": [], "winnings": -100}
+{"action": "b250b750f", "client_pos": 1, "hole_cards": ["Jc", "5h"], "bot_hole_cards": ["Tc", "7c"], "board": [], "winnings": -250}
+{"action": "b200c/b400c/b1200c/b18200c", "client_pos": 0, "hole_cards": ["Th", "8s"], "bot_hole_cards": ["Jd", "9c"], "board": ["Ah", "9s", "7s", "7h", "Jc"], "winnings": 20000}
+{"action": "b250f", "client_pos": 1, "hole_cards": ["Tc", "9d"], "bot_hole_cards": ["7c", "3s"], "board": [], "winnings": 100}
+{"action": "b200b700c/b1400c/b6300f", "client_pos": 0, "hole_cards": ["Kh", "Qd"], "bot_hole_cards": ["6s", "6h"], "board": ["7h", "4d", "2c", "Kc"], "winnings": 2100}
+{"action": "f", "client_pos": 1, "hole_cards": ["7s", "3d"], "bot_hole_cards": ["8d", "4s"], "board": [], "winnings": -50}
+{"action": "b200b700c/b2100c/b17200f", "client_pos": 0, "hole_cards": ["Kc", "Tc"], "bot_hole_cards": ["Jh", "Td"], "board": ["Ks", "Qd", "Th", "2h"], "winnings": 2800}
+{"action": "b250c/b250c/b1000f", "client_pos": 1, "hole_cards": ["7s", "7c"], "bot_hole_cards": ["4s", "3h"], "board": ["Ah", "9c", "2h", "2c"], "winnings": -500}
+{"action": "b200b700c/b1400c/b4200c/kb13700f", "client_pos": 0, "hole_cards": ["6d", "5d"], "bot_hole_cards": ["Ah", "Qh"], "board": ["Ac", "Ks", "4s", "5h", "4c"], "winnings": -6300}
+{"action": "b250c/kb500c/kb1500c/kk", "client_pos": 1, "hole_cards": ["6h", "6c"], "bot_hole_cards": ["Th", "3h"], "board": ["Td", "Tc", "2s", "Ks", "5d"], "winnings": -2250}
+{"action": "b200f", "client_pos": 0, "hole_cards": ["5c", "2s"], "bot_hole_cards": ["Qc", "2d"], "board": [], "winnings": -100}
+{"action": "b250f", "client_pos": 1, "hole_cards": ["Kc", "Jh"], "bot_hole_cards": ["6h", "3s"], "board": [], "winnings": 100}
+{"action": "b200b700c/b1400c/b4200c/kb13700f", "client_pos": 0, "hole_cards": ["Qd", "Td"], "bot_hole_cards": ["Jd", "Tc"], "board": ["Js", "Th", "5d", "4c", "8s"], "winnings": -6300}
+{"action": "b250c/b250f", "client_pos": 1, "hole_cards": ["Qc", "4d"], "bot_hole_cards": ["Js", "6d"], "board": ["Ac", "9d", "7d"], "winnings": -250}
+{"action": "b200c/b400f", "client_pos": 0, "hole_cards": ["Qs", "2s"], "bot_hole_cards": ["2h", "2c"], "board": ["9c", "4d", "3s"], "winnings": 200}
+{"action": "f", "client_pos": 1, "hole_cards": ["8d", "3s"], "bot_hole_cards": ["8c", "2d"], "board": [], "winnings": -50}
+{"action": "b200c/b400c/b1200f", "client_pos": 0, "hole_cards": ["Ad", "6c"], "bot_hole_cards": ["8s", "4s"], "board": ["Qs", "7d", "4h", "5h"], "winnings": 600}
+{"action": "f", "client_pos": 1, "hole_cards": ["7s", "4h"], "bot_hole_cards": ["Qd", "7d"], "board": [], "winnings": -50}
+{"action": "f", "client_pos": 0, "hole_cards": ["Jh", "8h"], "bot_hole_cards": ["9d", "2s"], "board": [], "winnings": 50}
+{"action": "b250c/kb500f", "client_pos": 1, "hole_cards": ["Ac", "Kh"], "bot_hole_cards": ["Ad", "Ts"], "board": ["7h", "4s", "2c"], "winnings": 250}
+{"action": "b200c/b600f", "client_pos": 0, "hole_cards": ["Jc", "9d"], "bot_hole_cards": ["8h", "3h"], "board": ["9s", "8d", "6c"], "winnings": 200}
+{"action": "b250c/kb827f", "client_pos": 1, "hole_cards": ["Ah", "8h"], "bot_hole_cards": ["Jd", "6c"], "board": ["9d", "7h", "5s"], "winnings": 250}
+{"action": "b200f", "client_pos": 0, "hole_cards": ["8d", "2s"], "bot_hole_cards": ["Ks", "8s"], "board": [], "winnings": -100}
+{"action": "b250b750f", "client_pos": 1, "hole_cards": ["Kh", "3d"], "bot_hole_cards": ["Qd", "5d"], "board": [], "winnings": -250}
+{"action": "b200b700c/b1400f", "client_pos": 0, "hole_cards": ["Qs", "Js"], "bot_hole_cards": ["Qc", "Td"], "board": ["8d", "4h", "4d"], "winnings": 700}
+{"action": "b250c/kb827f", "client_pos": 1, "hole_cards": ["6s", "5h"], "bot_hole_cards": ["Jc", "4h"], "board": ["8s", "6h", "5s"], "winnings": 250}
+{"action": "b200b700f", "client_pos": 0, "hole_cards": ["Kd", "Qs"], "bot_hole_cards": ["9h", "5h"], "board": [], "winnings": 200}
+{"action": "b250b750c/kb2250f", "client_pos": 1, "hole_cards": ["6h", "6c"], "bot_hole_cards": ["Kd", "Jh"], "board": ["4c", "3h", "2d"], "winnings": 750}
+{"action": "b200b700f", "client_pos": 0, "hole_cards": ["Kh", "Kd"], "bot_hole_cards": ["Qd", "3c"], "board": [], "winnings": 200}
+{"action": "b250c/kb500b1250c/kb3000f", "client_pos": 1, "hole_cards": ["Qs", "9c"], "bot_hole_cards": ["Qc", "2s"], "board": ["Ts", "7d", "2c", "8s"], "winnings": 1500}
+{"action": "b200c/b400f", "client_pos": 0, "hole_cards": ["9h", "8c"], "bot_hole_cards": ["Js", "5c"], "board": ["Ah", "Ks", "7s"], "winnings": 200}
+{"action": "b250b750f", "client_pos": 1, "hole_cards": ["Ts", "8c"], "bot_hole_cards": ["Ks", "4s"], "board": [], "winnings": -250}
+{"action": "b200b700f", "client_pos": 0, "hole_cards": ["Js", "Jh"], "bot_hole_cards": ["9c", "2c"], "board": [], "winnings": 200}
+{"action": "f", "client_pos": 1, "hole_cards": ["4c", "2d"], "bot_hole_cards": ["9s", "5s"], "board": [], "winnings": -50}
+{"action": "b200b700c/b1050c/b5250c/b13000f", "client_pos": 0, "hole_cards": ["Ad", "Td"], "bot_hole_cards": ["8h", "7d"], "board": ["Jd", "8d", "6d", "9d", "4d"], "winnings": 7000}
+{"action": "b250c/kb500b2000c/kb4500c/kk", "client_pos": 1, "hole_cards": ["Qh", "9h"], "bot_hole_cards": ["6c", "4c"], "board": ["Jd", "5c", "2h", "3s", "4h"], "winnings": -6750}
+{"action": "b200f", "client_pos": 0, "hole_cards": ["Qc", "3h"], "bot_hole_cards": ["5d", "3s"], "board": [], "winnings": -100}
+{"action": "b250c/kb500f", "client_pos": 1, "hole_cards": ["Qs", "8s"], "bot_hole_cards": ["Tc", "5s"], "board": ["Js", "7s", "6c"], "winnings": 250}
+{"action": "b200f", "client_pos": 0, "hole_cards": ["Qh", "4s"], "bot_hole_cards": ["Ad", "3s"], "board": [], "winnings": -100}
+{"action": "f", "client_pos": 1, "hole_cards": ["5d", "3c"], "bot_hole_cards": ["Tc", "2c"], "board": [], "winnings": -50}
+{"action": "b200c/b400f", "client_pos": 0, "hole_cards": ["Ad", "4s"], "bot_hole_cards": ["Qs", "7c"], "board": ["Kc", "5h", "3c"], "winnings": 200}
+{"action": "f", "client_pos": 1, "hole_cards": ["8s", "4d"], "bot_hole_cards": ["6c", "5h"], "board": [], "winnings": -50}
+{"action": "b200f", "client_pos": 0, "hole_cards": ["8s", "5d"], "bot_hole_cards": ["Js", "2d"], "board": [], "winnings": -100}
+{"action": "b250c/kb500f", "client_pos": 1, "hole_cards": ["9h", "7h"], "bot_hole_cards": ["Kh", "2s"], "board": ["Qh", "8c", "6c"], "winnings": 250}
+{"action": "b200f", "client_pos": 0, "hole_cards": ["8s", "3c"], "bot_hole_cards": ["Jc", "5d"], "board": [], "winnings": -100}
+{"action": "b250c/kb500c/b750f", "client_pos": 1, "hole_cards": ["Ac", "7s"], "bot_hole_cards": ["2h", "2d"], "board": ["Kd", "4h", "2s", "Jh"], "winnings": -750}
+{"action": "b200b700c/b2100c/b17200f", "client_pos": 0, "hole_cards": ["Ad", "5d"], "bot_hole_cards": ["Ac", "3s"], "board": ["As", "Td", "4h", "2s"], "winnings": 2800}
+{"action": "b250c/kb500b1250f", "client_pos": 1, "hole_cards": ["Jc", "8d"], "bot_hole_cards": ["6s", "5s"], "board": ["9d", "5c", "3c"], "winnings": -750}
+{"action": "b200c/b400f", "client_pos": 0, "hole_cards": ["Kh", "8d"], "bot_hole_cards": ["Tc", "2d"], "board": ["Ac", "7s", "7d"], "winnings": 200}
+{"action": "b250b750f", "client_pos": 1, "hole_cards": ["Qc", "9s"], "bot_hole_cards": ["Kd", "Js"], "board": [], "winnings": -250}
+{"action": "b200b700f", "client_pos": 0, "hole_cards": ["Qs", "Qh"], "bot_hole_cards": ["9h", "2h"], "board": [], "winnings": 200}
+{"action": "b250b750f", "client_pos": 1, "hole_cards": ["9c", "6d"], "bot_hole_cards": ["Kd", "Qc"], "board": [], "winnings": -250}
+{"action": "b200c/b728f", "client_pos": 0, "hole_cards": ["2s", "2d"], "bot_hole_cards": ["9h", "6c"], "board": ["Ah", "9d", "2h"], "winnings": 200}
+{"action": "b250b750f", "client_pos": 1, "hole_cards": ["Qs", "6c"], "bot_hole_cards": ["9d", "8d"], "board": [], "winnings": -250}
+{"action": "b200f", "client_pos": 0, "hole_cards": ["8s", "3h"], "bot_hole_cards": ["Js", "3s"], "board": [], "winnings": -100}
+{"action": "b250c/kb500f", "client_pos": 1, "hole_cards": ["Tc", "8c"], "bot_hole_cards": ["Jc", "5h"], "board": ["Qd", "2s", "2c"], "winnings": 250}
+{"action": "b200c/b400c/b1200f", "client_pos": 0, "hole_cards": ["Kh", "5h"], "bot_hole_cards": ["Th", "6d"], "board": ["9h", "7c", "5s", "7h"], "winnings": 600}
+{"action": "b250c/kb827b1654b4700c/kb15050f", "client_pos": 1, "hole_cards": ["Ts", "6s"], "bot_hole_cards": ["8d", "7c"], "board": ["Tc", "9s", "3h", "Qc"], "winnings": 4950}
+{"action": "f", "client_pos": 0, "hole_cards": ["Jd", "8c"], "bot_hole_cards": ["8d", "2h"], "board": [], "winnings": 50}
+{"action": "b250c/kb500c/kb1500b3750f", "client_pos": 1, "hole_cards": ["7c", "6h"], "bot_hole_cards": ["Ah", "6d"], "board": ["4h", "4d", "2h", "3d"], "winnings": -2250}
+{"action": "b200c/b400f", "client_pos": 0, "hole_cards": ["Ks", "5c"], "bot_hole_cards": ["Jh", "5d"], "board": ["Td", "7d", "2h"], "winnings": 200}
+{"action": "b250c/kb500f", "client_pos": 1, "hole_cards": ["7h", "2h"], "bot_hole_cards": ["Td", "4h"], "board": ["8s", "6s", "2s"], "winnings": 250}
+{"action": "b200f", "client_pos": 0, "hole_cards": ["Js", "4c"], "bot_hole_cards": ["Kd", "6c"], "board": [], "winnings": -100}
+{"action": "b250b750c/kb1500c/kk/b2250f", "client_pos": 1, "hole_cards": ["Ah", "Jh"], "bot_hole_cards": ["8h", "6h"], "board": ["8s", "7s", "4s", "Ks", "6s"], "winnings": -2250}
+{"action": "b200c/b300f", "client_pos": 0, "hole_cards": ["Kd", "Th"], "bot_hole_cards": ["7h", "5s"], "board": ["Ah", "Tc", "9h"], "winnings": 200}
+{"action": "b250c/kb827f", "client_pos": 1, "hole_cards": ["Kd", "Jh"], "bot_hole_cards": ["Kc", "5d"], "board": ["Js", "6h", "3h"], "winnings": 250}
+{"action": "b200f", "client_pos": 0, "hole_cards": ["Tc", "4s"], "bot_hole_cards": ["As", "2s"], "board": [], "winnings": -100}
+{"action": "b250f", "client_pos": 1, "hole_cards": ["Qd", "5h"], "bot_hole_cards": ["4c", "2d"], "board": [], "winnings": 100}
+{"action": "b200b700c/b2100f", "client_pos": 0, "hole_cards": ["Ad", "Kh"], "bot_hole_cards": ["Kc", "Tc"], "board": ["As", "7c", "4s"], "winnings": 700}
+{"action": "b250c/kb827f", "client_pos": 1, "hole_cards": ["6c", "5d"], "bot_hole_cards": ["Qh", "6d"], "board": ["7c", "5c", "4c"], "winnings": 250}
+{"action": "b200f", "client_pos": 0, "hole_cards": ["8h", "3s"], "bot_hole_cards": ["Ad", "6h"], "board": [], "winnings": -100}
+{"action": "f", "client_pos": 1, "hole_cards": ["7d", "4s"], "bot_hole_cards": ["3c", "2c"], "board": [], "winnings": -50}
+{"action": "b200c/b728c/b3380f", "client_pos": 0, "hole_cards": ["2h", "2d"], "bot_hole_cards": ["Ks", "9d"], "board": ["Jd", "4h", "2c", "2s"], "winnings": 928}
+{"action": "b250b750c/b750f", "client_pos": 1, "hole_cards": ["Ts", "8s"], "bot_hole_cards": ["Ad", "Qd"], "board": ["Ac", "Qs", "7d"], "winnings": -750}
+{"action": "b200c/b400f", "client_pos": 0, "hole_cards": ["Kh", "7d"], "bot_hole_cards": ["Qc", "7c"], "board": ["9d", "8d", "8c"], "winnings": 200}
+{"action": "b250f", "client_pos": 1, "hole_cards": ["5d", "5c"], "bot_hole_cards": ["4h", "2c"], "board": [], "winnings": 100}
+{"action": "b200c/b400f", "client_pos": 0, "hole_cards": ["As", "5h"], "bot_hole_cards": ["Js", "2s"], "board": ["Qd", "5s", "4h"], "winnings": 200}
+{"action": "f", "client_pos": 1, "hole_cards": ["Tc", "5h"], "bot_hole_cards": ["9c", "7s"], "board": [], "winnings": -50}
+{"action": "b200f", "client_pos": 0, "hole_cards": ["6c", "2h"], "bot_hole_cards": ["Tc", "4h"], "board": [], "winnings": -100}
+{"action": "b250c/kb500f", "client_pos": 1, "hole_cards": ["Jd", "Th"], "bot_hole_cards": ["Jh", "Tc"], "board": ["Ks", "6c", "4s"], "winnings": 250}
+{"action": "b200f", "client_pos": 0, "hole_cards": ["Jh", "4c"], "bot_hole_cards": ["9s", "7d"], "board": [], "winnings": -100}
+{"action": "f", "client_pos": 1, "hole_cards": ["5s", "2h"], "bot_hole_cards": ["Kd", "Jc"], "board": [], "winnings": -50}
+{"action": "b200c/b400f", "client_pos": 0, "hole_cards": ["Ac", "Td"], "bot_hole_cards": ["Kc", "2c"], "board": ["Jh", "9d", "4h"], "winnings": 200}
+{"action": "b250c/kb500c/kb1500c/kb17750f", "client_pos": 1, "hole_cards": ["Ks", "4d"], "bot_hole_cards": ["Qd", "9h"], "board": ["Qc", "Js", "8s", "3s", "Qs"], "winnings": 2250}
+{"action": "b200c/b400f", "client_pos": 0, "hole_cards": ["7h", "6s"], "bot_hole_cards": ["Jd", "9h"], "board": ["Ah", "Qd", "6c"], "winnings": 200}
+{"action": "b250c/kb500f", "client_pos": 1, "hole_cards": ["Kd", "7d"], "bot_hole_cards": ["8h", "5d"], "board": ["Qs", "Qh", "3d"], "winnings": 250}
+{"action": "b200c/b400f", "client_pos": 0, "hole_cards": ["Ks", "2s"], "bot_hole_cards": ["9d", "5h"], "board": ["Jh", "6c", "5s"], "winnings": 200}
+{"action": "b250c/kb500f", "client_pos": 1, "hole_cards": ["Kh", "9c"], "bot_hole_cards": ["Qh", "3c"], "board": ["Ac", "Jh", "Ts"], "winnings": 250}
+{"action": "b200f", "client_pos": 0, "hole_cards": ["Js", "6c"], "bot_hole_cards": ["Qs", "2h"], "board": [], "winnings": -100}
+{"action": "b250c/kb827f", "client_pos": 1, "hole_cards": ["9h", "7h"], "bot_hole_cards": ["Jh", "7s"], "board": ["9c", "4h", "2s"], "winnings": 250}
