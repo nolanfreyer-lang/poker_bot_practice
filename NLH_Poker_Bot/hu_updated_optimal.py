@@ -22,11 +22,7 @@ HU_CONFIG = {
     "HU_OPEN_BB": 2.5,
     "HU_BTN_OPEN": ("22+, A2s+, A2o+, K2s+, K2o+, Q2s+, Q3o+, J2s+, J5o+, T2s+, T6o+, "
                     "92s+, 96o+, 82s+, 86o+, 72s+, 75o+, 62s+, 65o, 52s+, 54o, 42s+, 32s"),
-    # facing a 3-bet
-    "HU_4BET_MULT": 2.3,
-    "HU_BTN_4BET": "QQ+, AQs+, AKo, A5s-A4s",
-    "HU_BTN_CALL_3BET": ("JJ-22, AJs-A6s, A3s-A2s, KTs+, K9s, QTs+, Q9s, J9s+, T8s+, 97s+, 86s+, "
-                         "75s+, 64s+, 54s, AQo-ATo, KQo-KJo, QJo"),
+    # facing a 3-bet: the ranges are in updated_optimal.py, shared by every version
 
     # --- big blind --------------------------------------------------------
     # facing a limp: raise these, check the rest
@@ -76,7 +72,7 @@ class HuUpdatedOptimalBot(UpdatedOptimalBot):
     def __init__(self, cfg=default_config, overrides=None, seed=None):
         super().__init__(cfg, {**HU_CONFIG, **(overrides or {})}, seed)
         c = self.cfg
-        names = ("HU_BTN_OPEN", "HU_BTN_4BET", "HU_BTN_CALL_3BET", "HU_BB_RAISE_LIMP", "HU_BB_3BET",
+        names = ("HU_BTN_OPEN", "HU_BB_RAISE_LIMP", "HU_BB_3BET",
                  "HU_BB_CALL", "HU_BB_CALL_TIGHT", "HU_BB_CALL_4BET")
         self.hu = {n: parse_range(getattr(c, n)) for n in names}
         by_stack = lambda table: sorted((bb, parse_range(r)) for bb, r in table.items())
@@ -116,7 +112,9 @@ class HuUpdatedOptimalBot(UpdatedOptimalBot):
         # --- facing an all-in: stack off by depth
         raiser = s.players[ctx.last_raiser] if ctx.last_raiser is not None else None
         if raiser is not None and raiser.all_in:
-            return Action("call") if hc in self._by_stack(self.hu_stack_off, eff_bb) else self._check_fold(s)
+            # the more they shove, the more of our range is good enough to call
+            depth = eff_bb / max(1.0, min(4.0, self._freq_ratio(s, ctx.last_raiser, "all_in")))
+            return Action("call") if hc in self._by_stack(self.hu_stack_off, depth) else self._check_fold(s)
 
         if ctx.raises == 0:
             if pos == "BTN":
@@ -133,9 +131,7 @@ class HuUpdatedOptimalBot(UpdatedOptimalBot):
                 else self._check_fold(s)
 
         if ctx.raises == 2:                                   # button vs a 3-bet
-            if hc in R["HU_BTN_4BET"]:
-                return self._raise_to(s, ctx.high * c.HU_4BET_MULT)
-            return Action("call") if hc in R["HU_BTN_CALL_3BET"] else self._check_fold(s)
+            return self._defend_3bet(s, hc, ctx)
 
         stack_off = hc in self._by_stack(self.hu_stack_off, eff_bb)
         if ctx.raises == 3:                                   # big blind vs a 4-bet

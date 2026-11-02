@@ -971,6 +971,32 @@ UPDATED_CONFIG = {
     "FOLD_PRIOR": 0.40,           # assumed fold-to-bet rate before any data
     "FOLD_PRIOR_WEIGHT": 10,
 
+    # --- frequency tracking (counted every hand, no showdown needed) --------
+    "FREQUENCY_READS": True,
+    # Reference rates per chance, (heads-up, 3+ players). Rough estimates of sound
+    # play, not solver output. three_bet / four_bet: raising an open / a 3-bet.
+    # all_in: hands where they shoved, per hand played.
+    "OPTIMAL_FREQUENCIES": {"three_bet": (0.24, 0.09), "four_bet": (0.15, 0.10), "bet": (0.50, 0.40),
+                            "raise": (0.12, 0.10), "check_raise": (0.13, 0.08), "all_in": (0.03, 0.03)},
+    "FREQUENCY_PRIOR_WEIGHT": 12,   # prior counts like this many chances
+    "FREQUENCY_MULT_MAX": 3.0,      # most that a read can scale a bluff estimate
+    "BLUFF_ESTIMATE_MAX": 0.75,
+    # Heads-up defense vs a 3-bet (button after opening). Calling keeps about 60%
+    # of the opening range, near what a 3.5x 3-bet requires.
+    "HU_4BET_MULT": 2.3,
+    "HU_BTN_4BET": "QQ+, AQs+, AKo, A5s-A4s",
+    "HU_BTN_CALL_3BET": ("22+, A2s+, K2s+, Q4s+, J6s+, T6s+, 95s+, 84s+, 74s+, 63s+, 53s+, 43s, A5o+, K8o+, "
+                         "Q9o+, J9o+, T9o, 98o"),
+    "HU_3BET_TIGHT_MULT": 5.0,      # a 3-bet bigger than this x the open: tight range
+    "HU_BTN_CALL_BIG_3BET": ("TT-77, AQs-A9s, KJs+, QTs+, JTs, T9s, AQo-AJo, KQo"),
+    # vs someone 3-bets this many times too often: call these too
+    "LIGHT_3BET_RATIO": 1.5,
+    "VERY_LIGHT_3BET_RATIO": 2.2,
+    "VS_LIGHT_3BET_CALL": ("22+, A2s+, K2s+, Q2s+, J3s+, T5s+, 95s+, 84s+, 73s+, 63s+, 52s+, 43s, A2o+, K5o+, "
+                           "Q8o+, J8o+, T8o+, 98o, 87o"),
+    "VS_VERY_LIGHT_3BET_CALL": ("22+, A2s+, K2s+, Q2s+, J2s+, T3s+, 93s+, 83s+, 73s+, 62s+, 52s+, 42s+, 32s, A2o+, "
+                                "K2o+, Q5o+, J7o+, T7o+, 97o+, 87o, 76o"),
+
     # --- 2. EV checks --------------------------------------------------
     "EV_CALLS": True,             # fold -EV calls, call +EV folds
     "CALL_EV_MARGIN": 0.0,        # extra equity required on top of break-even
@@ -1159,21 +1185,94 @@ class ShowdownStats:
         w = cfg.FOLD_PRIOR_WEIGHT
         return (self.folds.get(seat, 0) + cfg.FOLD_PRIOR * w) / (self.fold_chances.get(seat, 0) + w)
 
+class FrequencyStats:
+    """How often each opponent takes each aggressive line, counted on every hand."""
+
+    def __init__(self):
+        self.made = {}
+        self.chances = {}
+
+    def _add(self, seat, stat, did):
+        key = (seat, stat)
+        self.chances[key] = self.chances.get(key, 0) + 1
+        if did:
+            self.made[key] = self.made.get(key, 0) + 1
+
+    def observe(self, history, seats, me):
+        for seat in seats:
+            if seat != me:
+                self._add(seat, "hands", False)
+        shoved = set()
+        raises, high, last = 0, 0, None
+        for st, seat, kind, amt in history:
+            if st != "preflop":
+                continue
+            if kind == "blind":
+                high = max(high, amt)
+                continue
+            is_raise = kind in AGGRESSIVE and amt > high
+            if seat != me and kind != "check":
+                if raises == 1 and seat != last:
+                    self._add(seat, "three_bet", is_raise)
+                elif raises == 2 and seat != last:
+                    self._add(seat, "four_bet", is_raise)
+            if is_raise:
+                raises, high, last = raises + 1, amt, seat
+                if kind == "allin":
+                    shoved.add(seat)
+        for street in ("flop", "turn", "river"):
+            high, checked, responded = 0, set(), set()
+            for st, seat, kind, amt in history:
+                if st != street:
+                    continue
+                is_raise = kind in AGGRESSIVE and amt > high
+                if seat != me:
+                    if high == 0:
+                        self._add(seat, "bet", is_raise)
+                    elif seat not in responded:
+                        responded.add(seat)
+                        self._add(seat, "check_raise" if seat in checked else "raise", is_raise)
+                if kind == "check":
+                    checked.add(seat)
+                if is_raise:
+                    high = amt
+                    if kind == "allin":
+                        shoved.add(seat)
+        for seat in shoved:
+            if seat != me:
+                self.made[(seat, "all_in_hands")] = self.made.get((seat, "all_in_hands"), 0) + 1
+
+    def ratio(self, seat, stat, cfg, heads_up):
+        """Their rate / the reference rate, pulled toward 1 until there is data."""
+        base = cfg.OPTIMAL_FREQUENCIES[stat][0 if heads_up else 1]
+        if stat == "all_in":
+            made, chances = self.made.get((seat, "all_in_hands"), 0), self.chances.get((seat, "hands"), 0)
+        else:
+            made, chances = self.made.get((seat, stat), 0), self.chances.get((seat, stat), 0)
+        w = cfg.FREQUENCY_PRIOR_WEIGHT
+        return (made + base * w) / (chances + w) / base
+
 class UpdatedOptimalBot(OptimalBot):
     WANTS_SHOWDOWN = True   # simulator / adapter pass showdown cards to on_hand_end
 
     def __init__(self, cfg=default_config, overrides=None, seed=None):
         super().__init__(cfg, {**UPDATED_CONFIG, **(overrides or {})}, seed)
         self.sd = ShowdownStats()
+        self.freq = FrequencyStats()
         self._my_seat = None
         self.last_ev = None
         self.shover_ranges = {k: parse_range(v) for k, v in self.cfg.SHOVER_RANGES.items()}
+        c = self.cfg
+        self.defend = {n: parse_range(getattr(c, n)) for n in (
+            "HU_BTN_4BET", "HU_BTN_CALL_3BET", "HU_BTN_CALL_BIG_3BET", "VS_LIGHT_3BET_CALL", "VS_VERY_LIGHT_3BET_CALL")}
 
     # ------------------------------------------------------------ tracking
     def on_hand_end(self, history, seats_dealt, showdown=None, board=None, my_seat=None):
         super().on_hand_end(history, seats_dealt)
         self.sd.observe(history, showdown or {}, board or [], self.good_kicker,
                         self._my_seat if my_seat is None else my_seat, self.cfg.SEMI_BLUFF_WEIGHT)
+        if self.cfg.FREQUENCY_READS:
+            self.freq.observe(history, seats_dealt, self._my_seat if my_seat is None else my_seat)
 
     def act(self, s):
         # No garbage-collection pauses inside the 1 ms decision; Python collects
@@ -1230,6 +1329,48 @@ class UpdatedOptimalBot(OptimalBot):
             return chip_be, "chips"
         return min(1.0, max(0.0, (ef - el) / (ew - el))), "ICM"
 
+    def _freq_ratio(self, s, seat, stat):
+        if not self.cfg.FREQUENCY_READS or seat is None:
+            return 1.0
+        return self.freq.ratio(seat, stat, self.cfg, self._players_left(s) == 2)
+
+    def _frequency_mult(self, s, agg, raised):
+        """How much this action's bluff estimate rises (or falls) from their frequencies."""
+        c = self.cfg
+        if not raised:
+            stat = "bet"
+        elif any(st == s.street and seat == agg and kind == "check" for st, seat, kind, _ in s.history):
+            stat = "check_raise"
+        else:
+            stat = "raise"
+        ratio = self._freq_ratio(s, agg, stat)
+        if agg is not None and s.players[agg].all_in:
+            ratio = max(ratio, self._freq_ratio(s, agg, "all_in"))
+        return min(c.FREQUENCY_MULT_MAX, max(1 / c.FREQUENCY_MULT_MAX, ratio))
+
+    def _bluff_estimate(self, s, agg, raised):
+        c = self.cfg
+        if agg is None:
+            return c.BLUFF_PRIOR
+        pb = self.sd.bluff_rate(agg, c, s.street) * (c.RAISE_BLUFF_SCALE if raised else 1.0)
+        return min(c.BLUFF_ESTIMATE_MAX, pb * self._frequency_mult(s, agg, raised))
+
+    def _defend_3bet(self, s, hc, ctx):
+        """Heads-up button facing a 3-bet: 4-bet, call or fold."""
+        c, D = self.cfg, self.defend
+        if hc in D["HU_BTN_4BET"]:
+            return self._raise_to(s, ctx.high * c.HU_4BET_MULT)
+        opens = [amt for st, _, kind, amt in s.history
+                 if st == "preflop" and kind in AGGRESSIVE and amt > s.big_blind]
+        big = len(opens) > 1 and opens[-1] > opens[0] * c.HU_3BET_TIGHT_MULT
+        ratio = self._freq_ratio(s, ctx.last_raiser, "three_bet")
+        call = D["HU_BTN_CALL_BIG_3BET"] if big else D["HU_BTN_CALL_3BET"]
+        if ratio >= c.VERY_LIGHT_3BET_RATIO:
+            call = D["VS_VERY_LIGHT_3BET_CALL"]
+        elif ratio >= c.LIGHT_3BET_RATIO:
+            call = D["VS_LIGHT_3BET_CALL"]
+        return Action("call") if hc in call else self._check_fold(s)
+
     def _stop_shove(self, s, a, bucket):
         """True if this bet or raise would go all-in with a hand the board threatens."""
         c = self.cfg
@@ -1266,8 +1407,7 @@ class UpdatedOptimalBot(OptimalBot):
         i = STREET_INDEX[s.street]
         agg = self._aggressor(s)
         raised = self._facing_raise(s)
-        pb = self.sd.bluff_rate(agg, c, s.street) * (c.RAISE_BLUFF_SCALE if raised else 1.0) if agg is not None \
-            else c.BLUFF_PRIOR
+        pb = self._bluff_estimate(s, agg, raised)
         vs_value = (c.EQ_VS_RAISE if raised else c.EQ_VS_VALUE)[bucket][i]
         vulnerable = False
         if (bucket == MONSTER and c.MONSTER_CAN_FOLD and s.street != "flop"
@@ -1312,10 +1452,18 @@ class UpdatedOptimalBot(OptimalBot):
             k = max(0, k - 1)
         elif self.stats.is_loose(agg, c) or self.stats.is_aggro(agg, c):
             k = min(2, k + 1)
+        ratio = self._freq_ratio(s, agg, "all_in")     # shoves a lot: their range is wider
+        k = min(2, k + (2 if ratio >= 3 else 1 if ratio >= 1.8 else 0))
         return order[k]
 
     def _preflop_action(self, s):
         """The range-based decision; subclasses swap this for their own ranges."""
+        if self._players_left(s) == 2:
+            ctx = self._preflop_context(s)
+            raiser = s.players[ctx.last_raiser] if ctx.last_raiser is not None else None
+            if ctx.raises == 2 and raiser is not None and not raiser.all_in \
+                    and self._effective_stack(s) / s.big_blind > self.cfg.SHOVE_STACK_BB:
+                return self._defend_3bet(s, hand_class(*s.hole_cards), ctx)
         return super()._preflop(s)
 
     def _preflop(self, s):
@@ -1344,11 +1492,7 @@ HU_CONFIG = {
     "HU_OPEN_BB": 2.5,
     "HU_BTN_OPEN": ("22+, A2s+, A2o+, K2s+, K2o+, Q2s+, Q3o+, J2s+, J5o+, T2s+, T6o+, "
                     "92s+, 96o+, 82s+, 86o+, 72s+, 75o+, 62s+, 65o, 52s+, 54o, 42s+, 32s"),
-    # facing a 3-bet
-    "HU_4BET_MULT": 2.3,
-    "HU_BTN_4BET": "QQ+, AQs+, AKo, A5s-A4s",
-    "HU_BTN_CALL_3BET": ("JJ-22, AJs-A6s, A3s-A2s, KTs+, K9s, QTs+, Q9s, J9s+, T8s+, 97s+, 86s+, "
-                         "75s+, 64s+, 54s, AQo-ATo, KQo-KJo, QJo"),
+    # facing a 3-bet: the ranges are in updated_optimal.py, shared by every version
 
     # --- big blind --------------------------------------------------------
     # facing a limp: raise these, check the rest
@@ -1397,7 +1541,7 @@ class HuUpdatedOptimalBot(UpdatedOptimalBot):
     def __init__(self, cfg=default_config, overrides=None, seed=None):
         super().__init__(cfg, {**HU_CONFIG, **(overrides or {})}, seed)
         c = self.cfg
-        names = ("HU_BTN_OPEN", "HU_BTN_4BET", "HU_BTN_CALL_3BET", "HU_BB_RAISE_LIMP", "HU_BB_3BET",
+        names = ("HU_BTN_OPEN", "HU_BB_RAISE_LIMP", "HU_BB_3BET",
                  "HU_BB_CALL", "HU_BB_CALL_TIGHT", "HU_BB_CALL_4BET")
         self.hu = {n: parse_range(getattr(c, n)) for n in names}
         by_stack = lambda table: sorted((bb, parse_range(r)) for bb, r in table.items())
@@ -1437,7 +1581,9 @@ class HuUpdatedOptimalBot(UpdatedOptimalBot):
         # --- facing an all-in: stack off by depth
         raiser = s.players[ctx.last_raiser] if ctx.last_raiser is not None else None
         if raiser is not None and raiser.all_in:
-            return Action("call") if hc in self._by_stack(self.hu_stack_off, eff_bb) else self._check_fold(s)
+            # the more they shove, the more of our range is good enough to call
+            depth = eff_bb / max(1.0, min(4.0, self._freq_ratio(s, ctx.last_raiser, "all_in")))
+            return Action("call") if hc in self._by_stack(self.hu_stack_off, depth) else self._check_fold(s)
 
         if ctx.raises == 0:
             if pos == "BTN":
@@ -1454,9 +1600,7 @@ class HuUpdatedOptimalBot(UpdatedOptimalBot):
                 else self._check_fold(s)
 
         if ctx.raises == 2:                                   # button vs a 3-bet
-            if hc in R["HU_BTN_4BET"]:
-                return self._raise_to(s, ctx.high * c.HU_4BET_MULT)
-            return Action("call") if hc in R["HU_BTN_CALL_3BET"] else self._check_fold(s)
+            return self._defend_3bet(s, hc, ctx)
 
         stack_off = hc in self._by_stack(self.hu_stack_off, eff_bb)
         if ctx.raises == 3:                                   # big blind vs a 4-bet
