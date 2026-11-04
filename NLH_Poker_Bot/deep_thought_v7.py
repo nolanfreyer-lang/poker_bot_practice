@@ -221,6 +221,22 @@ class DeepThoughtV7Bot(DeepThoughtV6Bot):
         if profile.get("force"):
             self.forced[seat] = set(profile["force"])
 
+    def position(self, s, seat=None):
+        """Heads-up preflop, the small blind plays the button's ranges, whatever button_seat says.
+
+        When a Chipzen 6-max table is down to two, dealer_seat points at the big blind, and
+        the big blind does act last on every street after the flop (the small blind acts
+        first all hand), so postflop keeps that reading. Preflop it made the small blind
+        call itself "BB" and fold 22 and T6s at 15 BB. In 2-seat matches the small blind is
+        the button anyway, so nothing changes there.
+        """
+        if s.street == "preflop" and sum(1 for p in s.players if p.dealt) == 2:
+            blinds = [who for street, who, kind, _ in s.history if street == "preflop" and kind == "blind"]
+            if len(blinds) == 2:
+                seat = s.my_seat if seat is None else seat
+                return "BTN" if seat == blinds[0] else "BB"
+        return super().position(s, seat)
+
     def see_everything(self):
         """Count every hand whose cards we are given, not only showdowns (for replays)."""
         self.sd.see_all = self.turn_calls.see_all = True
