@@ -1,12 +1,13 @@
-"""Build opponent profiles from Chipzen replays, so DEEP_THOUGHT_V6 remembers bots by name.
+"""Build opponent profiles from Chipzen replays, so DEEP_THOUGHT_V7 remembers bots by name.
 
     python3 chipzen_profiles.py                 # update chipzen_profiles.json
-    python3 chipzen_profiles.py --build         # ...and regenerate chipzen_deep_thought_v6/bot.py
+    python3 chipzen_profiles.py --build         # ...and regenerate chipzen_deep_thought_v7/bot.py
     python3 chipzen_profiles.py --package       # ...and build the Docker image and .tar.gz to upload
 
---build and --package add one to the version in chipzen_deep_thought_v6/VERSION; the
-Docker tag and upload file carry it (deep-thought-v6:v3, deep-thought-v6-v3.tar.gz).
-The profiles also work for DEEP_THOUGHT_V5, which skips the reads it doesn't have.
+--build and --package add one to the version in chipzen_deep_thought_v7/VERSION; the
+Docker tag and upload file carry it (deep-thought-v7:v3, deep-thought-v7-v3.tar.gz).
+The profiles also work for DEEP_THOUGHT_V5 and V6, which skip the reads they don't have.
+After the table it prints v7's exploit plan for each bot: what it switches on at match start.
 
 Chipzen bots can't keep files between matches (each match gets a fresh, read-only
 container), so the memory is built into the package: this script replays past matches
@@ -38,7 +39,7 @@ import urllib.error
 import urllib.request
 from pathlib import Path
 
-from deep_thought_v6 import DeepThoughtV6Bot, tracker_counts
+from deep_thought_v7 import DeepThoughtV7Bot, tracker_counts
 from poker_core import parse_cards
 
 HERE = Path(__file__).resolve().parent
@@ -46,11 +47,22 @@ API = "https://chipzen.ai/api"
 CACHE = HERE / "chipzen_replays"
 OUT = HERE / "chipzen_profiles.json"
 MATCH_FILE = HERE / "chipzen_matches.txt"
-BOT = "DEEP_THOUGHT_V6"
-PACKAGE = HERE.parent / "chipzen_deep_thought_v6"
+BOT = "DEEP_THOUGHT_V7"
+PACKAGE = HERE.parent / "chipzen_deep_thought_v7"
 VERSION_FILE = PACKAGE / "VERSION"         # +1 on every --build or --package
 UUID = re.compile(r"[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}")
 STREETS = ("preflop", "flop", "turn", "river")
+# Exploits to force on against named Chipzen bots, from our own hand data with them, for
+# flaws the counts don't make v7 confident about yet. Keys are display names; values
+# are deep_thought_v7 exploit names. Review when a bot's results change.
+CHIPZEN_EXPLOITS = {
+    # After calling our weak flop bet: barrelling the turn won 9.0 BB each (12 times),
+    # checking lost 5.4 BB each (19 times); it folds 49% to the second bet.
+    "Shuck1e1": ["barrel_weak", "barrel_draw"],
+    # Same spot: barrelling won 0.8 BB each (35), checking lost 0.7 BB each (20); it folds
+    # 39% to a half-pot second bet, which needs 33%. Small edge, small sample.
+    "LimitLess": ["barrel_weak"],
+}
 
 
 def get(path, tries=6):
@@ -154,8 +166,8 @@ def profile_match(data, profiles):
     hands = [(h, *hand_history(h)) for h in data["hands"] if not h.get("variant")]
     used = 0
     for seat, name in names.items():
-        bot, n = DeepThoughtV6Bot(seed=0, overrides={"USE_ICM": False}), 0
-        bot.sd.see_all = True       # replays show every hand: count bluffs that won too
+        bot, n = DeepThoughtV7Bot(seed=0, overrides={"USE_ICM": False}), 0
+        bot.see_everything()        # replays show every hand: count bluffs that won too
         for h, history, dealt in hands:
             if len(dealt) != 2 or seat not in dealt:
                 continue
@@ -191,8 +203,22 @@ def summary(profiles, limit):
               f"  {rate(p, 'lead_reads', 'raises', 'chances'):>12s}")
 
 
+def plans(profiles):
+    """v7's exploits at match start against each bot, from its profile alone."""
+    print("\nexploit plans (what v7 switches on against each bot at match start):")
+    shown = 0
+    for name, p in sorted(profiles.items(), key=lambda kv: -kv[1]["hands"]):
+        bot = DeepThoughtV7Bot(seed=0)
+        bot.load_profile(1, p)
+        plan = bot.exploit_plan(1)
+        if plan:
+            print(f"  {name}: " + "; ".join(plan))
+            shown += 1
+    print(f"  ({shown} bots with an exploit; the rest start from v6's play)")
+
+
 def next_version():
-    """Add one to the package version in chipzen_deep_thought_v6/VERSION and return it."""
+    """Add one to the package version in chipzen_deep_thought_v7/VERSION and return it."""
     version = int(VERSION_FILE.read_text().strip() or 0) + 1 if VERSION_FILE.exists() else 1
     VERSION_FILE.write_text(f"{version}\n")
     return version
@@ -201,9 +227,9 @@ def next_version():
 def package(version):
     """Build the Docker image and save the .tar.gz to upload."""
     env = dict(os.environ, PATH=os.path.expanduser("~/.docker/bin") + os.pathsep + os.environ["PATH"])
-    tag = f"deep-thought-v6:v{version}"
+    tag = f"deep-thought-v7:v{version}"
     subprocess.run(["docker", "build", "--platform", "linux/amd64", "-t", tag, "."], cwd=PACKAGE, env=env, check=True)
-    out = PACKAGE / f"deep-thought-v6-v{version}.tar.gz"
+    out = PACKAGE / f"deep-thought-v7-v{version}.tar.gz"
     with open(out, "wb") as f:
         save = subprocess.Popen(["docker", "save", tag], stdout=subprocess.PIPE, env=env)
         subprocess.run(["gzip"], stdin=save.stdout, stdout=f, check=True)
@@ -216,7 +242,7 @@ def main():
     ap.add_argument("matches", nargs="*", help="match links or IDs to add")
     ap.add_argument("--seasons", nargs="*", default=[], help="season numbers, or 'all' (default: last three)")
     ap.add_argument("--no-seasons", action="store_true", help="only use your own listed matches")
-    ap.add_argument("--build", action="store_true", help="regenerate chipzen_deep_thought_v6/bot.py")
+    ap.add_argument("--build", action="store_true", help="regenerate chipzen_deep_thought_v7/bot.py")
     ap.add_argument("--package", action="store_true", help="--build, then make the .tar.gz to upload")
     ap.add_argument("--show", type=int, default=40, help="bots to list in the summary")
     args = ap.parse_args()
@@ -235,11 +261,15 @@ def main():
             print(f"  {match_id}: {e}")
         if i % 50 == 0:
             print(f"  {i}/{len(ids)} matches read")
+    for name, force in CHIPZEN_EXPLOITS.items():
+        if name in profiles:
+            profiles[name]["force"] = force
     profiles["_meta"] = {"matches": len(ids) - failed, "heads_up_hands": hands,
                          "updated": time.strftime("%Y-%m-%d %H:%M")}
     OUT.write_text(json.dumps(profiles, separators=(",", ":"), sort_keys=True))
     print(f"\n{len(ids) - failed} matches, {hands} heads-up hands, {len(profiles) - 1} bots -> {OUT.name}")
     summary({k: v for k, v in profiles.items() if not k.startswith("_")}, args.show)
+    plans({k: v for k, v in profiles.items() if not k.startswith("_")})
     if args.build or args.package:
         import build_chipzen
         build_chipzen.write(BOT, PACKAGE)
