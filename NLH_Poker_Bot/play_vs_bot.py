@@ -31,6 +31,8 @@ from deep_thought_v1 import DeepThoughtV1Bot
 from deep_thought_v2 import DeepThoughtV2Bot
 from deep_thought_v3 import DeepThoughtV3Bot
 from deep_thought_v4 import DeepThoughtV4Bot
+from deep_thought_v5 import DeepThoughtV5Bot
+from deep_thought_v6 import DeepThoughtV6Bot
 from hu_updated_optimal import HuUpdatedOptimalBot
 from updated_optimal import UpdatedOptimalBot
 from local_sim import Table, CallingStation, Maniac, describe
@@ -42,6 +44,8 @@ BOTS = {
     "DEEP_THOUGHT_V2": ("V1 with street tables, stack-off limits and smaller bets", lambda seed: DeepThoughtV2Bot(seed=seed)),
     "DEEP_THOUGHT_V3": ("V2 with min-raise check-raise bluffs and fold-to-raise reads", lambda seed: DeepThoughtV3Bot(seed=seed)),
     "DEEP_THOUGHT_V4": ("V3 with per-street bluff reads, call limits and small 3-bet defense", lambda seed: DeepThoughtV4Bot(seed=seed)),
+    "DEEP_THOUGHT_V5": ("V4 that checks weak hands into the aggressor unless they fold to leads", lambda seed: DeepThoughtV5Bot(seed=seed)),
+    "DEEP_THOUGHT_V6": ("V5 with bluff reads by bet size and tighter calls vs value-heavy big 3-bets", lambda seed: DeepThoughtV6Bot(seed=seed)),
     "HU_UPDATED_OPTIMAL": ("UPDATED_OPTIMAL with heads-up preflop ranges", lambda seed: HuUpdatedOptimalBot(seed=seed)),
     "UPDATED_OPTIMAL": ("OptimalBot + bluff tracking, EV checks, ICM", lambda seed: UpdatedOptimalBot(seed=seed)),
     "OPTIMAL": ("tuned ExploitBot (best in testing)", lambda seed: OptimalBot(seed=seed)),

@@ -35,9 +35,21 @@ BOTS = {
     "DEEP_THOUGHT_V4": (["pushfold_tables", "hu_updated_optimal", "fitted_tables", "deep_thought_v1",
                          "fitted_tables_v2", "deep_thought_v2", "deep_thought_v3", "deep_thought_v4"], "DeepThoughtV4Bot",
                         "ChipzenDeepThoughtV4Bot", "chipzen_deep_thought_v4"),
+    "DEEP_THOUGHT_V5": (["pushfold_tables", "hu_updated_optimal", "fitted_tables", "deep_thought_v1",
+                         "fitted_tables_v2", "deep_thought_v2", "deep_thought_v3", "deep_thought_v4",
+                         "deep_thought_v5"], "DeepThoughtV5Bot",
+                        "ChipzenDeepThoughtV5Bot", "chipzen_deep_thought_v5"),
+    "DEEP_THOUGHT_V6": (["pushfold_tables", "hu_updated_optimal", "fitted_tables", "deep_thought_v1",
+                         "fitted_tables_v2", "deep_thought_v2", "deep_thought_v3", "deep_thought_v4",
+                         "deep_thought_v5", "deep_thought_v6"], "DeepThoughtV6Bot",
+                        "ChipzenDeepThoughtV6Bot", "chipzen_deep_thought_v6"),
 }
 LOCAL = set(COMMON) | {"config", "hu_updated_optimal", "pushfold_tables", "fitted_tables", "deep_thought_v1",
-                       "fitted_tables_v2", "deep_thought_v2", "deep_thought_v3", "deep_thought_v4"}
+                       "fitted_tables_v2", "deep_thought_v2", "deep_thought_v3", "deep_thought_v4",
+                       "deep_thought_v5", "deep_thought_v6"}
+# Bots that start each match from saved opponent profiles (chipzen_profiles.py writes them)
+PROFILED = {"DEEP_THOUGHT_V5", "DEEP_THOUGHT_V6"}
+PROFILES_FILE = HERE / "chipzen_profiles.json"
 # Dev-only code left out of the bundle: table building needs multiprocessing,
 # which the sandbox blocks, and the table is embedded instead.
 DROP = {"build_preflop_table", "_class_combos", "_preflop_job", "_load_preflop_table",
@@ -114,6 +126,15 @@ class @ADAPTER@(Bot):
         self.small_blind = config.get("small_blind", 0)
         self.big_blind = config.get("big_blind", 0)
         self.raise_added = False
+        self.load_profiles(match_info)
+
+    def load_profiles(self, match_info):
+        """Start each known opponent's reads from earlier matches, found by bot name."""
+        load = getattr(self.core, "load_profile", None)
+        for seat in match_info.get("seats") or []:
+            profile = _PROFILES.get(seat.get("display_name"))
+            if load is not None and profile and not seat.get("is_self"):
+                load(int(seat["seat"]), profile)
 
     @staticmethod
     def reads_raises_as_added(state):
@@ -285,23 +306,35 @@ def bundle(name):
     equity = json.dumps(json.loads((HERE / "preflop_equity.json").read_text()), separators=(",", ":"), sort_keys=True)
     chipzen = ("from chipzen import Action as ChipzenAction, Bot\n"
                "from chipzen.client import run_bot")
+    profiles = {}
+    if name in PROFILED and PROFILES_FILE.exists():
+        profiles = {k: v for k, v in json.loads(PROFILES_FILE.read_text()).items() if not k.startswith("_")}
     text = (HEADER + "\n".join(sorted(imports)) + "\n\n" + chipzen + "\n\n" + bodies[0]
-            + "\n\n_PREFLOP_TABLE = " + equity + "\n\n" + "\n\n".join(bodies[1:]) + "\n" + ADAPTER)
+            + "\n\n_PREFLOP_TABLE = " + equity + "\n\n" + "\n\n".join(bodies[1:])
+            + "\n\n_PROFILES = " + json.dumps(profiles, separators=(",", ":"), sort_keys=True) + "\n" + ADAPTER)
     return text.replace("_updated._PREFLOP_TABLE", "_PREFLOP_TABLE").replace("@NAME@", name).replace("@ADAPTER@", adapter).replace("@CORE@", core)
 
 
 def main():
     ap = argparse.ArgumentParser()
-    ap.add_argument("--sdk", required=True, help="local clone of chipzen-sdk")
+    ap.add_argument("--sdk", help="local clone of chipzen-sdk (needed the first time, for the starter files)")
     ap.add_argument("--bot", type=str.upper, choices=list(BOTS), default="HU_UPDATED_OPTIMAL")
     ap.add_argument("--out", help="output folder (default: next to NLH_Poker_Bot)")
     args = ap.parse_args()
-    starter = Path(args.sdk) / "packages/python/starters/python"
     out = Path(args.out) if args.out else HERE.parent / BOTS[args.bot][3]
+    write(args.bot, out, args.sdk)
+
+
+def write(bot, out, sdk=None):
+    """Write out/bot.py, copying the starter's Dockerfile and friends from `sdk` if given."""
     out.mkdir(parents=True, exist_ok=True)
-    for name in ("Dockerfile", ".dockerignore", "requirements.txt"):
-        shutil.copyfile(starter / name, out / name)
-    (out / "bot.py").write_text(bundle(args.bot))
+    if sdk:
+        starter = Path(sdk) / "packages/python/starters/python"
+        for name in ("Dockerfile", ".dockerignore", "requirements.txt"):
+            shutil.copyfile(starter / name, out / name)
+    elif not (out / "Dockerfile").exists():
+        raise SystemExit(f"{out} has no Dockerfile yet: run once with --sdk")
+    (out / "bot.py").write_text(bundle(bot))
     print(f"wrote {out / 'bot.py'} ({(out / 'bot.py').stat().st_size / 1024:.0f} KB)")
 
 
