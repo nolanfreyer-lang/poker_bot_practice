@@ -3,9 +3,11 @@
     python3 chipzen_profiles.py                 # update chipzen_profiles.json
     python3 chipzen_profiles.py --build         # ...and regenerate chipzen_deep_thought_v7/bot.py
     python3 chipzen_profiles.py --package       # ...and build the Docker image and .tar.gz to upload
+    python3 chipzen_profiles.py --package --bot v9   # the same for chipzen_deep_thought_v9
 
---build and --package add one to the version in chipzen_deep_thought_v7/VERSION; the
-Docker tag and upload file carry it (deep-thought-v7:v3, deep-thought-v7-v3.tar.gz).
+--build and --package add one to the version in chipzen_deep_thought_v7/VERSION (or the
+--bot's folder); the Docker tag and upload file carry it (deep-thought-v7:v3,
+deep-thought-v7-v3.tar.gz). DEEP_THOUGHT_V9 reads the same profiles as v7.
 The profiles also work for DEEP_THOUGHT_V5 and V6, which skip the reads they don't have.
 After the table it prints v7's exploit plan for each bot: what it switches on at match start.
 
@@ -47,9 +49,11 @@ API = "https://chipzen.ai/api"
 CACHE = HERE / "chipzen_replays"
 OUT = HERE / "chipzen_profiles.json"
 MATCH_FILE = HERE / "chipzen_matches.txt"
-BOT = "DEEP_THOUGHT_V7"
-PACKAGE = HERE.parent / "chipzen_deep_thought_v7"
-VERSION_FILE = PACKAGE / "VERSION"         # +1 on every --build or --package
+BOTS = {"v7": "DEEP_THOUGHT_V7", "v9": "DEEP_THOUGHT_V9"}   # --bot -> build_chipzen name
+
+
+def package_dir(bot):
+    return HERE.parent / f"chipzen_deep_thought_{bot}"   # its VERSION goes +1 on every --build or --package
 UUID = re.compile(r"[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}")
 STREETS = ("preflop", "flop", "turn", "river")
 # Exploits to force on against named Chipzen bots, from our own hand data with them, for
@@ -217,19 +221,21 @@ def plans(profiles):
     print(f"  ({shown} bots with an exploit; the rest start from v6's play)")
 
 
-def next_version():
-    """Add one to the package version in chipzen_deep_thought_v7/VERSION and return it."""
-    version = int(VERSION_FILE.read_text().strip() or 0) + 1 if VERSION_FILE.exists() else 1
-    VERSION_FILE.write_text(f"{version}\n")
+def next_version(bot):
+    """Add one to the package version in chipzen_deep_thought_<bot>/VERSION and return it."""
+    version_file = package_dir(bot) / "VERSION"
+    version = int(version_file.read_text().strip() or 0) + 1 if version_file.exists() else 1
+    version_file.write_text(f"{version}\n")
     return version
 
 
-def package(version):
+def package(bot, version):
     """Build the Docker image and save the .tar.gz to upload."""
     env = dict(os.environ, PATH=os.path.expanduser("~/.docker/bin") + os.pathsep + os.environ["PATH"])
-    tag = f"deep-thought-v7:v{version}"
-    subprocess.run(["docker", "build", "--platform", "linux/amd64", "-t", tag, "."], cwd=PACKAGE, env=env, check=True)
-    out = PACKAGE / f"deep-thought-v7-v{version}.tar.gz"
+    tag = f"deep-thought-{bot}:v{version}"
+    subprocess.run(["docker", "build", "--platform", "linux/amd64", "-t", tag, "."], cwd=package_dir(bot), env=env,
+                   check=True)
+    out = package_dir(bot) / f"deep-thought-{bot}-v{version}.tar.gz"
     with open(out, "wb") as f:
         save = subprocess.Popen(["docker", "save", tag], stdout=subprocess.PIPE, env=env)
         subprocess.run(["gzip"], stdin=save.stdout, stdout=f, check=True)
@@ -242,7 +248,8 @@ def main():
     ap.add_argument("matches", nargs="*", help="match links or IDs to add")
     ap.add_argument("--seasons", nargs="*", default=[], help="season numbers, or 'all' (default: last three)")
     ap.add_argument("--no-seasons", action="store_true", help="only use your own listed matches")
-    ap.add_argument("--build", action="store_true", help="regenerate chipzen_deep_thought_v7/bot.py")
+    ap.add_argument("--build", action="store_true", help="regenerate chipzen_deep_thought_<bot>/bot.py")
+    ap.add_argument("--bot", choices=list(BOTS), default="v7", help="which bot --build and --package make")
     ap.add_argument("--package", action="store_true", help="--build, then make the .tar.gz to upload")
     ap.add_argument("--show", type=int, default=40, help="bots to list in the summary")
     args = ap.parse_args()
@@ -272,11 +279,11 @@ def main():
     plans({k: v for k, v in profiles.items() if not k.startswith("_")})
     if args.build or args.package:
         import build_chipzen
-        build_chipzen.write(BOT, PACKAGE)
-        version = next_version()
+        build_chipzen.write(BOTS[args.bot], package_dir(args.bot))
+        version = next_version(args.bot)
         print(f"package version {version}")
         if args.package:
-            package(version)
+            package(args.bot, version)
 
 
 if __name__ == "__main__":

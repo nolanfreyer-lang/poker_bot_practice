@@ -21,6 +21,21 @@ average opponent v7 plays exactly like v6.
      confidently fold less than it needs.
   3. Thin turn value (THIN_VALUE_READS). A medium hand bets the turn for value against
      bots whose turn calls are confidently mostly weak hands and draws.
+  4. Heavy bettors who fold (FOLD_WEAK_VS_BARRELER, off by default). Facing one opponent's
+     first bet on the flop or turn, a weak made hand folds instead of calling when that
+     bettor bets BARRELER_RATIO x the reference rate, folds to our bets at least
+     BARRELER_MIN_FOLD of the time, and has shown down at most BARRELER_MAX_BLUFF bluffs:
+     Chipzen's slopUpBotV2 type, whose bluffs are random weak hands that still beat ours
+     and that bet again on the next street. A MANIAC or LAG shows its air at showdown,
+     so it doesn't count. Live play shows slopUpBotV2's bets as 15-20% bluffs (only
+     called-down hands show) and its replay profile as 38%; a MANIAC shows 53-63%.
+     Paired against v7 from an empty start, with a 0.35 limit: +8.9 +- 2.6 bb/100 at
+     100 BB and +9.9 +- 1.8 at 40 BB heads-up against a slopUpBotV2 mimic, +0.4 and +0.7
+     at 6-max tables with it, -0.05 at 6-max and -0.3 / -0.2 heads-up against the usual
+     field (-3 against LAG). The 0.45 limit, which lets its profile count: +10.7 +- 3.0
+     against the mimic and -0.04 / -0.12 heads-up against the field. Raising its bets as
+     bluffs instead lost 9 bb/100 at 100 BB, and pricing its bluffs higher (extra bets as
+     bluffs) lost 14.
 
 Saved profiles fill these reads with up to EXPLOIT_PROFILE_HANDS hands of history, more
 than v6's reads take (PROFILE_MAX_HANDS), since an exploit only acts when it is confident
@@ -65,6 +80,11 @@ DEEP7_CONFIG = {
     "CALL_WEAK_WEIGHT": 8,
     "THIN_VALUE_SHARE": 0.6,            # bet medium hands when their weak share is confidently above
     "THIN_VALUE_SIZE": 0.5,
+    # --- weak hands fold to heavy bettors who fold -------------------------------------
+    "FOLD_WEAK_VS_BARRELER": False,
+    "BARRELER_RATIO": 1.3,              # first bets per chance vs the reference rate
+    "BARRELER_MIN_FOLD": 0.45,          # their fold rate to our bets
+    "BARRELER_MAX_BLUFF": 0.45,         # bluff share of the bets they have shown down
 }
 
 # opponent trackers that a saved profile fills in, by attribute name
@@ -300,9 +320,25 @@ class DeepThoughtV7Bot(DeepThoughtV6Bot):
         amount = s.me.bet + max(s.big_blind, int(share * s.pot))
         return Action("bet", max(s.min_raise_to, min(s.max_raise_to, amount)))
 
+    def _barreler(self, s, opps):
+        """The one opponent whose flop or turn bet we face, if it bets heavily and folds."""
+        c = self.cfg
+        if s.street not in ("flop", "turn") or len(opps) != 1 or self._facing_raise(s):
+            return None
+        agg = self._aggressor(s)
+        if agg is None or self._freq_ratio(s, agg, "bet") < c.BARRELER_RATIO \
+                or self.sd.fold_rate(agg, c) < c.BARRELER_MIN_FOLD \
+                or self.sd.bluff_rate(agg, c, s.street) > c.BARRELER_MAX_BLUFF:
+            return None
+        return agg
+
     def _postflop(self, s):
         a = super()._postflop(s)
         opps = [p for p in s.players if p.active and p.seat != s.my_seat]
+        if s.to_call and a.kind == "call" and self.cfg.FOLD_WEAK_VS_BARRELER \
+                and classify_hand(s.hole_cards, s.board, self.good_kicker) == "WEAK" \
+                and self._barreler(s, opps) is not None:
+            return Action("fold")
         if s.to_call or len(opps) != 1 or s.street == "river":
             return a
         opp = opps[0].seat
