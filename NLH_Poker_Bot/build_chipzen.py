@@ -51,12 +51,17 @@ BOTS = {
                          "fitted_tables_v2", "deep_thought_v2", "deep_thought_v3", "deep_thought_v4",
                          "deep_thought_v5", "deep_thought_v6", "deep_thought_v7", "deep_thought_v9"],
                         "DeepThoughtV9Bot", "ChipzenDeepThoughtV9Bot", "chipzen_deep_thought_v9"),
+    "DEEP_THOUGHT_V10": (["pushfold_tables", "hu_updated_optimal", "fitted_tables", "deep_thought_v1",
+                          "fitted_tables_v2", "deep_thought_v2", "deep_thought_v3", "deep_thought_v4",
+                          "deep_thought_v5", "deep_thought_v6", "deep_thought_v7", "deep_thought_v9",
+                          "deep_thought_v10"], "DeepThoughtV10Bot", "ChipzenDeepThoughtV10Bot",
+                         "chipzen_deep_thought_v10"),
 }
 LOCAL = set(COMMON) | {"config", "hu_updated_optimal", "pushfold_tables", "fitted_tables", "deep_thought_v1",
                        "fitted_tables_v2", "deep_thought_v2", "deep_thought_v3", "deep_thought_v4",
-                       "deep_thought_v5", "deep_thought_v6", "deep_thought_v7", "deep_thought_v9"}
+                       "deep_thought_v5", "deep_thought_v6", "deep_thought_v7", "deep_thought_v9", "deep_thought_v10"}
 # Bots that start each match from saved opponent profiles (chipzen_profiles.py writes them)
-PROFILED = {"DEEP_THOUGHT_V5", "DEEP_THOUGHT_V6", "DEEP_THOUGHT_V7", "DEEP_THOUGHT_V9"}
+PROFILED = {"DEEP_THOUGHT_V5", "DEEP_THOUGHT_V6", "DEEP_THOUGHT_V7", "DEEP_THOUGHT_V9", "DEEP_THOUGHT_V10"}
 PROFILES_FILE = HERE / "chipzen_profiles.json"
 # Dev-only code left out of the bundle: table building needs multiprocessing,
 # which the sandbox blocks, and the table is embedded instead.
@@ -137,11 +142,18 @@ class @ADAPTER@(Bot):
         self.load_profiles(match_info)
 
     def load_profiles(self, match_info):
-        """Start each known opponent's reads from earlier matches, found by bot name."""
+        """Start each known opponent's reads from earlier matches, found by bot name (a bot
+        with load_named_profile also tries the name's older versions)."""
         load = getattr(self.core, "load_profile", None)
+        named = getattr(self.core, "load_named_profile", None)
         for seat in match_info.get("seats") or []:
+            if seat.get("is_self"):
+                continue
+            if named is not None:
+                named(int(seat["seat"]), seat.get("display_name"), _PROFILES)
+                continue
             profile = _PROFILES.get(seat.get("display_name"))
-            if load is not None and profile and not seat.get("is_self"):
+            if load is not None and profile:
                 load(int(seat["seat"]), profile)
 
     @staticmethod

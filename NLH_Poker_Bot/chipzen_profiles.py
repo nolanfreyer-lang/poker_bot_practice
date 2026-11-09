@@ -4,10 +4,12 @@
     python3 chipzen_profiles.py --build         # ...and regenerate chipzen_deep_thought_v7/bot.py
     python3 chipzen_profiles.py --package       # ...and build the Docker image and .tar.gz to upload
     python3 chipzen_profiles.py --package --bot v9   # the same for chipzen_deep_thought_v9
+    python3 chipzen_profiles.py --package --bot v10  # ... and chipzen_deep_thought_v10
 
 --build and --package add one to the version in chipzen_deep_thought_v7/VERSION (or the
 --bot's folder); the Docker tag and upload file carry it (deep-thought-v7:v3,
-deep-thought-v7-v3.tar.gz). DEEP_THOUGHT_V9 reads the same profiles as v7.
+deep-thought-v7-v3.tar.gz). DEEP_THOUGHT_V9 and V10 read the same profiles as v7 (V10 also
+falls back to a new bot's older versions).
 The profiles also work for DEEP_THOUGHT_V5 and V6, which skip the reads they don't have.
 After the table it prints v7's exploit plan for each bot: what it switches on at match start.
 
@@ -49,7 +51,7 @@ API = "https://chipzen.ai/api"
 CACHE = HERE / "chipzen_replays"
 OUT = HERE / "chipzen_profiles.json"
 MATCH_FILE = HERE / "chipzen_matches.txt"
-BOTS = {"v7": "DEEP_THOUGHT_V7", "v9": "DEEP_THOUGHT_V9"}   # --bot -> build_chipzen name
+BOTS = {"v7": "DEEP_THOUGHT_V7", "v9": "DEEP_THOUGHT_V9", "v10": "DEEP_THOUGHT_V10"}   # --bot -> build_chipzen name
 
 
 def package_dir(bot):

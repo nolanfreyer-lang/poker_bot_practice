@@ -25,6 +25,7 @@ from deep_thought_v5 import DeepThoughtV5Bot
 from deep_thought_v6 import DeepThoughtV6Bot
 from deep_thought_v7 import DeepThoughtV7Bot
 from deep_thought_v9 import DeepThoughtV9Bot
+from deep_thought_v10 import DeepThoughtV10Bot
 from hu_updated_optimal import HuUpdatedOptimalBot
 from updated_optimal import UpdatedOptimalBot
 
@@ -39,7 +40,8 @@ BOTS = {"UPDATED_OPTIMAL": UpdatedOptimalBot, "HU_UPDATED_OPTIMAL": HuUpdatedOpt
         "DEEP_THOUGHT_V5": DeepThoughtV5Bot,
         "DEEP_THOUGHT_V6": DeepThoughtV6Bot,
         "DEEP_THOUGHT_V7": DeepThoughtV7Bot,
-        "DEEP_THOUGHT_V9": DeepThoughtV9Bot}
+        "DEEP_THOUGHT_V9": DeepThoughtV9Bot,
+        "DEEP_THOUGHT_V10": DeepThoughtV10Bot}
 
 
 def post(path, data, retries=5):
