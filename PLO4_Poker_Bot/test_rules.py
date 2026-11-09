@@ -8,6 +8,7 @@ import time
 
 import config as C
 from bot import Action, GameState, PlayerInfo, PokerBot, pot_limit_to
+from icm import icm_points
 from local_sim import Table, default_lineup
 from poker_core import PREFLOP, category, hand_key, parse_cards, plo_value, read_hand, strength
 
@@ -117,6 +118,17 @@ def test_all_hands_in_table():
     print("ok  preflop table covers dealt hands")
 
 
+def test_icm():
+    rng = random.Random(4)
+    for _ in range(20000):
+        stacks = {s: rng.choice((0, 1, 50, 2000, 16000)) for s in range(rng.randint(2, 8))}
+        stacks[0] += 1
+        out = icm_points(stacks, C.PAYOUT_POINTS)
+        pays = sum(C.PAYOUT_POINTS[:len(stacks)])
+        assert abs(sum(out.values()) - pays) < 1e-6, (stacks, out)
+    print("ok  icm is finite and pays out every place")
+
+
 def test_human_input():
     from play_vs_bot import HumanPlayer
     parse = HumanPlayer.parse
@@ -156,5 +168,6 @@ if __name__ == "__main__":
     test_all_hands_in_table()
     test_bot_output_always_legal()
     test_sim_conserves_chips_and_caps_raises()
+    test_icm()
     test_human_input()
     test_decision_speed()

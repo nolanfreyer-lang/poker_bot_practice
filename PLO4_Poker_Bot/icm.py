@@ -43,7 +43,7 @@ def icm_points(stacks, payouts):
     M, layers = _icm_layers(n)
     st = np.asarray([stacks[s] for s in alive], float)
     tot = st.sum()
-    S = M @ st
+    S = (M * st).sum(1)   # not M @ st: BLAS matmul threw floating-point warnings on valid stacks
     prob = np.zeros(1 << n)
     prob[0] = 1.0
     eq = np.zeros(n)
