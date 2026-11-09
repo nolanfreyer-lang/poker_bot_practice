@@ -5,6 +5,7 @@
     python3 chipzen_profiles.py --package       # ...and build the Docker image and .tar.gz to upload
     python3 chipzen_profiles.py --package --bot v9   # the same for chipzen_deep_thought_v9
     python3 chipzen_profiles.py --package --bot v10  # ... and chipzen_deep_thought_v10
+    python3 chipzen_profiles.py --package --bot v11  # ... and chipzen_deep_thought_v11 (v10's code)
 
 --build and --package add one to the version in chipzen_deep_thought_v7/VERSION (or the
 --bot's folder); the Docker tag and upload file carry it (deep-thought-v7:v3,
@@ -51,7 +52,7 @@ API = "https://chipzen.ai/api"
 CACHE = HERE / "chipzen_replays"
 OUT = HERE / "chipzen_profiles.json"
 MATCH_FILE = HERE / "chipzen_matches.txt"
-BOTS = {"v7": "DEEP_THOUGHT_V7", "v9": "DEEP_THOUGHT_V9", "v10": "DEEP_THOUGHT_V10"}   # --bot -> build_chipzen name
+BOTS = {"v7": "DEEP_THOUGHT_V7", "v9": "DEEP_THOUGHT_V9", "v10": "DEEP_THOUGHT_V10", "v11": "DEEP_THOUGHT_V11"}   # --bot -> build_chipzen name
 
 
 def package_dir(bot):
