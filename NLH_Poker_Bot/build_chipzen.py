@@ -47,6 +47,11 @@ BOTS = {
                          "fitted_tables_v2", "deep_thought_v2", "deep_thought_v3", "deep_thought_v4",
                          "deep_thought_v5", "deep_thought_v6", "deep_thought_v7"], "DeepThoughtV7Bot",
                         "ChipzenDeepThoughtV7Bot", "chipzen_deep_thought_v7"),
+    "DEEP_THOUGHT_V8": (["pushfold_tables", "hu_updated_optimal", "fitted_tables", "deep_thought_v1",
+                         "fitted_tables_v2", "deep_thought_v2", "deep_thought_v3", "deep_thought_v4",
+                         "deep_thought_v5", "deep_thought_v6", "deep_thought_v7", "hu_preflop_tables",
+                         "deep_thought_v8"], "DeepThoughtV8Bot",
+                        "ChipzenDeepThoughtV8Bot", "chipzen_deep_thought_v8"),
     "DEEP_THOUGHT_V9": (["pushfold_tables", "hu_updated_optimal", "fitted_tables", "deep_thought_v1",
                          "fitted_tables_v2", "deep_thought_v2", "deep_thought_v3", "deep_thought_v4",
                          "deep_thought_v5", "deep_thought_v6", "deep_thought_v7", "deep_thought_v9"],
@@ -68,13 +73,19 @@ BOTS = {
                           "deep_thought_v5", "deep_thought_v6", "deep_thought_v7", "deep_thought_v9",
                           "deep_thought_v10", "deep_thought_v12"], "DeepThoughtV12Bot", "ChipzenDeepThoughtV12Bot",
                          "chipzen_deep_thought_v12"),
+    "DEEP_THOUGHT_GTO": (["pushfold_tables", "hu_updated_optimal", "fitted_tables", "deep_thought_v1",
+                          "fitted_tables_v2", "deep_thought_v2", "deep_thought_v3", "deep_thought_v4",
+                          "deep_thought_v5", "deep_thought_v6", "deep_thought_v7", "hu_preflop_tables",
+                          "deep_thought_v8", "gto_preflop_tables", "gto_solver", "deep_thought_gto"], "DeepThoughtGTOBot",
+                         "ChipzenDeepThoughtGTOBot", "chipzen_deep_thought_gto"),
 }
 LOCAL = set(COMMON) | {"config", "hu_updated_optimal", "pushfold_tables", "fitted_tables", "deep_thought_v1",
                        "fitted_tables_v2", "deep_thought_v2", "deep_thought_v3", "deep_thought_v4",
-                       "deep_thought_v5", "deep_thought_v6", "deep_thought_v7", "deep_thought_v9", "deep_thought_v10",
-                       "deep_thought_v12"}
+                       "deep_thought_v5", "deep_thought_v6", "deep_thought_v7", "hu_preflop_tables",
+                       "deep_thought_v8", "deep_thought_v9", "deep_thought_v10", "deep_thought_v12",
+                       "gto_preflop_tables", "gto_solver", "deep_thought_gto"}
 # Bots that start each match from saved opponent profiles (chipzen_profiles.py writes them)
-PROFILED = {"DEEP_THOUGHT_V5", "DEEP_THOUGHT_V6", "DEEP_THOUGHT_V7", "DEEP_THOUGHT_V9", "DEEP_THOUGHT_V10", "DEEP_THOUGHT_V11", "DEEP_THOUGHT_V12"}
+PROFILED = {"DEEP_THOUGHT_V5", "DEEP_THOUGHT_V6", "DEEP_THOUGHT_V7", "DEEP_THOUGHT_V8", "DEEP_THOUGHT_V9", "DEEP_THOUGHT_V10", "DEEP_THOUGHT_V11", "DEEP_THOUGHT_V12"}
 PROFILES_FILE = HERE / "chipzen_profiles.json"
 # Dev-only code left out of the bundle: table building needs multiprocessing,
 # which the sandbox blocks, and the table is embedded instead.

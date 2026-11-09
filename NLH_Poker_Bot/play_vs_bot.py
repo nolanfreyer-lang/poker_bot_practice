@@ -34,9 +34,11 @@ from deep_thought_v4 import DeepThoughtV4Bot
 from deep_thought_v5 import DeepThoughtV5Bot
 from deep_thought_v6 import DeepThoughtV6Bot
 from deep_thought_v7 import DeepThoughtV7Bot
+from deep_thought_v8 import DeepThoughtV8Bot
 from deep_thought_v9 import DeepThoughtV9Bot
 from deep_thought_v10 import DeepThoughtV10Bot
 from deep_thought_v12 import DeepThoughtV12Bot
+from deep_thought_gto import DeepThoughtGTOBot
 from hu_updated_optimal import HuUpdatedOptimalBot
 from updated_optimal import UpdatedOptimalBot
 from local_sim import Table, CallingStation, Maniac, describe
@@ -51,9 +53,11 @@ BOTS = {
     "DEEP_THOUGHT_V5": ("V4 that checks weak hands into the aggressor unless they fold to leads", lambda seed: DeepThoughtV5Bot(seed=seed)),
     "DEEP_THOUGHT_V6": ("V5 with bluff reads by bet size and tighter calls vs value-heavy big 3-bets", lambda seed: DeepThoughtV6Bot(seed=seed)),
     "DEEP_THOUGHT_V7": ("V6 with per-opponent exploits: flop raise, turn barrel and thin value reads", lambda seed: DeepThoughtV7Bot(seed=seed)),
+    "DEEP_THOUGHT_V8": ("V7 with a solved heads-up preflop at 6-25 BB in 2-seat matches", lambda seed: DeepThoughtV8Bot(seed=seed)),
     "DEEP_THOUGHT_V9": ("V7 whose weak hands fold to heavy bettors who fold to bets", lambda seed: DeepThoughtV9Bot(seed=seed)),
     "DEEP_THOUGHT_V10": ("V9 that starts new bot versions from their older versions' profiles", lambda seed: DeepThoughtV10Bot(seed=seed)),
     "DEEP_THOUGHT_V12": ("V11 that stays pot committed: no stack-off fold for a cheap last call", lambda seed: DeepThoughtV12Bot(seed=seed)),
+    "DEEP_THOUGHT_GTO": ("balanced and read-free: solved HU preflop, value/bluff ratios and minimum defense", lambda seed: DeepThoughtGTOBot(seed=seed)),
     "HU_UPDATED_OPTIMAL": ("UPDATED_OPTIMAL with heads-up preflop ranges", lambda seed: HuUpdatedOptimalBot(seed=seed)),
     "UPDATED_OPTIMAL": ("OptimalBot + bluff tracking, EV checks, ICM", lambda seed: UpdatedOptimalBot(seed=seed)),
     "OPTIMAL": ("tuned ExploitBot (best in testing)", lambda seed: OptimalBot(seed=seed)),
