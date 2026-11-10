@@ -296,9 +296,11 @@ class Solver:
             gain += sum(w * (b - v) for w, b, v in zip(self.w[p], br, own))
         return gain / self.spot["pot"]
 
-    def run(self, deadline):
+    def run(self, deadline, hard=None):
+        """Iterate until the deadline (at least MIN_ITERATIONS), but never past `hard`."""
         t = 0
-        while t < self.cfg["MIN_ITERATIONS"] or time.perf_counter() < deadline:
+        while (t < self.cfg["MIN_ITERATIONS"] or time.perf_counter() < deadline) \
+                and (hard is None or time.perf_counter() < hard):
             t += 1
             for p in (0, 1):
                 self._value(self.root, [list(self.w[0]), list(self.w[1])], p, t)
@@ -334,8 +336,9 @@ def _sample(range_, n, keep, rng):
     return hands, [w / s for w in weights]
 
 
-def solve(ours, theirs, mine, spot, rng, seconds=1.0, cfg=None):
-    """-> ({action: probability} for our hand at the root, iterations run, the solver)."""
+def solve(ours, theirs, mine, spot, rng, seconds=1.0, cfg=None, hard=None):
+    """-> ({action: probability} for our hand at the root, iterations run, the solver).
+    `hard` is a perf_counter time the solve never runs past, whatever MIN_ITERATIONS says."""
     cfg = {**CONFIG, **(cfg or {})}
     n = cfg["MAX_HANDS"][spot["street"]]
     h0, w0 = _sample(ours, n, mine, rng)
@@ -344,7 +347,7 @@ def solve(ours, theirs, mine, spot, rng, seconds=1.0, cfg=None):
         return None, 0, None
     cls = NumpySolver if cfg["NUMPY"] and _np is not None else Solver
     solver = cls([h0, h1], [w0, w1], spot, cfg, rng)
-    iterations = solver.run(time.perf_counter() + seconds)
+    iterations = solver.run(time.perf_counter() + seconds, hard)
     return solver.root_strategy(h0.index(mine)), iterations, solver
 
 
@@ -359,6 +362,11 @@ def chips_of(name):
 def _load_numpy():
     """numpy if it imports, else None (the pure Python Solver above still works). A function,
     not a module-level try, because build_chipzen.py turns top-level try blocks into np = None."""
+    import os
+    # One thread: Chipzen gives the bot half a CPU, and BLAS worker threads (one per visible
+    # core, which can be many) would only compete with the solve for it.
+    for var in ("OPENBLAS_NUM_THREADS", "OMP_NUM_THREADS", "MKL_NUM_THREADS"):
+        os.environ.setdefault(var, "1")
     try:
         import numpy
         return numpy
@@ -519,9 +527,10 @@ class NumpySolver(Solver):
             gain += float((self.w[p] * (self._best(self.root, reach, p, True) - self._best(self.root, reach, p, False))).sum())
         return gain / self.spot["pot"]
 
-    def run(self, deadline):
+    def run(self, deadline, hard=None):
         t = 0
-        while t < self.cfg["MIN_ITERATIONS"] or time.perf_counter() < deadline:
+        while (t < self.cfg["MIN_ITERATIONS"] or time.perf_counter() < deadline) \
+                and (hard is None or time.perf_counter() < hard):
             t += 1
             for p in (0, 1):
                 self._value(self.root, [self.w[0].copy(), self.w[1].copy()], p, t)

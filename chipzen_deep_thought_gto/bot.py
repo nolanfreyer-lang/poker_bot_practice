@@ -2188,6 +2188,7 @@ DEEP4_CONFIG = {
     # --- stack-off limits on calls: chips in the pot after calling, in big blinds -----
     "CALL_LIMIT_BB": {"STRONG": 60, "STRONG_DRAW": 40, "MEDIUM": 30, "DRAW": 20, "WEAK": 15},
     "CALL_LIMIT_READ": 1.5,         # a street read at least this high lifts the limit
+    "CALL_LIMIT_MAX_PRICE": None,   # pot committed: no limit when the call needs less equity than this
     # --- small 3-bets: call wider when the price is at most this ----------------------
     "SMALL_3BET_PRICE": 0.22,
     "HU_BTN_CALL_SMALL_3BET": ("22+, A2s+, A2o+, K2s+, K2o+, Q2s+, Q5o+, J4s+, J7o+, T5s+, T7o+, "
@@ -2255,7 +2256,11 @@ class DeepThoughtV4Bot(DeepThoughtV3Bot):
             limit = self.cfg.CALL_LIMIT_BB.get(classify_hand(s.hole_cards, s.board, self.good_kicker))
             chips = self._invested(s, s.my_seat) + min(s.to_call, s.me.stack)
             read = self.street_reads.ratio(self._aggressor(s), s.street, self.cfg)
-            if limit is not None and chips > limit * s.big_blind and read < self.cfg.CALL_LIMIT_READ:
+            cost = min(s.to_call, s.me.stack)
+            committed = self.cfg.CALL_LIMIT_MAX_PRICE is not None \
+                and cost / (s.pot + cost) < self.cfg.CALL_LIMIT_MAX_PRICE
+            if limit is not None and chips > limit * s.big_blind and read < self.cfg.CALL_LIMIT_READ \
+                    and not committed:
                 return Action("fold")
         return a
 
@@ -3303,9 +3308,11 @@ class Solver:
             gain += sum(w * (b - v) for w, b, v in zip(self.w[p], br, own))
         return gain / self.spot["pot"]
 
-    def run(self, deadline):
+    def run(self, deadline, hard=None):
+        """Iterate until the deadline (at least MIN_ITERATIONS), but never past `hard`."""
         t = 0
-        while t < self.cfg["MIN_ITERATIONS"] or time.perf_counter() < deadline:
+        while (t < self.cfg["MIN_ITERATIONS"] or time.perf_counter() < deadline) \
+                and (hard is None or time.perf_counter() < hard):
             t += 1
             for p in (0, 1):
                 self._value(self.root, [list(self.w[0]), list(self.w[1])], p, t)
@@ -3339,8 +3346,9 @@ def _sample(range_, n, keep, rng):
     s = sum(weights)
     return hands, [w / s for w in weights]
 
-def solve(ours, theirs, mine, spot, rng, seconds=1.0, cfg=None):
-    """-> ({action: probability} for our hand at the root, iterations run, the solver)."""
+def solve(ours, theirs, mine, spot, rng, seconds=1.0, cfg=None, hard=None):
+    """-> ({action: probability} for our hand at the root, iterations run, the solver).
+    `hard` is a perf_counter time the solve never runs past, whatever MIN_ITERATIONS says."""
     cfg = {**CONFIG, **(cfg or {})}
     n = cfg["MAX_HANDS"][spot["street"]]
     h0, w0 = _sample(ours, n, mine, rng)
@@ -3349,7 +3357,7 @@ def solve(ours, theirs, mine, spot, rng, seconds=1.0, cfg=None):
         return None, 0, None
     cls = NumpySolver if cfg["NUMPY"] and _np is not None else Solver
     solver = cls([h0, h1], [w0, w1], spot, cfg, rng)
-    iterations = solver.run(time.perf_counter() + seconds)
+    iterations = solver.run(time.perf_counter() + seconds, hard)
     return solver.root_strategy(h0.index(mine)), iterations, solver
 
 def chips_of(name):
@@ -3359,6 +3367,11 @@ def chips_of(name):
 def _load_numpy():
     """numpy if it imports, else None (the pure Python Solver above still works). A function,
     not a module-level try, because build_chipzen.py turns top-level try blocks into np = None."""
+    import os
+    # One thread: Chipzen gives the bot half a CPU, and BLAS worker threads (one per visible
+    # core, which can be many) would only compete with the solve for it.
+    for var in ("OPENBLAS_NUM_THREADS", "OMP_NUM_THREADS", "MKL_NUM_THREADS"):
+        os.environ.setdefault(var, "1")
     try:
         import numpy
         return numpy
@@ -3517,9 +3530,10 @@ class NumpySolver(Solver):
             gain += float((self.w[p] * (self._best(self.root, reach, p, True) - self._best(self.root, reach, p, False))).sum())
         return gain / self.spot["pot"]
 
-    def run(self, deadline):
+    def run(self, deadline, hard=None):
         t = 0
-        while t < self.cfg["MIN_ITERATIONS"] or time.perf_counter() < deadline:
+        while (t < self.cfg["MIN_ITERATIONS"] or time.perf_counter() < deadline) \
+                and (hard is None or time.perf_counter() < hard):
             t += 1
             for p in (0, 1):
                 self._value(self.root, [self.w[0].copy(), self.w[1].copy()], p, t)
@@ -3557,6 +3571,9 @@ GTO_CONFIG = {
     # --- real-time solving (gto_solver.py) ------------------------------------------
     "SOLVE": True,                          # heads-up after the flop: solve the rest of the hand
     "SOLVE_SECONDS": 1.2,                   # per decision (Chipzen allows 5 s at half a CPU)
+    "DECISION_LIMIT": 2.0,                  # hard cap on a whole decision, seconds from act()
+    "CLOCK_SHARE": 0.4,                     # ...and at most this share of the server's clock
+    "MIN_USEFUL_ITERATIONS": 15,            # a solve cut short below this uses the rules instead
     "CARRY_RANGES": True,                   # start each solve from the last solve's ranges
 }
 
@@ -3682,6 +3699,15 @@ class DeepThoughtGTOBot(DeepThoughtV8Bot):
         return below / total if total else 0.0
 
     # ------------------------------------------------------------ postflop
+    def act(self, s):
+        self._started = time.perf_counter()
+        return super().act(s)
+
+    def set_clock(self, ms):
+        """The server's per-decision clock (Chipzen's match_start turn_timeout_ms)."""
+        if ms:
+            self.cfg.DECISION_LIMIT = min(self.cfg.DECISION_LIMIT, self.cfg.CLOCK_SHARE * ms / 1000)
+
     def _postflop(self, s):
         c = self.cfg
         opps = [p for p in s.players if p.active and p.seat != s.my_seat]
@@ -3755,11 +3781,17 @@ class DeepThoughtGTOBot(DeepThoughtV8Bot):
         opp = s.players[villain]
         spot = dict(street=s.street, board=list(s.board), first=first, to_act=0, pot=s.pot,
                     bets=[s.me.bet, opp.bet], stacks=[s.me.stack, opp.stack], raises=raises)
+        c = self.cfg
+        hard = getattr(self, "_started", time.perf_counter()) + c.DECISION_LIMIT
+        left = hard - time.perf_counter()
+        if left <= 0:
+            return None
+        seconds = min(c.SOLVE_SECONDS, left)     # SOLVE_SECONDS 0: just MIN_ITERATIONS (tests)
         try:
-            probs, iterations, solver = solve(ours, theirs, mine, spot, self.rng, seconds=self.cfg.SOLVE_SECONDS)
+            probs, iterations, solver = solve(ours, theirs, mine, spot, self.rng, seconds=seconds, hard=hard)
         except Exception:
             return None
-        if not probs:
+        if not probs or iterations < c.MIN_USEFUL_ITERATIONS:
             return None
         self.last_solve = (probs, iterations)
         r, total = self.rng.random(), 0.0
@@ -3936,6 +3968,9 @@ class ChipzenDeepThoughtGTOBot(Bot):
         self.small_blind = config.get("small_blind", 0)
         self.big_blind = config.get("big_blind", 0)
         self.raise_added = False
+        set_clock = getattr(self.core, "set_clock", None)
+        if set_clock is not None:
+            set_clock(match_info.get("turn_timeout_ms"))
         self.load_profiles(match_info)
 
     def load_profiles(self, match_info):

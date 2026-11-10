@@ -64,6 +64,8 @@ FROM python:3.12-slim@sha256:dd29372629eeba2dd003fd9e9d35a5b8236c44727875a036425
 # Unbuffered stdio — without this, your stdout/stderr can be lost when
 # the container exits.
 ENV PYTHONUNBUFFERED=1 \
+    OPENBLAS_NUM_THREADS=1 \
+    OMP_NUM_THREADS=1 \
     PYTHONDONTWRITEBYTECODE=1 \
     PIP_NO_CACHE_DIR=1 \
     PIP_DISABLE_PIP_VERSION_CHECK=1

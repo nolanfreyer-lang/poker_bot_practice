@@ -39,6 +39,7 @@ After the flop, heads-up
   value and calls only on equity against the bettor's range.
 """
 import bisect
+import time
 
 import config as default_config
 from bot import Action, AGGRESSIVE
@@ -69,6 +70,9 @@ GTO_CONFIG = {
     # --- real-time solving (gto_solver.py) ------------------------------------------
     "SOLVE": True,                          # heads-up after the flop: solve the rest of the hand
     "SOLVE_SECONDS": 1.2,                   # per decision (Chipzen allows 5 s at half a CPU)
+    "DECISION_LIMIT": 2.0,                  # hard cap on a whole decision, seconds from act()
+    "CLOCK_SHARE": 0.4,                     # ...and at most this share of the server's clock
+    "MIN_USEFUL_ITERATIONS": 15,            # a solve cut short below this uses the rules instead
     "CARRY_RANGES": True,                   # start each solve from the last solve's ranges
 }
 DRAWS = ("STRONG_DRAW", "DRAW")
@@ -194,6 +198,15 @@ class DeepThoughtGTOBot(DeepThoughtV8Bot):
         return below / total if total else 0.0
 
     # ------------------------------------------------------------ postflop
+    def act(self, s):
+        self._started = time.perf_counter()
+        return super().act(s)
+
+    def set_clock(self, ms):
+        """The server's per-decision clock (Chipzen's match_start turn_timeout_ms)."""
+        if ms:
+            self.cfg.DECISION_LIMIT = min(self.cfg.DECISION_LIMIT, self.cfg.CLOCK_SHARE * ms / 1000)
+
     def _postflop(self, s):
         c = self.cfg
         opps = [p for p in s.players if p.active and p.seat != s.my_seat]
@@ -267,11 +280,17 @@ class DeepThoughtGTOBot(DeepThoughtV8Bot):
         opp = s.players[villain]
         spot = dict(street=s.street, board=list(s.board), first=first, to_act=0, pot=s.pot,
                     bets=[s.me.bet, opp.bet], stacks=[s.me.stack, opp.stack], raises=raises)
+        c = self.cfg
+        hard = getattr(self, "_started", time.perf_counter()) + c.DECISION_LIMIT
+        left = hard - time.perf_counter()
+        if left <= 0:
+            return None
+        seconds = min(c.SOLVE_SECONDS, left)     # SOLVE_SECONDS 0: just MIN_ITERATIONS (tests)
         try:
-            probs, iterations, solver = solve(ours, theirs, mine, spot, self.rng, seconds=self.cfg.SOLVE_SECONDS)
+            probs, iterations, solver = solve(ours, theirs, mine, spot, self.rng, seconds=seconds, hard=hard)
         except Exception:
             return None
-        if not probs:
+        if not probs or iterations < c.MIN_USEFUL_ITERATIONS:
             return None
         self.last_solve = (probs, iterations)
         r, total = self.rng.random(), 0.0

@@ -163,6 +163,9 @@ class @ADAPTER@(Bot):
         self.small_blind = config.get("small_blind", 0)
         self.big_blind = config.get("big_blind", 0)
         self.raise_added = False
+        set_clock = getattr(self.core, "set_clock", None)
+        if set_clock is not None:
+            set_clock(match_info.get("turn_timeout_ms"))
         self.load_profiles(match_info)
 
     def load_profiles(self, match_info):
