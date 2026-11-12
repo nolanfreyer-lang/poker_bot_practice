@@ -9,6 +9,7 @@
     python3 chipzen_profiles.py --package --bot v11  # ... and chipzen_deep_thought_v11 (v10's code)
     python3 chipzen_profiles.py --package --bot v12  # ... and chipzen_deep_thought_v12
     python3 chipzen_profiles.py --package --bot v13  # ... and chipzen_deep_thought_v13 (v12's code)
+    python3 chipzen_profiles.py --package --bot v14  # ... and chipzen_deep_thought_v14
     python3 chipzen_profiles.py --package --bot gto  # ... and chipzen_deep_thought_gto (no profiles)
 
 --build and --package add one to the version in chipzen_deep_thought_v7/VERSION (or the
@@ -48,7 +49,8 @@ import urllib.error
 import urllib.request
 from pathlib import Path
 
-from deep_thought_v7 import DeepThoughtV7Bot, tracker_counts
+from deep_thought_v7 import DeepThoughtV7Bot
+from deep_thought_v14 import DeepThoughtV14Bot, tracker_counts    # profiles use the newest bot's trackers
 from poker_core import parse_cards
 
 HERE = Path(__file__).resolve().parent
@@ -56,7 +58,7 @@ API = "https://chipzen.ai/api"
 CACHE = HERE / "chipzen_replays"
 OUT = HERE / "chipzen_profiles.json"
 MATCH_FILE = HERE / "chipzen_matches.txt"
-BOTS = {"v7": "DEEP_THOUGHT_V7", "v8": "DEEP_THOUGHT_V8", "v9": "DEEP_THOUGHT_V9", "v10": "DEEP_THOUGHT_V10", "v11": "DEEP_THOUGHT_V11", "v12": "DEEP_THOUGHT_V12", "v13": "DEEP_THOUGHT_V13", "gto": "DEEP_THOUGHT_GTO"}   # --bot -> build_chipzen name
+BOTS = {"v7": "DEEP_THOUGHT_V7", "v8": "DEEP_THOUGHT_V8", "v9": "DEEP_THOUGHT_V9", "v10": "DEEP_THOUGHT_V10", "v11": "DEEP_THOUGHT_V11", "v12": "DEEP_THOUGHT_V12", "v13": "DEEP_THOUGHT_V13", "v14": "DEEP_THOUGHT_V14", "gto": "DEEP_THOUGHT_GTO"}   # --bot -> build_chipzen name
 
 
 def package_dir(bot):
@@ -177,7 +179,7 @@ def profile_match(data, profiles):
     hands = [(h, *hand_history(h)) for h in data["hands"] if not h.get("variant")]
     used = 0
     for seat, name in names.items():
-        bot, n = DeepThoughtV7Bot(seed=0, overrides={"USE_ICM": False}), 0
+        bot, n = DeepThoughtV14Bot(seed=0, overrides={"USE_ICM": False}), 0
         bot.see_everything()        # replays show every hand: count bluffs that won too
         for h, history, dealt in hands:
             if len(dealt) != 2 or seat not in dealt:
