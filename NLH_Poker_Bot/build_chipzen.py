@@ -101,7 +101,7 @@ BOTS = {
     "DEEP_THOUGHT_V17": (["pushfold_tables", "hu_updated_optimal", "fitted_tables", "deep_thought_v1",
                           "fitted_tables_v2", "deep_thought_v2", "deep_thought_v3", "deep_thought_v4",
                           "deep_thought_v5", "deep_thought_v6", "deep_thought_v7", "deep_thought_v9",
-                          "deep_thought_v10", "deep_thought_v12", "deep_thought_v14", "deep_thought_v15", "deep_thought_v17", "deep_thought_v18",
+                          "deep_thought_v10", "deep_thought_v12", "deep_thought_v14", "deep_thought_v15",
                           "deep_thought_v17"],
                          "DeepThoughtV17Bot", "ChipzenDeepThoughtV17Bot", "chipzen_deep_thought_v17"),
     # v18: v17 with cash-game preflop charts for 3-6 players (heads-up unchanged)
@@ -121,7 +121,7 @@ LOCAL = set(COMMON) | {"config", "hu_updated_optimal", "pushfold_tables", "fitte
                        "fitted_tables_v2", "deep_thought_v2", "deep_thought_v3", "deep_thought_v4",
                        "deep_thought_v5", "deep_thought_v6", "deep_thought_v7", "hu_preflop_tables",
                        "deep_thought_v8", "deep_thought_v9", "deep_thought_v10", "deep_thought_v12",
-                       "deep_thought_v14", "deep_thought_v15",
+                       "deep_thought_v14", "deep_thought_v15", "deep_thought_v17", "deep_thought_v18",
                        "gto_preflop_tables", "gto_solver", "deep_thought_gto"}
 # Bots that start each match from saved opponent profiles (chipzen_profiles.py writes them)
 PROFILED = {"DEEP_THOUGHT_V5", "DEEP_THOUGHT_V6", "DEEP_THOUGHT_V7", "DEEP_THOUGHT_V8", "DEEP_THOUGHT_V9", "DEEP_THOUGHT_V10", "DEEP_THOUGHT_V11", "DEEP_THOUGHT_V12", "DEEP_THOUGHT_V13", "DEEP_THOUGHT_V14", "DEEP_THOUGHT_V15", "DEEP_THOUGHT_V16", "DEEP_THOUGHT_V17", "DEEP_THOUGHT_V18"}
@@ -420,7 +420,15 @@ def write(bot, out, sdk=None):
             shutil.copyfile(starter / name, out / name)
     elif not (out / "Dockerfile").exists():
         raise SystemExit(f"{out} has no Dockerfile yet: run once with --sdk")
-    (out / "bot.py").write_text(bundle(bot))
+    text = bundle(bot)
+    # every project module must be inlined: Chipzen's sandbox has only bot.py
+    project = {f.stem for f in HERE.glob("*.py")}
+    left = sorted({n.module for n in ast.walk(ast.parse(text)) if isinstance(n, ast.ImportFrom) and n.module in project}
+                  | {a.name for n in ast.walk(ast.parse(text)) if isinstance(n, ast.Import) for a in n.names
+                     if a.name in project})
+    if left:
+        raise SystemExit(f"{bot}: bot.py still imports project modules {left}: add them to LOCAL and BOTS")
+    (out / "bot.py").write_text(text)
     print(f"wrote {out / 'bot.py'} ({(out / 'bot.py').stat().st_size / 1024:.0f} KB)")
 
 
