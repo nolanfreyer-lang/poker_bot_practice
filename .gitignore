@@ -2,3 +2,4 @@
 __pycache__/
 *.tar.gz
 NLH_Poker_Bot/chipzen_replays/
+NLH_Poker_Bot/openpoker_data/
