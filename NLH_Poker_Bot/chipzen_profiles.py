@@ -14,6 +14,7 @@
     python3 chipzen_profiles.py --package --bot v16  # ... and chipzen_deep_thought_v16 (v15's code)
     python3 chipzen_profiles.py --package --bot v17  # ... and chipzen_deep_thought_v17
     python3 chipzen_profiles.py --package --bot v18  # ... and chipzen_deep_thought_v18
+    python3 chipzen_profiles.py --package --bot v19  # ... and chipzen_deep_thought_v19
     python3 chipzen_profiles.py --package --bot gto  # ... and chipzen_deep_thought_gto (no profiles)
 
 --build and --package add one to the version in chipzen_deep_thought_v7/VERSION (or the
@@ -62,7 +63,7 @@ API = "https://chipzen.ai/api"
 CACHE = HERE / "chipzen_replays"
 OUT = HERE / "chipzen_profiles.json"
 MATCH_FILE = HERE / "chipzen_matches.txt"
-BOTS = {"v7": "DEEP_THOUGHT_V7", "v8": "DEEP_THOUGHT_V8", "v9": "DEEP_THOUGHT_V9", "v10": "DEEP_THOUGHT_V10", "v11": "DEEP_THOUGHT_V11", "v12": "DEEP_THOUGHT_V12", "v13": "DEEP_THOUGHT_V13", "v14": "DEEP_THOUGHT_V14", "v15": "DEEP_THOUGHT_V15", "v16": "DEEP_THOUGHT_V16", "v17": "DEEP_THOUGHT_V17", "v18": "DEEP_THOUGHT_V18", "gto": "DEEP_THOUGHT_GTO"}   # --bot -> build_chipzen name
+BOTS = {"v7": "DEEP_THOUGHT_V7", "v8": "DEEP_THOUGHT_V8", "v9": "DEEP_THOUGHT_V9", "v10": "DEEP_THOUGHT_V10", "v11": "DEEP_THOUGHT_V11", "v12": "DEEP_THOUGHT_V12", "v13": "DEEP_THOUGHT_V13", "v14": "DEEP_THOUGHT_V14", "v15": "DEEP_THOUGHT_V15", "v16": "DEEP_THOUGHT_V16", "v17": "DEEP_THOUGHT_V17", "v18": "DEEP_THOUGHT_V18", "v19": "DEEP_THOUGHT_V19", "gto": "DEEP_THOUGHT_GTO"}   # --bot -> build_chipzen name
 
 
 def package_dir(bot):

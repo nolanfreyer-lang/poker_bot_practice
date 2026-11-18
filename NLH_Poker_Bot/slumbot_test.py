@@ -32,6 +32,7 @@ from deep_thought_v14 import DeepThoughtV14Bot
 from deep_thought_v15 import DeepThoughtV15Bot
 from deep_thought_v17 import DeepThoughtV17Bot
 from deep_thought_v18 import DeepThoughtV18Bot
+from deep_thought_v19 import DeepThoughtV19Bot
 from deep_thought_gto import DeepThoughtGTOBot
 from hu_updated_optimal import HuUpdatedOptimalBot
 from updated_optimal import UpdatedOptimalBot
@@ -48,7 +49,7 @@ BOTS = {"UPDATED_OPTIMAL": UpdatedOptimalBot, "HU_UPDATED_OPTIMAL": HuUpdatedOpt
         "DEEP_THOUGHT_V6": DeepThoughtV6Bot,
         "DEEP_THOUGHT_V7": DeepThoughtV7Bot,
         "DEEP_THOUGHT_V8": DeepThoughtV8Bot, "DEEP_THOUGHT_V9": DeepThoughtV9Bot,
-        "DEEP_THOUGHT_V10": DeepThoughtV10Bot, "DEEP_THOUGHT_V12": DeepThoughtV12Bot, "DEEP_THOUGHT_V14": DeepThoughtV14Bot, "DEEP_THOUGHT_V15": DeepThoughtV15Bot, "DEEP_THOUGHT_V17": DeepThoughtV17Bot, "DEEP_THOUGHT_V18": DeepThoughtV18Bot, "DEEP_THOUGHT_GTO": DeepThoughtGTOBot}
+        "DEEP_THOUGHT_V10": DeepThoughtV10Bot, "DEEP_THOUGHT_V12": DeepThoughtV12Bot, "DEEP_THOUGHT_V14": DeepThoughtV14Bot, "DEEP_THOUGHT_V15": DeepThoughtV15Bot, "DEEP_THOUGHT_V17": DeepThoughtV17Bot, "DEEP_THOUGHT_V18": DeepThoughtV18Bot, "DEEP_THOUGHT_V19": DeepThoughtV19Bot, "DEEP_THOUGHT_GTO": DeepThoughtGTOBot}
 
 
 def post(path, data, retries=5):

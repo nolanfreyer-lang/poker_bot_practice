@@ -42,6 +42,7 @@ from deep_thought_v14 import DeepThoughtV14Bot
 from deep_thought_v15 import DeepThoughtV15Bot
 from deep_thought_v17 import DeepThoughtV17Bot
 from deep_thought_v18 import DeepThoughtV18Bot
+from deep_thought_v19 import DeepThoughtV19Bot
 from deep_thought_gto import DeepThoughtGTOBot
 from hu_updated_optimal import HuUpdatedOptimalBot
 from updated_optimal import UpdatedOptimalBot
@@ -65,6 +66,7 @@ BOTS = {
     "DEEP_THOUGHT_V15": ("V14 that believes a frequent bettor's big bets and raises are wide only after seeing weak ones", lambda seed: DeepThoughtV15Bot(seed=seed)),
     "DEEP_THOUGHT_V17": ("V15 with stacked bluff reads capped and raises judged against the field", lambda seed: DeepThoughtV17Bot(seed=seed)),
     "DEEP_THOUGHT_V18": ("V17 with cash-game preflop charts for 3-6 players", lambda seed: DeepThoughtV18Bot(seed=seed)),
+    "DEEP_THOUGHT_V19": ("V18 that calls strong hands far ahead of the price past the stack-off cap", lambda seed: DeepThoughtV19Bot(seed=seed)),
     "DEEP_THOUGHT_GTO": ("balanced and read-free: solved HU preflop, value/bluff ratios and minimum defense", lambda seed: DeepThoughtGTOBot(seed=seed)),
     "HU_UPDATED_OPTIMAL": ("UPDATED_OPTIMAL with heads-up preflop ranges", lambda seed: HuUpdatedOptimalBot(seed=seed)),
     "UPDATED_OPTIMAL": ("OptimalBot + bluff tracking, EV checks, ICM", lambda seed: UpdatedOptimalBot(seed=seed)),

@@ -111,6 +111,13 @@ BOTS = {
                           "deep_thought_v10", "deep_thought_v12", "deep_thought_v14", "deep_thought_v15",
                           "deep_thought_v17", "deep_thought_v18"],
                          "DeepThoughtV18Bot", "ChipzenDeepThoughtV18Bot", "chipzen_deep_thought_v18"),
+    # v19: v18 that calls with strong hands far ahead of the price, past the stack-off cap
+    "DEEP_THOUGHT_V19": (["pushfold_tables", "hu_updated_optimal", "fitted_tables", "deep_thought_v1",
+                          "fitted_tables_v2", "deep_thought_v2", "deep_thought_v3", "deep_thought_v4",
+                          "deep_thought_v5", "deep_thought_v6", "deep_thought_v7", "deep_thought_v9",
+                          "deep_thought_v10", "deep_thought_v12", "deep_thought_v14", "deep_thought_v15",
+                          "deep_thought_v17", "deep_thought_v18", "deep_thought_v19"],
+                         "DeepThoughtV19Bot", "ChipzenDeepThoughtV19Bot", "chipzen_deep_thought_v19"),
     "DEEP_THOUGHT_GTO": (["pushfold_tables", "hu_updated_optimal", "fitted_tables", "deep_thought_v1",
                           "fitted_tables_v2", "deep_thought_v2", "deep_thought_v3", "deep_thought_v4",
                           "deep_thought_v5", "deep_thought_v6", "deep_thought_v7", "hu_preflop_tables",
@@ -121,10 +128,10 @@ LOCAL = set(COMMON) | {"config", "hu_updated_optimal", "pushfold_tables", "fitte
                        "fitted_tables_v2", "deep_thought_v2", "deep_thought_v3", "deep_thought_v4",
                        "deep_thought_v5", "deep_thought_v6", "deep_thought_v7", "hu_preflop_tables",
                        "deep_thought_v8", "deep_thought_v9", "deep_thought_v10", "deep_thought_v12",
-                       "deep_thought_v14", "deep_thought_v15", "deep_thought_v17", "deep_thought_v18",
+                       "deep_thought_v14", "deep_thought_v15", "deep_thought_v17", "deep_thought_v18", "deep_thought_v19",
                        "gto_preflop_tables", "gto_solver", "deep_thought_gto"}
 # Bots that start each match from saved opponent profiles (chipzen_profiles.py writes them)
-PROFILED = {"DEEP_THOUGHT_V5", "DEEP_THOUGHT_V6", "DEEP_THOUGHT_V7", "DEEP_THOUGHT_V8", "DEEP_THOUGHT_V9", "DEEP_THOUGHT_V10", "DEEP_THOUGHT_V11", "DEEP_THOUGHT_V12", "DEEP_THOUGHT_V13", "DEEP_THOUGHT_V14", "DEEP_THOUGHT_V15", "DEEP_THOUGHT_V16", "DEEP_THOUGHT_V17", "DEEP_THOUGHT_V18"}
+PROFILED = {"DEEP_THOUGHT_V5", "DEEP_THOUGHT_V6", "DEEP_THOUGHT_V7", "DEEP_THOUGHT_V8", "DEEP_THOUGHT_V9", "DEEP_THOUGHT_V10", "DEEP_THOUGHT_V11", "DEEP_THOUGHT_V12", "DEEP_THOUGHT_V13", "DEEP_THOUGHT_V14", "DEEP_THOUGHT_V15", "DEEP_THOUGHT_V16", "DEEP_THOUGHT_V17", "DEEP_THOUGHT_V18", "DEEP_THOUGHT_V19"}
 PROFILES_FILE = HERE / "chipzen_profiles.json"
 # Dev-only code left out of the bundle: table building needs multiprocessing,
 # which the sandbox blocks, and the table is embedded instead.

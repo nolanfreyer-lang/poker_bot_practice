@@ -1,10 +1,10 @@
-"""Deep_Thought v18 on Open Poker (openpoker.ai): a self-hosted WebSocket client.
+"""Deep_Thought v19 on Open Poker (openpoker.ai): a self-hosted WebSocket client.
 
     export OPEN_POKER_API_KEY=...        # from the openpoker.ai dashboard (Self Host); never in source
     python3 openpoker_bot.py             # connect, join the lobby, play until stopped
 
 Open Poker is a 6-max cash game (10/20 blinds, buy-in 1,000-5,000 chips, 45 s per action,
-season score = chips), not Chipzen's heads-up matches. What this file adds around v18:
+season score = chips), not Chipzen's heads-up matches. What this file adds around v19:
 
   * Protocol: hand_start / hole_cards / player_action / community_cards / your_turn /
     hand_result become the bot's GameState and history; its Action goes back as an `action`
@@ -38,10 +38,10 @@ sys.path.insert(0, str(HERE))
 
 from bot import Action, GameState, PlayerInfo          # noqa: E402
 from deep_thought_v14 import TRACKERS_V14, tracker_counts   # noqa: E402
-from deep_thought_v18 import DeepThoughtV18Bot          # noqa: E402
+from deep_thought_v19 import DeepThoughtV19Bot          # noqa: E402
 from poker_core import parse_cards                      # noqa: E402
 
-CORE = DeepThoughtV18Bot      # v17 plus 3-6 player preflop charts
+CORE = DeepThoughtV19Bot      # v17 + 3-6 player preflop charts + strong calls past the stack-off cap
 OVERRIDES = {"USE_ICM": False}      # cash game: chips are score, no payout ladder
 BLIND_ACTIONS = ("small_blind", "big_blind", "post_small_blind", "post_big_blind", "blind", "post_blind")
 MAX_SEATS = 6

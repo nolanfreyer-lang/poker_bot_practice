@@ -25,6 +25,8 @@ DEEP4_CONFIG = {
     "CALL_LIMIT_BB": {"STRONG": 60, "STRONG_DRAW": 40, "MEDIUM": 30, "DRAW": 20, "WEAK": 15},
     "CALL_LIMIT_READ": 1.5,         # a street read at least this high lifts the limit
     "CALL_LIMIT_MAX_PRICE": None,   # pot committed: no limit when the call needs less equity than this
+    "CALL_LIMIT_EDGE": None,        # no limit when our equity beats the breakeven by at least this (v19)
+    "CALL_LIMIT_EDGE_BUCKETS": None,    # ...for these hand classes only; None = any
     # --- small 3-bets: call wider when the price is at most this ----------------------
     "SMALL_3BET_PRICE": 0.22,
     "HU_BTN_CALL_SMALL_3BET": ("22+, A2s+, A2o+, K2s+, K2o+, Q2s+, Q5o+, J4s+, J7o+, T5s+, T7o+, "
@@ -91,13 +93,18 @@ class DeepThoughtV4Bot(DeepThoughtV3Bot):
     def _postflop(self, s):
         a = super()._postflop(s)
         if a.kind == "call" or (a.kind == "allin" and s.to_call >= s.me.stack):
-            limit = self.cfg.CALL_LIMIT_BB.get(classify_hand(s.hole_cards, s.board, self.good_kicker))
+            bucket = classify_hand(s.hole_cards, s.board, self.good_kicker)
+            limit = self.cfg.CALL_LIMIT_BB.get(bucket)
             chips = self._invested(s, s.my_seat) + min(s.to_call, s.me.stack)
             read = self.street_reads.ratio(self._aggressor(s), s.street, self.cfg)
             cost = min(s.to_call, s.me.stack)
             committed = self.cfg.CALL_LIMIT_MAX_PRICE is not None \
                 and cost / (s.pot + cost) < self.cfg.CALL_LIMIT_MAX_PRICE
+            c, ev = self.cfg, self.last_ev or {}
+            ahead = c.CALL_LIMIT_EDGE is not None and "breakeven" in ev \
+                and ev.get("equity", 0) - ev["breakeven"] >= c.CALL_LIMIT_EDGE \
+                and (c.CALL_LIMIT_EDGE_BUCKETS is None or bucket in c.CALL_LIMIT_EDGE_BUCKETS)
             if limit is not None and chips > limit * s.big_blind and read < self.cfg.CALL_LIMIT_READ \
-                    and not committed:
+                    and not committed and not ahead:
                 return Action("fold")
         return a
